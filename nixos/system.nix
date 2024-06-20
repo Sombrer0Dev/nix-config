@@ -9,8 +9,8 @@
   # garbage collection
   nix.gc = {
     automatic = true;
-    dates = daily;
-    options = "--delete-older-than 7d"
+    dates = "daily";
+    options = "--delete-older-than 7d";
   };
 
   # virtualisation
@@ -68,6 +68,7 @@
     enable = true;
     powerOnBoot = false;
     settings.General.Experimental = true; # for gnome-bluetooth percentage
+    settings.General.Disable = "Headset"; # to disable headphones micro
   };
 
   # bootloader

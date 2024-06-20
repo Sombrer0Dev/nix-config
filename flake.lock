@@ -283,22 +283,6 @@
         "type": "github"
       }
     },
-    "lf-icons": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718616478,
-        "narHash": "sha256-biL/5I3qayeJlGg134GPZuoXHZhJPaXQpoFL9SUTyfw=",
-        "owner": "gokcehan",
-        "repo": "lf",
-        "rev": "73030b5607fd0bce61e0d720607e204907a2eade",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gokcehan",
-        "repo": "lf",
-        "type": "github"
-      }
-    },
     "matugen": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
@@ -407,7 +391,6 @@
         "hyprland": "hyprland",
         "hyprland-hyprspace": "hyprland-hyprspace",
         "hyprland-plugins": "hyprland-plugins",
-        "lf-icons": "lf-icons",
         "matugen": "matugen",
         "nixpkgs": "nixpkgs_5"
       }

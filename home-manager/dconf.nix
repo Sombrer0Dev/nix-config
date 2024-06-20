@@ -108,7 +108,7 @@ with lib.hm.gvariant; {
         "Alacritty.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
-        "discord.desktop"
+        "webcord.desktop"
         "com.usebottles.bottles.desktop"
         "org.gnome.Software.desktop"
       ];

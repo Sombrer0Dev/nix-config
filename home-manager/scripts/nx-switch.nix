@@ -28,6 +28,9 @@
     sudo nixos-rebuild test --flake . --impure $@
     ${symlink} -a
   '';
+  hm-switch = pkgs.writeShellScriptBin "hm-switch" ''
+    home-manager switch --flake .
+  '';
 in {
   home.packages = [nx-switch nx-boot nx-test];
 }

@@ -69,11 +69,6 @@
     ags.url = "github:Aylur/ags";
     astal.url = "github:Aylur/astal";
 
-    lf-icons = {
-      url = "github:gokcehan/lf";
-      flake = false;
-    };
-
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;

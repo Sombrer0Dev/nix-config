@@ -10,6 +10,11 @@
       telegram-desktop
       transmission_4-gtk
       gnome-secrets
+      blueberry
+      webcord
+
+      postman
+      zoom-us
     ];
     cli = [
       zoxide

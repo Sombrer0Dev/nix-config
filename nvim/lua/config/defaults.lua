@@ -236,7 +236,6 @@ return {
     'eslint',
     'lua_ls',
     'sqlls',
-    'phpactor',
     'yamlls',
 
     -- PYTHON
@@ -266,6 +265,8 @@ return {
     'stylua',
     'shfmt',
     'ruff',
+    'gofumpt',
+    'goimports',
     -- Linter
     'yamllint',
     -- DAP

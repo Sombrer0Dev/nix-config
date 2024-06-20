@@ -99,7 +99,7 @@ in {
         binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
         mvfocus = binding "SUPER" "movefocus";
         ws = binding "SUPER" "workspace";
-        resizeactive = binding "SUPER CTRL" "resizeactive";
+        resizeactive = binding "SUPER SHIFT" "resizeactive";
         mvactive = binding "SUPER ALT" "moveactive";
         mvtows = binding "SUPER SHIFT" "movetoworkspace";
         e = "exec, ags -b hypr";
@@ -123,6 +123,9 @@ in {
           "SUPER, F, fullscreen"
           "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
+
+          "SUPER, T, togglespecialworkspace, magic"
+          "SUPER CONTROL, T, movetoworkspace, magic"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
