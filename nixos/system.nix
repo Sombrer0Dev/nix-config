@@ -6,6 +6,12 @@
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
+  # garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = daily;
+    options = "--delete-older-than 7d"
+  };
 
   # virtualisation
   programs.virt-manager.enable = true;

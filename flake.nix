@@ -28,12 +28,18 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
       "sombrer01@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs;};
         # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
+        modules = [
+          ({pkgs, ...}: {
+            nix.package = pkgs.nix;
+            home.username = "sombrer01";
+            home.homeDirectory = "/home/sombrer01/";
+            imports = [ ./nixos/home.nix ];
+          })
+        ];
       };
     };
   };

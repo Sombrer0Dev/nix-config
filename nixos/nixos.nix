@@ -49,7 +49,7 @@ in {
         ../home-manager/packages.nix
         ../home-manager/shell.nix
         ../home-manager/theme.nix
-	../home-manager/alacritty.nix
+        ../home-manager/alacritty.nix
         ../home-manager/tmux.nix
         ./home.nix
       ];
