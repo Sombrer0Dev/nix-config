@@ -124,8 +124,8 @@ in {
           "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
 
-          "SUPER, T, togglespecialworkspace, magic"
-          "SUPER CONTROL, T, movetoworkspace, magic"
+          "SUPER, T, togglespecialworkspace, special"
+          "SUPER CONTROL, T, movetoworkspace, special"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
