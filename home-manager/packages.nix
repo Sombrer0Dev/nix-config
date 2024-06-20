@@ -24,6 +24,8 @@
       ripgrep
       fzf
       trash-cli
+      direnv
+      openconnect
     ];
   };
 }
