@@ -1,7 +1,7 @@
 import options from "options"
 import { dependencies, sh } from "lib/utils"
 
-export type Resolution = 1920 | 1366 | 3840
+export type Resolution = 2560 | 1920 | 3840
 export type Market =
     | "random"
     | "en-US"
@@ -74,7 +74,16 @@ class Wallpaper extends Service {
         }
     }
 
-    readonly random = () => { this.#fetchBing() }
+    async #randomWallpaper() {
+      // await sh(`fd . ~/Wallpapers/ | shuf -n 1`).then(file => this.#setWallpaper(file))
+      await sh(`fd . ${Utils.HOME}/Documents/wallpapers/ `).then(files =>{
+        const fileArr = files.split('\n')
+        const random = Math.floor(Math.random() * fileArr.length);
+        this.#setWallpaper(fileArr[random])
+      })
+    }
+
+    readonly random = () => { this.#randomWallpaper() }
     readonly set = (path: string) => { this.#setWallpaper(path) }
     get wallpaper() { return WP }
 
