@@ -15,6 +15,7 @@
       blueberry
       gimp
       webcord
+      spotify
       # inputs.yandex-music.packages.${system}.default
 
       postman
