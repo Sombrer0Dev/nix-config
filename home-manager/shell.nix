@@ -4,17 +4,10 @@
   lib,
   ...
 }: let
-  imports = [
-    ./scripts/shell-tricks.nix
-  ];
   aliases = {
-    "db" = "distrobox";
     "tree" = "eza --tree";
-    "nv" = "nvim";
 
     "ll" = "ls";
-    "éé" = "ls";
-    "és" = "ls";
     "l" = "ls";
 
     ":q" = "exit";

@@ -4,6 +4,7 @@
     ./scripts/blocks.nix
     ./scripts/nx-switch.nix
     ./scripts/git-nix.nix
+    ./scripts/shell-tricks.nix
   ];
 
   packages = with pkgs; {
