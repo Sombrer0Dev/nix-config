@@ -28,7 +28,7 @@
     sudo nixos-rebuild test --flake . --impure $@
     ${symlink} -a
   '';
-  nx-up-switch = pkgs.writeShellScriptBin "nx-switch" ''
+  nx-up-switch = pkgs.writeShellScriptBin "nx-up-switch" ''
     ${symlink} -r
     sudo nixos-rebuild switch --flake . --impure $@ --upgrade
     ${symlink} -a
