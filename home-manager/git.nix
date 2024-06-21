@@ -14,5 +14,7 @@ in {
     };
     userEmail = mail;
     userName = name;
+    aliases = {
+    };
   };
 }

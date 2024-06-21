@@ -3,6 +3,7 @@
     ./modules/packages.nix
     ./scripts/blocks.nix
     ./scripts/nx-switch.nix
+    ./scripts/flake-ignore.nix
   ];
 
   packages = with pkgs; {
