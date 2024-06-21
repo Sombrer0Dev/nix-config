@@ -35,8 +35,12 @@ in {
       ];
 
       monitor = [
-        "HDMI-A-2, 1920x1080, 0x0, 1"
-        "DP-2, 2560x1440, 1920x0, 1"
+        "DP-2, 1920x1080, 0x0, 1"
+        "HDMI-A-2, 2560x1440, 1920x0, 1"
+      ];
+      workspace = [
+       "1,monitor:HDMI-A-2"
+       "2,monitor:DP-2"
       ];
 
       general = {
