@@ -4,6 +4,9 @@
   lib,
   ...
 }: let
+  imports = [
+    ./scripts/shell-tricks.nix
+  ];
   aliases = {
     "db" = "distrobox";
     "tree" = "eza --tree";
