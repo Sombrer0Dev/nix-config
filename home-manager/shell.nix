@@ -54,6 +54,10 @@ in {
     fish = {
       enable = true;
       shellAliases = aliases;
+      interactiveShellInit = ''
+        nix-your-shell fish | source
+        direnv hook fish | source
+      '';
       shellInit = "set -gx SHELL '${pkgs.fish}/bin/fish'";
       plugins = [
         {
