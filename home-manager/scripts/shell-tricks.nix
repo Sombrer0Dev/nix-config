@@ -7,7 +7,7 @@
     set -euo pipefail
 
     env_name=$1
-    env_file=.env.${env_name}
+    env_file=.env.''${env_name}
 
     if [[ ! -f $env_file ]]; then
       echo "env $env_name not found" >&2
