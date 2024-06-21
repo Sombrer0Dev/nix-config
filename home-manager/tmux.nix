@@ -158,7 +158,7 @@ in
 
       # pane borders
       set -g pane-border-style 'fg=colour238'
-      set -g pane-active-border-style 'fg=colour3'
+      set -g pane-active-border-style 'fg=colour1'
 
       # statusbar
       set -g status-position bottom

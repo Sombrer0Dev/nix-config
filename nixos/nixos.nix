@@ -52,6 +52,8 @@ in {
         ../home-manager/alacritty.nix
         ../home-manager/tmux.nix
         ./home.nix
+
+        ../home-manager/work.nix
       ];
     };
   };
@@ -62,12 +64,5 @@ in {
       hyprland.enable = lib.mkForce false;
       gnome.enable = true;
     };
-
-  #   # TODO maybe fix this
-  #   hyprland.configuration = {
-  #     system.nixos.tags = ["Hyprland"];
-  #     hyprland.enable = lib.mkForce true;
-  #     gnome.enable = false;
-  #   };
   };
 }

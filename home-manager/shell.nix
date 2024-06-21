@@ -74,16 +74,16 @@ in {
           };
         }
         {
-          name = "fzf.fish";
+          name = "fzf-fish";
           src = pkgs.fishPlugins.fzf-fish.src;
         }
         {
-          name = "autopair.fish";
-          src = pkgs.fishPlugins.autopair;
+          name = "autopair";
+          src = pkgs.fishPlugins.autopair.src;
         }
         {
-          name = "puffer.fish";
-          src = pkgs.fishPlugins.puffer;
+          name = "puffer";
+          src = pkgs.fishPlugins.puffer.src;
         }
       ];
     };

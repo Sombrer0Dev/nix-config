@@ -13,6 +13,7 @@
     options = "--delete-older-than 7d";
   };
 
+  programs.ssh.startAgent = true;
   # virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {
