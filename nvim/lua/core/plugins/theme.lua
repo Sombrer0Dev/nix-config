@@ -41,4 +41,6 @@ local themes = {
 
 local selectedTheme = themes[vim.g.config.theme.name]
 
+vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)
+
 return selectedTheme

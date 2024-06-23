@@ -29,6 +29,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     neovim
+    bottles
     git
     wget
   ];

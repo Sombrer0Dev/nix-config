@@ -22,7 +22,13 @@
 
     environment.systemPackages = with pkgs; [
       mangohud
+
+      protonup
     ];
+    environment.sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATH =
+      "/home/sombrer01/.steam/root/compatibilitytools.d";
+    };
 
     programs.gamemode.enable = true;
   };
