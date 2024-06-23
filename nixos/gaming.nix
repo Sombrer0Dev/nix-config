@@ -4,18 +4,17 @@
   };
 
 
-  # opengl
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # gpu drivers
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-
   config = lib.mkIf config.gaming.enable {
+    # opengl
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    # gpu drivers
+    services.xserver.videoDrivers = [ "amdgpu" ];
+
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
