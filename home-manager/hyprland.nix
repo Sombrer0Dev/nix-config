@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs, pkgs, ... }: let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";

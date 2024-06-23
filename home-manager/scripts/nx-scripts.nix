@@ -33,6 +33,9 @@
     sudo nixos-rebuild switch --flake . --impure $@ --upgrade
     ${symlink} -a
   '';
+  nx-gc = pkgs .writeShellScriptBin "nx-gc" ''
+    sudo nix-collect-garbage -d
+  '';
 in {
-  home.packages = [nx-switch nx-boot nx-test nx-up-switch ];
+  home.packages = [nx-switch nx-boot nx-test nx-up-switch nx-gc ];
 }

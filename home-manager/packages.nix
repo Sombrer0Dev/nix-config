@@ -1,8 +1,8 @@
-{pkgs, inputs, ...}: {
+{pkgs, ...}: {
   imports = [
     ./modules/packages.nix
     ./scripts/blocks.nix
-    ./scripts/nx-switch.nix
+    ./scripts/nx-scripts.nix
     ./scripts/git-nix.nix
     ./scripts/shell-tricks.nix
   ];

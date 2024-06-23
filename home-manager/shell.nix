@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }: let
   aliases = {
     "tree" = "eza --tree";
 

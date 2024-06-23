@@ -1,8 +1,4 @@
-{
- lib,
- pkgs,
- ...
-}:
+{ lib, pkgs, ... }:
 let
   tmux-mighty-scroll = pkgs.tmuxPlugins.mkTmuxPlugin
     {

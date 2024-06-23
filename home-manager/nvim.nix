@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, lib, ... }: {
   xdg = {
   # TODO
     configFile.nvim.source = ../nvim;
