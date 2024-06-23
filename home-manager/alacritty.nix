@@ -9,6 +9,26 @@
         y = 5;
       };
 
+      font = {
+        normal={
+          family = "MonaspiceKr Nerd Font";
+          style = "Regular" ;
+        };
+        bold={
+          family = "MonaspiceKr Nerd Font";
+          style = "Bold" ;
+        };
+        italic={
+          family = "MonaspiceXe Nerd Font";
+          style = "Italic" ;
+        };
+        bold_italic={
+          family = "MonaspiceXe Nerd Font";
+          style = "BoldItalic" ;
+        };
+        # size = 12;
+      };
+
       colors = {
         primary = {
           background = "#161616";

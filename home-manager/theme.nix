@@ -7,6 +7,7 @@
       "FantasqueSansMono"
       "FiraCode"
       "Mononoki"
+      "Monaspace"
     ];
   };
 
@@ -59,7 +60,6 @@ in {
       '';
     };
   };
-
   fonts.fontconfig.enable = true;
 
   gtk = {
