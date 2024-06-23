@@ -18,7 +18,7 @@ return {
   {
     'williamboman/mason.nvim',
     cmd = 'Mason',
-    enabled = false,
+    enabled = not vim.g.is_nix,
 
     -- event = "VeryLazy",
     dependencies = {

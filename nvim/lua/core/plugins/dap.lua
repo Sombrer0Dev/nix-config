@@ -1,13 +1,20 @@
 local M = {
   'mfussenegger/nvim-dap',
-  enabled = false,
   event = { 'BufReadPre', 'BufNewFile' },
+  enabled = not vim.g.is_nix,
 
   dependencies = {
 
     {
       'leoluz/nvim-dap-go',
       config = true,
+    },
+    {
+      'williamboman/mason.nvim',
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        vim.list_extend(opts.ensure_installed, { 'delve' })
+      end,
     },
     {
       'mfussenegger/nvim-dap-python',
@@ -56,6 +63,29 @@ local M = {
         },
       },
     },
+
+    -- mason.nvim integration
+    {
+      'jay-babu/mason-nvim-dap.nvim',
+      dependencies = 'mason.nvim',
+      cmd = { 'DapInstall', 'DapUninstall' },
+      opts = {
+        -- Makes a best effort to setup the various debuggers with
+        -- reasonable debug configurations
+        automatic_installation = true,
+
+        -- You can provide additional configuration to the handlers,
+        -- see mason-nvim-dap README for more information
+        handlers = {},
+
+        -- You'll need to check that you have the required things installed
+        -- online, please don't ask me how to install them :)
+        ensure_installed = {
+          -- Update this to ensure that you have the debuggers for the langs you want
+        },
+      },
+    },
+
   },
 
   -- stylua: ignore
