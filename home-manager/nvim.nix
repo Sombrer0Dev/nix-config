@@ -48,9 +48,11 @@
       python3
       php
 
-      # nil
-      # lua-language-server
-      # stylua
+      # general lsp servers
+
+      nil
+      lua-language-server
+      stylua
       # alejandra
     ];
   };

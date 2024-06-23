@@ -18,6 +18,8 @@ return {
   {
     'williamboman/mason.nvim',
     cmd = 'Mason',
+    enabled = false,
+
     -- event = "VeryLazy",
     dependencies = {
       { 'williamboman/mason-lspconfig.nvim', module = 'mason' },
