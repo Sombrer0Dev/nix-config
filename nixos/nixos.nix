@@ -13,6 +13,7 @@ in {
     ./nautilus.nix
     ./hyprland.nix
     ./gnome.nix
+    ./gaming.nix
   ];
 
   hyprland.enable = true;
