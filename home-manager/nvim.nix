@@ -48,10 +48,10 @@
       python3
       php
 
-      nil
-      lua-language-server
-      stylua
-      alejandra
+      # nil
+      # lua-language-server
+      # stylua
+      # alejandra
     ];
   };
 }

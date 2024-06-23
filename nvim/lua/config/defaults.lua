@@ -237,6 +237,7 @@ return {
     'lua_ls',
     'sqlls',
     'yamlls',
+    'nil_ls',
 
     -- PYTHON
     'jedi_language_server',

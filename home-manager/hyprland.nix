@@ -88,6 +88,7 @@ in {
         (f "org.gnome.Calculator")
         (f "org.gnome.Nautilus")
         (f "pavucontrol")
+        (f "spotify")
         (f "nm-connection-editor")
         (f "blueberry.py")
         (f "org.gnome.Settings")
