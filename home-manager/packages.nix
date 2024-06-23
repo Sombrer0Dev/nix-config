@@ -18,7 +18,6 @@
       gimp
       webcord
       spotify
-      # inputs.yandex-music.packages.${system}.default
 
       postman
       zoom-us

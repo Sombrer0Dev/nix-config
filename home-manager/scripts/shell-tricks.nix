@@ -11,7 +11,7 @@
     : | fzf --ansi --disabled --query "$INITIAL_QUERY" \
       --bind "start:reload:$RG_PREFIX {q}" \
       --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
-      --bind 'ctrl-G:transform:[[ ! $FZF_PROMPT =~ ripgrep ]] &&
+      --bind 'ctrl-g:transform:[[ ! $FZF_PROMPT =~ ripgrep ]] &&
         echo "rebind(change)+change-prompt(1. ripgrep> )+disable-search+transform-query:echo \{q} > /tmp/rg-fzf-f; cat /tmp/rg-fzf-r" ||
         echo "unbind(change)+change-prompt(2. fzf> )+enable-search+transform-query:echo \{q} > /tmp/rg-fzf-r; cat /tmp/rg-fzf-f"' \
       --color "hl:-1:underline,hl+:-1:underline:reverse" \
