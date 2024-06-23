@@ -17,6 +17,7 @@ in {
   ];
 
   hyprland.enable = true;
+  gaming.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;
