@@ -18,6 +18,7 @@
       gimp
       webcord
       spotify
+      dbeaver-bin
 
       postman
       zoom-us
