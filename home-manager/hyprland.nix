@@ -121,7 +121,7 @@ in {
           "CTRL ALT, Delete, exit"
           "SUPER, Q, killactive"
           "SUPER, W, togglefloating"
-          "SUPER, F, fullscreen"
+          "SUPER, F, fullscreen, 1"
           "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
 
@@ -136,10 +136,10 @@ in {
           (resizeactive "j" "0 40")
           (resizeactive "l" "40 0")
           (resizeactive "h" "-40 0")
-          (mvactive "k" "0 -20")
-          (mvactive "j" "0 20")
-          (mvactive "l" "20 0")
-          (mvactive "h" "-20 0")
+          (mvactive "k" "u")
+          (mvactive "j" "d")
+          (mvactive "l" "r")
+          (mvactive "h" "l")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);
