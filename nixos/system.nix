@@ -13,6 +13,8 @@
     options = "--delete-older-than 7d";
   };
 
+  time.hardwareClockInLocalTime = true;
+
   programs.ssh.startAgent = true;
   # virtualisation
   programs.virt-manager.enable = true;
