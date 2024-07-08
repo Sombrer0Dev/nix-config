@@ -17,6 +17,7 @@
     "gall" = "git add . && git commit";
 
     "del" = "trash put";
+    "db" = "GDK_BACKEND=x11 dbeaver";
   };
 in {
   options.shellAliases = with lib; mkOption {

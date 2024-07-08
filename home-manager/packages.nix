@@ -19,6 +19,7 @@
       webcord
       spotify
 
+      dbeaver-bin
       postman
       zoom-us
     ];
@@ -33,6 +34,7 @@
       trash-cli
       direnv
       openconnect
+      playerctl
     ];
   };
 }

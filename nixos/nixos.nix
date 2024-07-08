@@ -56,7 +56,6 @@ in {
         ./home.nix
 
         ../home-manager/work.nix
-        ../home-manager/database.nix
       ];
     };
   };

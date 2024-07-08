@@ -94,14 +94,15 @@ in {
         (f "xdg-desktop-portal-gnome")
         (f "transmission-gtk")
         (f "com.github.Aylur.ags")
+        ("bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1")
       ];
 
       bind = let
         binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
         mvfocus = binding "SUPER" "movefocus";
         ws = binding "SUPER" "workspace";
-        resizeactive = binding "SUPER SHIFT" "resizeactive";
-        mvactive = binding "SUPER ALT" "moveactive";
+        resizeactive = binding "SUPER ALT" "resizeactive";
+        mvwindow = binding "SUPER SHIFT" "movewindow";
         mvtows = binding "SUPER SHIFT" "movetoworkspace";
         e = "exec, ags -b hypr";
         arr = [1 2 3 4 5 6 7];
@@ -136,10 +137,10 @@ in {
           (resizeactive "j" "0 40")
           (resizeactive "l" "40 0")
           (resizeactive "h" "-40 0")
-          (mvactive "k" "u")
-          (mvactive "j" "d")
-          (mvactive "l" "r")
-          (mvactive "h" "l")
+          (mvwindow "k" "u")
+          (mvwindow "j" "d")
+          (mvwindow "l" "r")
+          (mvwindow "h" "l")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);
@@ -147,19 +148,15 @@ in {
       bindle = [
         ",XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%"
         ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
-        ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
-        ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
         ",XF86AudioRaiseVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
         ",XF86AudioLowerVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
       ];
 
       bindl = [
-        ",XF86AudioPlay,    exec, ${playerctl} play-pause"
-        ",XF86AudioStop,    exec, ${playerctl} pause"
-        ",XF86AudioPause,   exec, ${playerctl} pause"
-        ",XF86AudioPrev,    exec, ${playerctl} previous"
-        ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+        ",XF86AudioPlay,  exec, ${playerctl} play-pause"
+        ",XF86AudioPrev,  exec, ${playerctl} previous"
+        ",XF86AudioNext,  exec, ${playerctl} next"
+        ",XF86AudioMute,  exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
       ];
 
       bindm = [

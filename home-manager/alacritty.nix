@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       shell.program = "${pkgs.tmux}/bin/tmux";
-      shell.args = [ "new-session" "-A" "-s" "general"];
+      shell.args = [ "new-session" "-A" "-s" "nix"];
       window.padding = {
         x = 5;
         y = 5;
