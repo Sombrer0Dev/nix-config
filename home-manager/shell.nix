@@ -48,7 +48,6 @@ in {
       shellAliases = aliases;
       interactiveShellInit = ''
         nix-your-shell fish | source
-        direnv hook fish | source
       '';
       shellInit = "set -gx SHELL '${pkgs.fish}/bin/fish'";
       plugins = [
@@ -86,5 +85,9 @@ in {
     enableFishIntegration = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
+  };
+  config.programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 }

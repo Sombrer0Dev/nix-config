@@ -16,6 +16,7 @@ in {
     ./gaming.nix
   ];
 
+  nix.settings.trusted-users = [ "root" "sombrer01" ];
   hyprland.enable = true;
   gaming.enable = true;
 
