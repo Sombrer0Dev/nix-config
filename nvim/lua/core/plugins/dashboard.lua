@@ -10,7 +10,7 @@ local M = {
         statusline = false,
       },
       config = {
-        header = require('core.plugins.logos.good').sharpvim,
+        header = require('core.plugins.logos.good').bloody,
         -- header = require('core.plugins.logos.bad').amogus,
         -- stylua: ignore
         center = {
