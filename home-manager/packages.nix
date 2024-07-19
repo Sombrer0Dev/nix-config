@@ -34,6 +34,7 @@
       trash-cli
       openconnect
       playerctl
+      devenv
     ];
   };
 }
