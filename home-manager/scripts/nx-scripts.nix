@@ -33,9 +33,12 @@
     sudo nixos-rebuild switch --flake . --impure $@ --upgrade
     ${symlink} -a
   '';
-  nx-gc = pkgs .writeShellScriptBin "nx-gc" ''
+  nx-gc = pkgs.writeShellScriptBin "nx-gc" ''
     sudo nix-collect-garbage -d
   '';
+  nx-dev = pkgs.writeShellScriptBin "nx-dev" ''
+    nix flake init --template github:cachix/devenv
+  '';
 in {
-  home.packages = [nx-switch nx-boot nx-test nx-up-switch nx-gc ];
+  home.packages = [ nx-switch nx-boot nx-test nx-up-switch nx-gc nx-dev ];
 }
