@@ -3,10 +3,9 @@ local pickers = require 'core.plugins.fzf.pickers'
 local M = {
   'ibhagwan/fzf-lua',
   -- optional for icon support
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
   cmd = 'FzfLua',
   keys = {
-    { '<leader>ff', pickers.files, desc = 'Fzf files' },
+    { '<leader>ff', '<cmd>FzfLua files formatter="path.filename_first"<cr>', desc = 'Fzf files' },
     { '<leader>fF', pickers.folders, desc = 'Fzf files' },
     { '<leader>fc', pickers.command_history, desc = 'Fzf command history' },
     { '<leader>fb', pickers.git_branches, desc = 'Fzf git branches' },
@@ -32,7 +31,6 @@ local M = {
   config = function()
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
-      { 'telescope' },
       fzf_opts = {
         ['--margin'] = '0,0',
         ['--padding'] = '0',

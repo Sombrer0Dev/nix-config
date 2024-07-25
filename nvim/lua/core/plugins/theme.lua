@@ -37,6 +37,12 @@ local themes = {
       require 'core.plugins.themes.catppuccin'
     end,
   },
+  cyberdream = {
+    "scottmckendry/cyberdream.nvim",
+    config = function ()
+      require 'core.plugins.themes.cyberdream'
+    end
+  },
 }
 
 local selectedTheme = themes[vim.g.config.theme.name]

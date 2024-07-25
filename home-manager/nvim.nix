@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }: let
+  pypkg = pkgs.python311Packages;
+in {
   xdg = {
   # TODO
     configFile.nvim.source = ../nvim;
@@ -27,7 +29,7 @@
     withNodeJs = true;
     withPython3 = true;
 
-    extraPackages = with pkgs; [
+    extraPackages = with pkgs; with pypkg; [
       git
       gcc
       gnumake
@@ -44,12 +46,25 @@
       python3
       php
 
-      # general lsp servers
-
+      # config helpers
       nil
       lua-language-server
       stylua
-      # alejandra
+
+      # debuggers
+      delve
+      debugpy
+
+      # lsp servers
+      gopls
+      ruff-lsp
+      sqls
+      jedi-language-server
+      marksman
+      yaml-language-server
+      nodePackages.bash-language-server
+      tailwindcss-language-server
+      nodePackages.typescript-language-server
     ];
   };
 }

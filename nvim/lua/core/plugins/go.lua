@@ -31,10 +31,15 @@ local M = {
         -- attach my LSP configs keybindings
         require('core.plugins.lsp.keys').on_attach(client, bufnr)
         local wk = require 'which-key'
+			  local icons = require("mini.icons")
         local default_options = { silent = true }
         vim.keymap.set('n', '<leader>F', function()
           require('conform').format { bufnr = bufnr }
         end, { desc = 'Format file' })
+
+        wk.add({
+          {"<leader>c", group="Coding"},
+        })
         wk.register({
           c = {
             name = 'Coding',

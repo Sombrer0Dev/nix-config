@@ -4,9 +4,12 @@
     settings = {
       shell.program = "${pkgs.tmux}/bin/tmux";
       shell.args = [ "new-session" "-A" "-s" "nix"];
-      window.padding = {
-        x = 5;
-        y = 5;
+      window= {
+        padding = {
+          x = 5;
+          y = 5;
+        };
+        opacity=0.7;
       };
 
       font = {
@@ -31,85 +34,37 @@
 
       colors = {
         primary = {
-          background = "#161616";
-          foreground = "#f2f4f8";
-          dim_foreground = "#b6b8bb";
-          bright_foreground = "#f9fbff";
-        };
-        cursor = {
-          text = "#f2f4f8";
-          cursor = "#b6b8bb";
-        };
-        vi_mode_cursor = {
-          text = "#f2f4f8";
-          cursor = "#33b1ff";
-        };
-        search = {
-          matches = {
-            foreground = "#f2f4f8";
-            background = "#525253";
-          };
-          focused_match = {
-            foreground = "#f2f4f8";
-            background = "#3ddbd9";
-          };
-        };
-        footer_bar = {
-          foreground = "#f2f4f8";
-          background = "#353535";
-        };
-        hints = {
-          start = {
-            foreground = "#f2f4f8";
-            background = "#3ddbd9";
-          };
-          end = {
-            foreground = "#f2f4f8";
-            background = "#353535";
-          };
+          background = "#16181a";
+          foreground = "#ffffff";
         };
         selection = {
-          text = "#f2f4f8";
-          background = "#2a2a2a";
+          background = "#3c4048";
+          foreground = "#ffffff";
         };
         normal = {
-          black = "#282828";
-          red = "#ee5396";
-          green = "#25be6a";
-          yellow = "#08bdba";
-          blue = "#78a9ff";
-          magenta = "#be95ff";
-          cyan = "#33b1ff";
-          white = "#dfdfe0";
+          black = "#16181a";
+          blue = "#5ea1ff";
+          cyan = "#5ef1ff";
+          green = "#5eff6c";
+          magenta = "#bd5eff";
+          red = "#ff6e5e";
+          white = "#ffffff";
+          yellow = "#f1ff5e";
         };
         bright = {
-          black = "#484848";
-          red = "#f16da6";
-          green = "#46c880";
-          yellow = "#2dc7c4";
-          blue = "#8cb6ff";
-          magenta = "#c8a5ff";
-          cyan = "#52bdff";
-          white = "#e4e4e5";
+          black = "#3c4048";
+          blue = "#5ea1ff";
+          cyan = "#5ef1ff";
+          green = "#5eff6c";
+          magenta = "#bd5eff";
+          red = "#ff6e5e";
+          white = "#ffffff";
+          yellow = "#f1ff5e";
         };
-        dim = {
-          black = "#222222";
-          red = "#ca4780";
-          green = "#1fa25a";
-          yellow = "#07a19e";
-          blue = "#6690d9";
-          magenta = "#a27fd9";
-          cyan = "#2b96d9";
-          white = "#bebebe";
-        };
-        # indexed_colors = {
-        #   index = 16;
-        #   color = "#3ddbd9";
-        # };
-        # indexed_colors = {
-        #   index = 17;
-        #   color = "#ff7eb6";
-        # };
+        indexed_colors = [
+          {index=16; color="#ffbd5e";}
+          {index=17; color="#ff6e5e";}
+        ];
       };
     };
   };

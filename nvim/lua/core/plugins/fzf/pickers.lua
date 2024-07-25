@@ -19,7 +19,7 @@ function M.files(opts)
   if vim.fn.executable 'fd' == 1 then
     local fzfutils = require 'fzf-lua.utils'
     -- fzf-lua.defaults#defaults.files.fd_opts
-    cmd = string.format([[fd --color=never --type f --hidden --follow --exclude .git -x printf "{}: {/} %s\n"]], fzfutils.ansi_codes.grey '{//}')
+    cmd = string.format([[fd --color=never --type f --hidden --follow --exclude .git -x printf "{}: {/} %s\n"]], fzfutils.ansi_codes.italic '{//}')
     opts.fzf_opts = {
       -- process ansi colors
       ['--ansi'] = '',

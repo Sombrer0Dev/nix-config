@@ -19,7 +19,6 @@ require('utils.functions').on_attach(function(client, buffer)
   if client.name == 'ruff_lsp' then
     client.server_capabilities.hoverProvider = false
   elseif client.name == 'jedi_language_server' then
-    vim.print(client.server_capabilities)
     client.server_capabilities.codeActionProvider = { codeActionKinds = { 'refactor.inline' } }
   end
 end)

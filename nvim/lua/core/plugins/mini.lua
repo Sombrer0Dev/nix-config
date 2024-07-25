@@ -6,6 +6,15 @@ return {
     -- is not loaded without explicitly saying it
     config = true,
   },
+  {
+    'echasnovski/mini.icons',
+    version = false,
+    config = function ()
+      MiniIcons = require("mini.icons")
+      MiniIcons.setup()
+      MiniIcons.mock_nvim_web_devicons()
+    end
+  },
 
   {
     'echasnovski/mini.hipatterns',

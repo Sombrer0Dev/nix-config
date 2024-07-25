@@ -54,6 +54,7 @@ in {
         ../home-manager/theme.nix
         ../home-manager/alacritty.nix
         ../home-manager/tmux.nix
+        ../home-manager/wireguard.nix
         ./home.nix
 
         ../home-manager/work.nix

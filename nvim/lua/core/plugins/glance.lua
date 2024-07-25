@@ -1,7 +1,7 @@
 return {
   'dnlhc/glance.nvim',
   keys = {
-    { mode = 'n', 'gD', '<CMD>Glance definitions<CR>' },
+    { mode = 'n', 'gD', '<CMD>Glance definitions<CR>'},
     { mode = 'n', 'gR', '<CMD>Glance references<CR>' },
     { mode = 'n', 'gY', '<CMD>Glance type_definitions<CR>' },
     { mode = 'n', 'gM', '<CMD>Glance implementations<CR>' },
@@ -27,9 +27,9 @@ return {
         wrap = false,
       },
       border = {
-        enable = false, -- Show window borders. Only horizontal borders allowed
-        top_char = '―',
-        bottom_char = '―',
+        enable = true, -- Show window borders. Only horizontal borders allowed
+        top_char = '☲',
+        bottom_char = '☲',
       },
       list = {
         position = 'right', -- Position of the list window 'left'|'right'

@@ -29,14 +29,6 @@ function M.default_keymaps()
 
     -- LSP hover and fold preview
     { 'K', vim.lsp.buf.hover, description = 'Hover doc or preview fold', mode = 'n' },
-    {
-      '<leader>ci',
-      function()
-        vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
-      end,
-      description = 'Toggle Inlay Hints',
-      mode = 'n',
-    },
   }
 end
 

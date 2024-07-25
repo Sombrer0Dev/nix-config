@@ -53,12 +53,15 @@
     HandleLidSwitchExternalPower=ignore
   '';
 
-  # kde connect
   networking.firewall = rec {
     allowedTCPPortRanges = [
       {
         from = 1714;
         to = 1764;
+      }
+      {
+        from = 8080;
+        to = 8085;
       }
     ];
     allowedUDPPortRanges = allowedTCPPortRanges;

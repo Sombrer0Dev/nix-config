@@ -176,8 +176,8 @@ return {
   },
 
   theme = {
-    -- catppuccin, nightfox, tokyonight, tundra, kanagawa
-    name = 'oxocarbon',
+    -- catppuccin, nightfox, tokyonight, tundra, kanagawa, oxocarbon, cyberdream
+    name = 'cyberdream',
     catppuccin = {
       -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
       variant = 'catppuccin-mocha',
@@ -195,6 +195,11 @@ return {
       variant = 'night',
     },
     oxocarbon = {},
+    cyberdream = {
+      -- dark light
+      dark = true,
+      tranparent = false,
+    },
   },
   -- treesitter parsers to be installed
   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -233,9 +238,8 @@ return {
     'typst_lsp',
     'dockerls',
     'marksman',
-    'eslint',
     'lua_ls',
-    'sqlls',
+    'sqls',
     'yamlls',
     'nil_ls',
 

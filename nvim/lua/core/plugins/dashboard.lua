@@ -14,7 +14,7 @@ local M = {
         -- header = require('core.plugins.logos.bad').amogus,
         -- stylua: ignore
         center = {
-          { action = require("core.plugins.fzf.pickers").files, key = "f", desc = ""},
+          { action = 'FzfLua files formatter="path.filename_first"', key = "f", desc = ""},
           { action = "e $MYVIMRC | cd %:p:h | wincmd k | pwd",  key = "s", desc = ""},
           { action = require("core.plugins.fzf.pickers").grep,  key = "g", desc = ""},
           { action = "qa",                                      key = "q", desc = ""},
