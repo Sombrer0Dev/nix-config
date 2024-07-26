@@ -51,10 +51,6 @@ in {
       lua-language-server
       stylua
 
-      # debuggers
-      delve
-      debugpy
-
       # lsp servers
       gopls
       ruff-lsp
@@ -68,10 +64,10 @@ in {
 
       # formatters
       black
-      goimports
+      gotools
       gofumpt
       sqlfluff
-      nixfmt
+      nixfmt-rfc-style
     ];
   };
 }
