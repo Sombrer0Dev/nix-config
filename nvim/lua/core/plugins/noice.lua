@@ -27,6 +27,7 @@ local M = {
 					opts = { skip = true },
 				},
 			},
+      markdown={},
 			presets = {
 				bottom_search = true,
 				long_message_to_split = true,

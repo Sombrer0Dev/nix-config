@@ -1,4 +1,4 @@
-```
-sudo ln -s ( which foot ) /usr/bin/xterm
+```shell
+ln -s ( which foot ) ~/.local/bin/xterm
 ```
 

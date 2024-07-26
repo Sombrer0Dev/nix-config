@@ -1,8 +1,7 @@
-local dark = vim.g.config.theme.cyberdream.dark
 
 require("cyberdream").setup({
 	-- Enable transparent background
-	transparent = true,
+	transparent = vim.g.config.theme.cyberdream.tranparent,
 
 	-- Enable italics comments
 	italic_comments = true,
@@ -17,7 +16,7 @@ require("cyberdream").setup({
 	terminal_colors = true,
 
 	theme = {
-		variant = dark and "dark" or "light", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+		variant = vim.g.config.theme.cyberdream.dark and "dark" or "light", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
 		highlights = {
 			-- Highlight groups to override, adding new groups is also possible
 			-- See `:h highlight-groups` for a list of highlight groups or run `:hi` to see all groups and their current values
@@ -30,11 +29,9 @@ require("cyberdream").setup({
 
 		-- Override a highlight group entirely using the color palette
 		-- overrides = function(colors) -- NOTE: This function nullifies the `highlights` option
-			-- -- Example:
-			-- return {
-			--     Comment = { fg = colors.green, bg = "NONE", italic = true },
-			--     ["@property"] = { fg = colors.magenta, bold = true },
-			-- }
+		-- 	return {
+		-- 	    CursorLine = { bg = "#7B8496"},
+		-- 	}
 		-- end,
 
 		-- Override a color entirely
@@ -65,4 +62,5 @@ require("cyberdream").setup({
 	},
 })
 
+--2d3036
 vim.cmd("colorscheme cyberdream")

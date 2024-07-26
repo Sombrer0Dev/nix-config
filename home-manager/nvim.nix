@@ -65,6 +65,13 @@ in {
       nodePackages.bash-language-server
       tailwindcss-language-server
       nodePackages.typescript-language-server
+
+      # formatters
+      black
+      goimports
+      gofumpt
+      sqlfluff
+      nixfmt
     ];
   };
 }

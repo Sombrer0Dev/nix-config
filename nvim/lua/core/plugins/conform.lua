@@ -21,6 +21,7 @@ local M = {
       python = { 'black' },
       go = { 'goimports', 'gofumpt' },
       sql = { 'sqlfluff' },
+      nix={'nixfmt'},
     },
     -- Set up format-on-save
     format_on_save = function(_)

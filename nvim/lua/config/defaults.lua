@@ -27,7 +27,7 @@ return {
     mouse = 'a', -- enable mouse see :h mouse
     number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines
-    pumblend = 10, -- Popup blend
+    -- pumblend = 10, -- Popup blend
     pumheight = 10, -- Maximum number of entries in a popup
     scrolloff = 15, -- Minimal number of screen lines to keep above and below the cursor
     shiftround = true, -- Round indent
@@ -77,11 +77,11 @@ return {
       merge_conflict_tool = 'diffview',
     },
     indent_blankline = {
-      enable_scope = true,
+      enable_scope = false,
     },
     ai = {
       codeium = {
-        enabled = true,
+        enabled = false,
         vt = false,
       },
     },
@@ -198,7 +198,7 @@ return {
     cyberdream = {
       -- dark light
       dark = true,
-      tranparent = false,
+      tranparent = true,
     },
   },
   -- treesitter parsers to be installed

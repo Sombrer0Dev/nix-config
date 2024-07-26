@@ -116,7 +116,7 @@ in {
           "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
           "SUPER SHIFT, S,   ${e} -r 'recorder.screenshot()'"
           "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, alacritty"
+          "SUPER, Return, exec, xterm"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
