@@ -39,23 +39,23 @@ return {
       ---Additional window options for Grapple windows
       ---See :h nvim_open_win
       ---@type grapple.vim.win_opts
-      win_opts = {
-        relative = 'editor',
-        width = 0.5,
-        height = 10,
-        row = 0.5,
-        col = 0.5,
-        border = 'single',
-        focusable = false,
-        style = 'minimal',
-        title_pos = 'center',
-
-        -- Custom: "{{ title }}" will use the tag_title or scope_title
-        title = '{{ title }}',
-
-        -- Custom: adds padding around window title
-        title_padding = ' ',
-      },
+      -- win_opts = {
+      --   relative = 'editor',
+      --   width = 0.5,
+      --   height = 10,
+      --   row = 0.5,
+      --   col = 0.5,
+      --   border = 'single',
+      --   focusable = false,
+      --   style = 'minimal',
+      --   title_pos = 'center',
+      --
+      --   -- Custom: "{{ title }}" will use the tag_title or scope_title
+      --   title = '{{ title }}',
+      --
+      --   -- Custom: adds padding around window title
+      --   title_padding = ' ',
+      -- },
     }
     require('legendary').setup {
       keymaps = {

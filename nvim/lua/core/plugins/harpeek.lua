@@ -54,7 +54,6 @@ return {
 		vim.api.nvim_create_autocmd("VimResized", {
 			callback = function()
         i = i+1
-				vim.print("resized", i)
         harpeek.close()
 				harpeek.open({
 					winopts = {

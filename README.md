@@ -1,4 +1,4 @@
 ```
-sudo ln -s ( which alacritty ) /usr/bin/xterm
+sudo ln -s ( which foot ) /usr/bin/xterm
 ```
 
