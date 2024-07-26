@@ -9,6 +9,8 @@ local M = {
     { '<leader>fF', pickers.folders, desc = 'Fzf files' },
     { '<leader>fc', pickers.command_history, desc = 'Fzf command history' },
     { '<leader>fb', pickers.git_branches, desc = 'Fzf git branches' },
+    { '<leader>qf', '<cmd>FzfLua quickfix_stack<cr>', desc = 'Fzf last quickfix lists' },
+    { '<leader>fq', '<cmd>FzfLua quickfix<cr>', desc = 'Fzf quickfix' },
     { '<leader>f<space>', '<cmd>FzfLua resume<cr>', desc = 'Fzf resume search' },
     {
       '<leader>fw',

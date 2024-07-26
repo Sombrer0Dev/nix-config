@@ -17,19 +17,15 @@ local M = {
 					duplicateSnippet = "<C-d>",
 					insertNextPlaceholder = "<C-t>", -- works in insert & normal mode
 				},
-				backdrop = {
-					enabled = true,
-					blend = 50, -- between 0-100
-				},
 			},
 			-- `none` writes as a minified json file using `vim.encode.json`.
 			-- `yq`/`jq` ensure formatted & sorted json files, which is relevant when
 			-- you version control your snippets.
 			jsonFormatter = "jq", -- "yq"|"jq"|"none"
-			backdrop = {
-				enabled = true,
-				blend = 50, -- between 0-100
-			},
+			-- backdrop = {
+			-- 	enabled = true,
+			-- 	blend = 50, -- between 0-100
+			-- },
       telescope = {alsoSearchSnippetBody=false},
 		})
 		require("which-key").add({

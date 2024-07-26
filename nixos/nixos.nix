@@ -53,6 +53,7 @@ in {
         ../home-manager/shell.nix
         ../home-manager/theme.nix
         ../home-manager/alacritty.nix
+        ../home-manager/foot.nix
         ../home-manager/tmux.nix
         ../home-manager/wireguard.nix
         ./home.nix

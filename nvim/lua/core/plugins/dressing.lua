@@ -1,13 +1,14 @@
 local M = {
   'stevearc/dressing.nvim',
   lazy = true,
+  enabled=false,
   opts = {
     input = {
-      border = 'solid',
+      border = 'single',
     },
     select = {
       buitin = {
-        border = 'solid',
+        border = 'single',
       },
     },
   },

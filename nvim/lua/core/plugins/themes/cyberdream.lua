@@ -49,10 +49,13 @@ require("cyberdream").setup({
 
 	-- Disable or enable colorscheme extensions
 	extensions = {
+    cmp=true,
     fzflua=true,
     dashboard=true,
     indentblankline=true,
     lazy=true,
+    leap=true,
+    hop=true,
     noice=true,
     whichkey=true,
 		notify = true,
