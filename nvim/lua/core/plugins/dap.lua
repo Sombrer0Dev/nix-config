@@ -24,8 +24,8 @@ local M = {
       { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
     },
 			config = function()
-				local path = require("mason-registry").get_package("debugpy"):get_install_path()
-				require("dap-python").setup(path .. "/venv/bin/python")
+        --TODO change devenv if not in use
+				require("dap-python").setup(require("utils.functions").safe_cwd() .. "/.devenv/profile/bin/python")
 			end,
 		},
 		-- fancy UI for the debugger
