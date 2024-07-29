@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   symlink = pkgs.writeShellScript "symlink" ''
     if [[ "$1" == "-r" ]]; then
       rm -rf "$HOME/.config/nvim"
@@ -39,6 +40,14 @@
   nx-dev = pkgs.writeShellScriptBin "nx-dev" ''
     nix flake init --template github:cachix/devenv
   '';
-in {
-  home.packages = [ nx-switch nx-boot nx-test nx-up-switch nx-gc nx-dev ];
+in
+{
+  home.packages = [
+    nx-switch
+    nx-boot
+    nx-test
+    nx-up-switch
+    nx-gc
+    nx-dev
+  ];
 }

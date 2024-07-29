@@ -1,8 +1,12 @@
-{config, ...}: {
+{ config, ... }:
+{
   news.display = "show";
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     warn-dirty = false;
   };
 
@@ -16,23 +20,23 @@
       GOMODCACHE = "${config.home.homeDirectory}/.cache/go/pkg/mod";
     };
 
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
-  gtk.gtk3.bookmarks = let
-    home = config.home.homeDirectory;
-  in [
-    "file://${home}/Documents"
-    "file://${home}/Music"
-    "file://${home}/Pictures"
-    "file://${home}/Videos"
-    "file://${home}/Downloads"
-    "file://${home}/Desktop"
-    "file://${home}/Work"
-    "file://${home}/.config Config"
-  ];
+  gtk.gtk3.bookmarks =
+    let
+      home = config.home.homeDirectory;
+    in
+    [
+      "file://${home}/Documents"
+      "file://${home}/Music"
+      "file://${home}/Pictures"
+      "file://${home}/Videos"
+      "file://${home}/Downloads"
+      "file://${home}/Desktop"
+      "file://${home}/Work"
+      "file://${home}/.config Config"
+    ];
 
   services = {
     kdeconnect = {

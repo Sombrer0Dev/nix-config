@@ -1,51 +1,71 @@
 { lib, pkgs, ... }:
 let
-  tmux-mighty-scroll = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      name = "scroll";
-      pluginName = "mighty-scroll";
-      src = pkgs.fetchFromGitHub {
-        owner = "noscript";
-        repo = "tmux-mighty-scroll";
-        rev = "36618744e0a84446deccec468ad5b08d7f16f985";
-        hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
-      };
+  tmux-mighty-scroll = pkgs.tmuxPlugins.mkTmuxPlugin {
+    name = "scroll";
+    pluginName = "mighty-scroll";
+    src = pkgs.fetchFromGitHub {
+      owner = "noscript";
+      repo = "tmux-mighty-scroll";
+      rev = "36618744e0a84446deccec468ad5b08d7f16f985";
+      hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
     };
-  tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "sessionx";
-      version = "20240119";
+  };
+  tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "sessionx";
+    version = "20240119";
 
-      src = pkgs.fetchFromGitHub {
-        owner = "omerxx";
-        repo = "tmux-sessionx";
-        rev = "52b837b09f84bc39c84c018f049f801b44b5ed40";
-        hash = "sha256-7JglXguOnCrt6OwnlPQ6xaNAvOhGFIFtgRRF+MD55Cs=";
-      };
-      nativeBuildInputs = [ pkgs.makeWrapper ];
+    src = pkgs.fetchFromGitHub {
+      owner = "omerxx";
+      repo = "tmux-sessionx";
+      rev = "52b837b09f84bc39c84c018f049f801b44b5ed40";
+      hash = "sha256-7JglXguOnCrt6OwnlPQ6xaNAvOhGFIFtgRRF+MD55Cs=";
+    };
+    nativeBuildInputs = [ pkgs.makeWrapper ];
 
-      postPatch = ''
-        substituteInPlace sessionx.tmux \
-        --replace "\$CURRENT_DIR/scripts/sessionx.sh" "$out/share/tmux-plugins/sessionx/scripts/sessionx.sh"
-        substituteInPlace scripts/sessionx.sh \
-        --replace "/tmux-sessionx/scripts/preview.sh" "$out/share/tmux-plugins/sessionx/scripts/preview.sh"
-        substituteInPlace scripts/sessionx.sh \
-        --replace "/tmux-sessionx/scripts/reload_sessions.sh" "$out/share/tmux-plugins/sessionx/scripts/reload_sessions.sh"
-      '';
+    postPatch = ''
+      substituteInPlace sessionx.tmux \
+      --replace "\$CURRENT_DIR/scripts/sessionx.sh" "$out/share/tmux-plugins/sessionx/scripts/sessionx.sh"
+      substituteInPlace scripts/sessionx.sh \
+      --replace "/tmux-sessionx/scripts/preview.sh" "$out/share/tmux-plugins/sessionx/scripts/preview.sh"
+      substituteInPlace scripts/sessionx.sh \
+      --replace "/tmux-sessionx/scripts/reload_sessions.sh" "$out/share/tmux-plugins/sessionx/scripts/reload_sessions.sh"
+    '';
 
-      postInstall = ''
+    postInstall = ''
         chmod +x $target/scripts/sessionx.sh
         wrapProgram $target/scripts/sessionx.sh \
-        --prefix PATH : ${with pkgs; lib.makeBinPath [ zoxide fzf gnugrep gnused coreutils ]}
+        --prefix PATH : ${
+          with pkgs;
+          lib.makeBinPath [
+            zoxide
+            fzf
+            gnugrep
+            gnused
+            coreutils
+          ]
+        }
       chmod +x $target/scripts/preview.sh
         wrapProgram $target/scripts/preview.sh \
-        --prefix PATH : ${with pkgs; lib.makeBinPath [ coreutils gnugrep gnused ]}
+        --prefix PATH : ${
+          with pkgs;
+          lib.makeBinPath [
+            coreutils
+            gnugrep
+            gnused
+          ]
+        }
       chmod +x $target/scripts/reload_sessions.sh
         wrapProgram $target/scripts/reload_sessions.sh \
-        --prefix PATH : ${with pkgs; lib.makeBinPath [ coreutils gnugrep gnused ]}
-      '';
-    };
-
+        --prefix PATH : ${
+          with pkgs;
+          lib.makeBinPath [
+            coreutils
+            gnugrep
+            gnused
+          ]
+        }
+    '';
+  };
 
 in
 {

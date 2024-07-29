@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.gnome = {
     enable = lib.mkEnableOption "Gnome";
   };

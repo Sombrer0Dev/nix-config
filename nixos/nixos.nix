@@ -1,10 +1,8 @@
-{
-  inputs,
-  lib,
-  ...
-}: let
+{ inputs, lib, ... }:
+let
   username = "sombrer01";
-in {
+in
+{
   imports = [
     /etc/nixos/hardware-configuration.nix
     ./system.nix
@@ -16,7 +14,10 @@ in {
     ./gaming.nix
   ];
 
-  nix.settings.trusted-users = [ "root" "sombrer01" ];
+  nix.settings.trusted-users = [
+    "root"
+    "sombrer01"
+  ];
   hyprland.enable = true;
   gaming.enable = true;
 
@@ -38,7 +39,9 @@ in {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users.${username} = {
       home.username = username;
       home.homeDirectory = "/home/${username}";
@@ -65,7 +68,7 @@ in {
 
   specialisation = {
     gnome.configuration = {
-      system.nixos.tags = ["Gnome"];
+      system.nixos.tags = [ "Gnome" ];
       hyprland.enable = lib.mkForce false;
       gnome.enable = true;
     };

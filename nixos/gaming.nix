@@ -1,8 +1,13 @@
-{pkgs, lib, config, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   options.gaming = {
     enable = lib.mkEnableOption "Hyprland";
   };
-
 
   config = lib.mkIf config.gaming.enable {
     # opengl
@@ -26,11 +31,9 @@
       protonup
     ];
     environment.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATH =
-      "/home/sombrer01/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/sombrer01/.steam/root/compatibilitytools.d";
     };
 
     programs.gamemode.enable = true;
   };
 }
-

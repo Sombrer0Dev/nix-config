@@ -1,15 +1,17 @@
-{ inputs, pkgs, ... }: let
+{ inputs, pkgs, ... }:
+let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
-in {
+in
+{
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
     icon = "org.gnome.Settings";
     exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
-    categories = ["X-Preferences"];
+    categories = [ "X-Preferences" ];
     terminal = false;
   };
 
@@ -26,17 +28,15 @@ in {
     ];
 
     settings = {
-      exec-once = [
-        "ags -b hypr"
-      ];
+      exec-once = [ "ags -b hypr" ];
 
       monitor = [
         "DP-2, 1920x1080, 0x0, 1"
         "HDMI-A-1, 2560x1440, 1920x0, 1"
       ];
       workspace = [
-       "1,monitor:HDMI-A-1"
-       "2,monitor:DP-2"
+        "1,monitor:HDMI-A-1"
+        "2,monitor:DP-2"
       ];
 
       general = {
@@ -59,8 +59,8 @@ in {
           natural_scroll = "no";
         };
         sensitivity = -0.7;
-        accel_profile="flat";
-        force_no_accel=1;
+        accel_profile = "flat";
+        force_no_accel = 1;
         repeat_delay = 200;
         repeat_rate = 35;
       };
@@ -78,35 +78,48 @@ in {
         workspace_swipe = "off";
       };
 
-      windowrule = let
-        f = regex: "float, ^(${regex})$";
-      in [
-        (f "org.gnome.Calculator")
-        (f "org.gnome.Nautilus")
-        (f "pavucontrol")
-        (f "spotify")
-        (f "nm-connection-editor")
-        (f "blueberry.py")
-        (f "org.gnome.Settings")
-        (f "org.gnome.design.Palette")
-        (f "Color Picker")
-        (f "xdg-desktop-portal")
-        (f "xdg-desktop-portal-gnome")
-        (f "transmission-gtk")
-        (f "com.github.Aylur.ags")
-        ("bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1")
-      ];
+      windowrule =
+        let
+          f = regex: "float, ^(${regex})$";
+        in
+        [
+          (f "org.gnome.Calculator")
+          (f "org.gnome.Nautilus")
+          (f "pavucontrol")
+          (f "spotify")
+          (f "nm-connection-editor")
+          (f "blueberry.py")
+          (f "org.gnome.Settings")
+          (f "org.gnome.design.Palette")
+          (f "Color Picker")
+          (f "xdg-desktop-portal")
+          (f "xdg-desktop-portal-gnome")
+          (f "transmission-gtk")
+          (f "com.github.Aylur.ags")
+          ("bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1")
+        ];
 
-      bind = let
-        binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
-        mvfocus = binding "SUPER" "movefocus";
-        ws = binding "SUPER" "workspace";
-        resizeactive = binding "SUPER ALT" "resizeactive";
-        mvwindow = binding "SUPER SHIFT" "movewindow";
-        mvtows = binding "SUPER SHIFT" "movetoworkspace";
-        e = "exec, ags -b hypr";
-        arr = [1 2 3 4 5 6 7];
-      in
+      bind =
+        let
+          binding =
+            mod: cmd: key: arg:
+            "${mod}, ${key}, ${cmd}, ${arg}";
+          mvfocus = binding "SUPER" "movefocus";
+          ws = binding "SUPER" "workspace";
+          resizeactive = binding "SUPER ALT" "resizeactive";
+          mvwindow = binding "SUPER SHIFT" "movewindow";
+          mvtows = binding "SUPER SHIFT" "movetoworkspace";
+          e = "exec, ags -b hypr";
+          arr = [
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+          ];
+        in
         [
           "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
           "SUPER, Backspace, ${e} -t launcher"
@@ -177,7 +190,7 @@ in {
           size = 8;
           passes = 3;
           new_optimizations = "on";
-          noise = 0.01;
+          noise = 1.0e-2;
           contrast = 0.9;
           brightness = 0.8;
           popups = true;

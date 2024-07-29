@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: let
+{ pkgs, lib, ... }:
+let
   aliases = {
     "tree" = "eza --tree";
 
@@ -19,11 +20,14 @@
     "del" = "trash put";
     "db" = "GDK_BACKEND=x11 dbeaver";
   };
-in {
-  options.shellAliases = with lib; mkOption {
-    type = types.attrsOf types.str;
-    default = {};
-  };
+in
+{
+  options.shellAliases =
+    with lib;
+    mkOption {
+      type = types.attrsOf types.str;
+      default = { };
+    };
 
   config.programs = {
     zsh = {

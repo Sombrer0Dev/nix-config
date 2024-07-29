@@ -1,33 +1,39 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.alacritty = {
     enable = true;
     settings = {
       shell.program = "${pkgs.tmux}/bin/tmux";
-      shell.args = [ "new-session" "-A" "-s" "nix"];
-      window= {
+      shell.args = [
+        "new-session"
+        "-A"
+        "-s"
+        "nix"
+      ];
+      window = {
         padding = {
           x = 5;
           y = 5;
         };
-        opacity=0.7;
+        opacity = 0.7;
       };
 
       font = {
-        normal={
+        normal = {
           family = "MonaspiceKr Nerd Font";
-          style = "Regular" ;
+          style = "Regular";
         };
-        bold={
+        bold = {
           family = "MonaspiceKr Nerd Font";
-          style = "Bold" ;
+          style = "Bold";
         };
-        italic={
+        italic = {
           family = "MonaspiceXe Nerd Font";
-          style = "Italic" ;
+          style = "Italic";
         };
-        bold_italic={
+        bold_italic = {
           family = "MonaspiceXe Nerd Font";
-          style = "BoldItalic" ;
+          style = "BoldItalic";
         };
         # size = 12;
       };
@@ -62,8 +68,14 @@
           yellow = "#f1ff5e";
         };
         indexed_colors = [
-          {index=16; color="#ffbd5e";}
-          {index=17; color="#ff6e5e";}
+          {
+            index = 16;
+            color = "#ffbd5e";
+          }
+          {
+            index = 17;
+            color = "#ff6e5e";
+          }
         ];
       };
     };
