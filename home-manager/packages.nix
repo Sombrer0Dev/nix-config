@@ -39,7 +39,7 @@
       lua51Packages.lua
       lua51Packages.luarocks
       jq
-
+      delta
     ];
   };
 }
