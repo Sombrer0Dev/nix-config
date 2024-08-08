@@ -35,6 +35,7 @@
     bottles
     git
     wget
+    vesktop
   ];
 
   # services

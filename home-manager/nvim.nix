@@ -34,6 +34,7 @@ in
     extraPackages =
       with pkgs;
       with pypkg;
+      with nodePackages;
       [
         git
         gcc
@@ -63,9 +64,10 @@ in
         jedi-language-server
         marksman
         yaml-language-server
-        nodePackages.bash-language-server
+        bash-language-server
         tailwindcss-language-server
-        nodePackages.typescript-language-server
+        typescript-language-server
+        vscode-json-languageserver
 
         # formatters
         black

@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
   wgu = pkgs.writeShellScriptBin "wgu" ''
-    ls -1 /etc/wireguard | sed -e 's/\..*$//' | fzf | xargs wg-quick up
+    ls -1 /etc/wireguard | sed -e 's/\..*$//' | fzf-tmux -p | xargs wg-quick up
   '';
   wgd = pkgs.writeShellScriptBin "wgd" ''
-    ls -1 /etc/wireguard | sed -e 's/\..*$//' | fzf | xargs wg-quick down
+    ls -1 /etc/wireguard | sed -e 's/\..*$//' | fzf-tmux -p | xargs wg-quick down
   '';
 in
 {

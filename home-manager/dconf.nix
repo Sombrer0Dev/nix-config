@@ -113,10 +113,10 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "Alacritty.desktop"
+        "foot.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"
-        "webcord.desktop"
+        "vesktop.desktop"
         "com.usebottles.bottles.desktop"
         "org.gnome.Software.desktop"
       ];

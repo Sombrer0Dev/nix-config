@@ -17,7 +17,10 @@ local function init()
   require 'utils.globals'
   -- lazy.nvim
   require 'config.lazy'
+
   require 'config.fm'
+
+  require 'config.firenvim'
 end
 
 vim.filetype.add {

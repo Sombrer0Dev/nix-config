@@ -17,7 +17,7 @@
       gnome-secrets
       blueberry
       gimp
-      webcord
+      # webcord
       spotify
 
       dbeaver-bin

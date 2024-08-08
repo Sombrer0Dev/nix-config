@@ -4,6 +4,7 @@ local M = {
 		"rcarriga/nvim-notify",
 		"MunifTanjim/nui.nvim",
 	},
+  enabled = not vim.g.started_by_firenvim,
 	event = "VeryLazy",
 	config = function()
 		require("noice").setup({

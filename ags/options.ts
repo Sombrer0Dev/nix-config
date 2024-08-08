@@ -158,8 +158,8 @@ const options = mkOptions(OPTIONS, {
             favorites: opt([
                 [
                     "firefox",
-                    "alacritty",
-                    "webcord",
+                    "foot",
+                    "vesktop",
                     "org.gnome.Nautilus",
                     "spotify",
                 ],
