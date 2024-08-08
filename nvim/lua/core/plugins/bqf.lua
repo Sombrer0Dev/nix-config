@@ -102,7 +102,6 @@ local M = {
 -- Quickfix
 vim.keymap.set('n', ']q', '<cmd>cnext<cr>', { desc = 'Next entry' })
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>', { desc = 'Previous entry' })
-vim.keymap.set('n', '<leader>qq', require('utils.functions').toggle_qf, { desc = 'Toggle Quickfix' })
 vim.keymap.set('n', '<leader>qd', vim.diagnostic.setqflist, { desc = 'Open diagnostics list' })
 vim.keymap.set('n', '<leader>qg', '<cmd>Gitsigns setqflist<cr>', { desc = 'Open git list' })
 

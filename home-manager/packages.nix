@@ -40,6 +40,8 @@
       lua51Packages.luarocks
       jq
       delta
+
+      nodePackages.vscode-json-languageserver
     ];
   };
 }
