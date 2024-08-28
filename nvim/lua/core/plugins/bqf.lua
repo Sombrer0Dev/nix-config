@@ -36,12 +36,6 @@ local M = {
         tabc = '',
         ptogglemode = '',
       },
-      filter = {
-        fzf = {
-          action_for = { ['ctrl-s'] = 'split', ['ctrl-t'] = 'tab drop' },
-          extra_opts = { '--bind', 'ctrl-o:toggle-all', '--prompt', '> ' },
-        },
-      },
     }
   end,
 }
