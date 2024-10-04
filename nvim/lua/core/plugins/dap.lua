@@ -143,4 +143,8 @@ local M = {
     })
   end
 }
+vim.api.nvim_set_hl(0, "red",    { fg = "#ff6e5e" })
+
+vim.fn.sign_define('DapBreakpoint',          { text='B', texthl='red',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition', { text='C', texthl='red',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
 return M

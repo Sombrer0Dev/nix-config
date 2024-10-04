@@ -66,6 +66,7 @@ for _, lsp in ipairs(conf.lsp_servers) do
       tailwindcss = lsp_settings.tailwindcss,
       html = lsp_settings.html,
       htmx = lsp_settings.htmx,
+      basedpyright = lsp_settings.basedpyright
     },
   }
 end

@@ -120,7 +120,12 @@ local M = {
 
 		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
+			mapping = {
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-BS>"] = cmp.mapping.complete(),
+      },
 			sources = {
 				{ name = "buffer" },
 			},
@@ -128,7 +133,12 @@ local M = {
 
 		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
+			mapping = {
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-BS>"] = cmp.mapping.complete(),
+      },
 			sources = cmp.config.sources({
 				{ name = "path" },
 			}, {

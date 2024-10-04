@@ -8,5 +8,6 @@ return {
   },
   opts = {
     -- configurations go here
+    exclude_filetypes = { "netrw", "toggleterm" },
   },
 }

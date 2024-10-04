@@ -4,6 +4,7 @@ local M = {
   'ibhagwan/fzf-lua',
   -- optional for icon support
   cmd = 'FzfLua',
+  lazy = false,
   keys = {
     { '<leader>ff', '<cmd>FzfLua files formatter="path.filename_first"<cr>', desc = 'Fzf files' },
     { '<leader>fF', pickers.folders, desc = 'Fzf files' },
@@ -11,6 +12,7 @@ local M = {
     { '<leader>fb', pickers.git_branches, desc = 'Fzf git branches' },
     { '<leader>qf', '<cmd>FzfLua quickfix_stack<cr>', desc = 'Fzf last quickfix lists' },
     { '<leader>fq', '<cmd>FzfLua quickfix<cr>', desc = 'Fzf quickfix' },
+    { '<leader>fq', pickers.zoxide, desc = 'Fzf zoxide' },
     { '<leader>f<space>', '<cmd>FzfLua resume<cr>', desc = 'Fzf resume search' },
     {
       '<leader>fw',
@@ -35,6 +37,7 @@ local M = {
     require('fzf-lua').setup {
       fzf_opts = {
         ['--margin'] = '0,0',
+        -- ['--select-1'] = '',
         ['--padding'] = '0',
       },
       git = {

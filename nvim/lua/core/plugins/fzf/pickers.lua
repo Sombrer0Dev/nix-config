@@ -242,7 +242,7 @@ local function callgrep(_opts, callfn)
 end
 
 --- @see https://github.com/ibhagwan/fzf-lua/wiki/Advanced#preview-overview
----@param opts {max_depth?:number,cwd?:string} | table
+---@param opts {max_depth?:number,cwd?:string, ret:bool} | table
 function M.folders(opts)
   opts = opts or {}
 
@@ -289,6 +289,12 @@ function M.folders(opts)
       local entry = path.entry_to_file(first_selected, selected_opts)
       local entry_path = entry.path
       if not entry_path then
+        return
+      end
+
+      if opts.proj then
+        vim.cmd("cd "..entry_path)
+        vim.cmd('FzfLua files formatter="path.filename_first"')
         return
       end
       require('oil').open(entry_path)
@@ -353,7 +359,7 @@ function M.grep(opts, is_live, is_word)
   )
 end
 
-function M._zoxide()
+function M.zoxide()
   local fzflua = require 'fzf-lua'
 
   fzflua.fzf_exec('zoxide query -l -s', {
@@ -370,6 +376,10 @@ function M._zoxide()
       end,
     },
   })
+end
+
+function M.fixtures()
+  require("fzf-lua").grep({search="def " .. vim.fn.expand("<cword>")})
 end
 
 return M

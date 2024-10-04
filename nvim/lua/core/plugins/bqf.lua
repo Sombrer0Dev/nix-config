@@ -94,14 +94,5 @@ local M = {
 -- vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
 -- Quickfix
-vim.keymap.set('n', ']q', '<cmd>cnext<cr>', { desc = 'Next entry' })
-vim.keymap.set('n', '[q', '<cmd>cprevious<cr>', { desc = 'Previous entry' })
-vim.keymap.set('n', '<leader>qd', vim.diagnostic.setqflist, { desc = 'Open diagnostics list' })
-vim.keymap.set('n', '<leader>qg', '<cmd>Gitsigns setqflist<cr>', { desc = 'Open git list' })
-
--- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
-vim.keymap.set('n', '<leader>qt', function()
-  require('utils.functions').search_todos()
-end, { desc = 'List TODOs' })
 
 return M

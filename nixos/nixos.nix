@@ -1,6 +1,6 @@
 { inputs, lib, ... }:
 let
-  username = "sombrer01";
+  username = "arsokolov";
 in
 {
   imports = [
@@ -16,10 +16,10 @@ in
 
   nix.settings.trusted-users = [
     "root"
-    "sombrer01"
+    username
   ];
   hyprland.enable = true;
-  gaming.enable = true;
+  gaming.enable = false;
 
   users.users.${username} = {
     isNormalUser = true;

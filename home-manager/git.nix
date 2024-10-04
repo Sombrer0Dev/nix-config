@@ -1,7 +1,7 @@
 let
   name = "Artem Sokolov";
-  username = "Sombrer0Dev";
-  mail = "sombrer01@gmail.com";
+  username = "arsokolov";
+  mail = "arsokolov@ptsecurity.com";
 in
 {
   programs.git = {

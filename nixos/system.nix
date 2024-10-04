@@ -20,7 +20,9 @@
   # virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {
-    podman.enable = true;
+    podman = {
+      enable = true;
+    };
     docker.enable = true;
     libvirtd.enable = true;
   };
@@ -36,6 +38,7 @@
     git
     wget
     vesktop
+    distrobox
   ];
 
   # services
@@ -46,6 +49,7 @@
     };
     printing.enable = true;
     flatpak.enable = true;
+    openssh.enable = true;
   };
 
   # logind

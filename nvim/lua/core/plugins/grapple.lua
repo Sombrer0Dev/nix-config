@@ -57,16 +57,6 @@ return {
       --   title_padding = ' ',
       -- },
     }
-    require('legendary').setup {
-      keymaps = {
-        { '<leader>a', '<cmd>Grapple toggle<cr>', description = 'Grapple mark' },
-        { '<C-e>', '<cmd>Grapple open_tags<cr>', description = 'Grapple open tags' },
-        { '<C-n>', '<cmd>Grapple select index=1<cr>' },
-        { '<C-t>', '<cmd>Grapple select index=2<cr>' },
-        { '<C-l>', '<cmd>Grapple select index=3<cr>' },
-        { '<C-p>', '<cmd>Grapple select index=4<cr>' },
-      },
-    }
     -- vim.keymap.set('n', '<leader>a', '<cmd>Grapple toggle<cr>', { desc = 'Grapple mark' })
     -- vim.keymap.set('n', '<C-e>', '<cmd>Grapple open_tags<cr>')
     --

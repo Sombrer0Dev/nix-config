@@ -240,7 +240,9 @@ return {
     'lua_ls',
     'sqls',
     'yamlls',
-    'nil_ls',
+    'rust_analyzer',
+    -- 'hls',
+    -- 'nil_ls',
 
     -- PYTHON
     'jedi_language_server',
@@ -253,7 +255,7 @@ return {
     'gopls',
     'templ',
     'tailwindcss',
-    'tsserver',
+    'ts_ls',
     'html',
     'htmx',
     'jsonls',

@@ -4,6 +4,7 @@ local M = {
 	dependencies = {
 		"ray-x/guihua.lua",
 	},
+	-- lazy=true,
 	ft = { "go", "gomod", "gosum", "gotmpl", "gohtmltmpl", "gotexttmpl" },
 	build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	config = function()
@@ -35,34 +36,8 @@ local M = {
 					require("conform").format({ bufnr = bufnr })
 				end, { desc = "Format file" })
 
-				wk.add({
-					{ "<leader>c", group = "Coding" },
-					{ "<leader>ca", "<cmd>GoCodeAction<cr>", desc = "Code action" },
-					{ "<leader>cl", "<cmd>GoCodeLenAct<cr>", desc = "Toggle Lens" },
-					{ "<leader>ce", "<cmd>GoIfErr<cr>", desc = "Add if err" },
-					{ "<leader>cJ", "<cmd>'<,'>GoJson2Struct<cr>", desc = "Json to struct", mode = "v" },
-					{ "<leader>cS", "<cmd>GoFillStruct<cr>", desc = "Autofill struct" },
 
-					{ "<leader>ch", group = "Helper" },
-					{ "<leader>cha", "<cmd>GoAddTag<cr>", desc = "Add tags to struct" },
-					{ "<leader>chr", "<cmd>GoRMTag<cr>", desc = "Remove tags to struct" },
-					{ "<leader>chc", "<cmd>GoCoverage<cr>", desc = "Test coverage" },
-					{ "<leader>chg", "<cmd>lua require('go.comment').gen()<cr>", desc = "Generate comment" },
-					{ "<leader>chv", "<cmd>GoVet<cr>", desc = "Go vet" },
-					{ "<leader>cht", "<cmd>GoModTidy<cr>", desc = "Go mod tidy" },
-					{ "<leader>chi", "<cmd>GoModInit<cr>", desc = "Go mod init" },
-					{ "<leader>chI", "<cmd>GoImpl<cr>", desc = "Go implement interface" },
-
-					{ "<leader>ct", group = "Tests" },
-					{ "<leader>ctr", "<cmd>GoTest<cr>", desc = "Run tests" },
-					{ "<leader>cta", "<cmd>GoAlt!<cr>", desc = "Open alt file" },
-					{ "<leader>cts", "<cmd>GoAltS!<cr>", desc = "Open alt file in split" },
-					{ "<leader>ctv", "<cmd>GoAltV!<cr>", desc = "Open alt file in vertical split" },
-					{ "<leader>ctu", "<cmd>GoTestFunc<cr>", desc = "Run test for current func" },
-					{ "<leader>ctf", "<cmd>GoTestFile<cr>", desc = "Run test for current file" },
-
-				})
-				require("legendary").setup({ extensions = { which_key = { auto_register = true } } })
+				-- require("legendary").setup({ extensions = { which_key = { auto_register = true } } })
 			end, -- nil: use on_attach function defined in go/lsp.lua,
 			--      when lsp_cfg is true
 			-- if lsp_on_attach is a function: use this function as on_attach function for gopls

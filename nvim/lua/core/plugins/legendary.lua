@@ -2,14 +2,16 @@ local M = {
   'mrjones2014/legendary.nvim',
   -- since legendary.nvim handles all your keymaps/commands,
   -- its recommended to load legendary.nvim before other plugins
-  priority = 10000,
+  priority = 10000000,
   lazy = false,
   -- sqlite is only needed if you want to use frecency sorting
   -- dependencies = { 'kkharji/sqlite.lua' }
   opts = {
     commands = require('core.plugins.legendary.commands').default_commands(),
     keymaps = require('core.plugins.legendary.keymaps').default_keymaps(),
+    autocmds = require('core.plugins.legendary.autocmds').default_autocmds(),
     col_separator_char = '',
+    select_prompt = ' ',
     extensions = {
       diffview = true,
       lazy_nvim = true,
@@ -45,6 +47,6 @@ local M = {
   },
 }
 
-vim.keymap.set('n', '<leader>o', '<Cmd>Legendary<CR>', { desc = 'Open Legendary' })
+vim.keymap.set('n', '<A-x>', '<Cmd>Legendary<CR>', { desc = 'Open Legendary' })
 
 return M

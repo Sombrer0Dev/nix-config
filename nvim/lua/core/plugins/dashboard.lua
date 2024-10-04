@@ -15,6 +15,10 @@ local M = {
         -- stylua: ignore
         center = {
           { action = 'FzfLua files formatter="path.filename_first"', key = "f", desc = ""},
+          { action = function()
+            vim.cmd "cd ~/Work"
+            require("core.plugins.fzf.pickers").folders({max_depth=2, proj=true})
+          end, key = "p", desc = ""},
           { action = "e $MYVIMRC | cd %:p:h | wincmd k | pwd",  key = "s", desc = ""},
           { action = require("core.plugins.fzf.pickers").grep,  key = "g", desc = ""},
           { action = "qa",                                      key = "q", desc = ""},
@@ -45,6 +49,7 @@ local M = {
     end
 
     vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#E7516A' })
+    vim.keymap.set("n", "<leader>md", "<cmd>Dashboard<cr>")
 
     return opts
   end,

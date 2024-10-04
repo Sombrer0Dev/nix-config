@@ -13,6 +13,7 @@ local M = {
 			wk.add({
 				{ "<leader>g", group = "Git" },
 				{ "<leader>g<Enter>", "<cmd>lua require('neogit').open({kind='replace'})<cr>", desc = "NeoGit" },
+				{ "<leader>gw", "<cmd>Neogit worktree<cr>", desc = "Worktrees" },
 				{ "<leader>gS", gs.stage_buffer, desc = "Stage buffer" },
 				{
 					"<leader>gs",

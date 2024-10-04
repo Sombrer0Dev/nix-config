@@ -7,7 +7,7 @@ api.nvim_create_user_command('OilFm', function()
       ['<C-f>'] = function()
         require('core.plugins.fzf.pickers').folders { cwd = oil.get_current_dir() }
       end,
-      ['<C-z>'] = require('core.plugins.fzf.pickers')._zoxide,
+      ['<C-z>'] = require('core.plugins.fzf.pickers').zoxide,
       ['gd'] = function()
         local entry = oil.get_cursor_entry()
         if entry.type == 'directory' then

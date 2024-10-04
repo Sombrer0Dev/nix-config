@@ -64,19 +64,5 @@ return {
 			end,
 		})
 
-		require("legendary").keymaps({
-			{
-				"<leader>h",
-				function()
-					harpeek.toggle({
-						winopts = {
-							row = vim.api.nvim_win_get_height(0) - 15,
-							border = "none",
-						},
-					})
-				end,
-				description = "Harpeek",
-			},
-		})
 	end,
 }

@@ -1,9 +1,9 @@
 return {
   'dnlhc/glance.nvim',
   keys = {
-    { mode = 'n', 'gD', '<CMD>Glance definitions<CR>'},
-    { mode = 'n', 'gR', '<CMD>Glance references<CR>' },
-    { mode = 'n', 'gY', '<CMD>Glance type_definitions<CR>' },
+    { mode = 'n', 'gd', '<CMD>Glance definitions<CR>'},
+    { mode = 'n', 'gD', '<CMD>Glance references<CR>' },
+    { mode = 'n', 'gT', '<CMD>Glance type_definitions<CR>' },
     { mode = 'n', 'gM', '<CMD>Glance implementations<CR>' },
   },
   config = function()

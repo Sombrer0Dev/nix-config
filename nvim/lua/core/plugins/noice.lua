@@ -4,7 +4,8 @@ local M = {
 		"rcarriga/nvim-notify",
 		"MunifTanjim/nui.nvim",
 	},
-  enabled = not vim.g.started_by_firenvim,
+  -- enabled = not vim.g.started_by_firenvim,
+  enabled = true,
 	event = "VeryLazy",
 	config = function()
 		require("noice").setup({
@@ -14,6 +15,7 @@ local M = {
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true,
 				},
+
 			},
 			routes = {
 				{
@@ -33,7 +35,7 @@ local M = {
 				bottom_search = true,
 				long_message_to_split = true,
 				lsp_doc_border = true,
-        command_palette=true,
+        command_palette=false,
 			},
 			cmdline = {
 				view = "cmdline",
