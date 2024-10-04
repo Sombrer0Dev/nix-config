@@ -17,6 +17,7 @@
   time.hardwareClockInLocalTime = true;
 
   programs.ssh.startAgent = true;
+  programs.seahorse.enable = true;
   # virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {

@@ -94,4 +94,10 @@ in
     enable = true;
     nix-direnv.enable = true;
   };
+  # config.programs.nix-index = {
+  #   enable = true;
+  #   enableFishIntegration = true;
+  #   enableZshIntegration = true;
+  #   enableBashIntegration = true;
+  # };
 }
