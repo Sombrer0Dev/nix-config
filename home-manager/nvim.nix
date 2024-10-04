@@ -15,6 +15,12 @@ in
       terminal = false;
       mimeType = [ "text/plain" ];
     };
+    desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
+      name = "GNOME Control Center";
+      comment = "GNOME control center";
+      icon = "gnome";
+      exec = "gnome-control-center";
+    };
   };
 
   home.sessionVariables = {

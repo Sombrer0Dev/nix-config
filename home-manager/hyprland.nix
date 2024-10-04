@@ -28,7 +28,11 @@ in
     ];
 
     settings = {
-      exec-once = [ "ags -b hypr" ];
+      exec-once = [
+        "ags -b hypr"
+        "xterm"
+        "nm-applet"
+      ];
 
       monitor = [
         "DP-2, 1920x1080, 0x0, 1"

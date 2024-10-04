@@ -1,2 +1,2 @@
-vim.g.is_nix = false
+vim.g.is_nix = true
 require 'config'

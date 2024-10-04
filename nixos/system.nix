@@ -31,6 +31,16 @@
   # dconf
   programs.dconf.enable = true;
 
+  # gpg signing
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage= pkgs.pinentry-gnome3;
+    # settings = {
+    #   # default-key = "44F7B7979D3A27B189E0841E8333735E784DF9D4";
+    # };
+  };
+
+
   # packages
   environment.systemPackages = with pkgs; [
     home-manager
@@ -40,6 +50,7 @@
     wget
     vesktop
     distrobox
+    networkmanagerapplet
   ];
 
   # services

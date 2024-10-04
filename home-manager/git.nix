@@ -1,6 +1,5 @@
 let
   name = "Artem Sokolov";
-  username = "arsokolov";
   mail = "arsokolov@ptsecurity.com";
 in
 {
@@ -10,7 +9,7 @@ in
       color.ui = true;
       core.editor = "nvim";
       credential.helper = "store";
-      github.user = username;
+      github.user = "Sombrer0Dev";
       push.autoSetupRemote = true;
 
       core.pager = "delta";

@@ -1,8 +1,6 @@
 { pkgs, lib, ... }:
 let
   aliases = {
-    "tree" = "eza --tree";
-
     "ll" = "ls";
     "l" = "ls";
 
@@ -19,6 +17,8 @@ let
 
     "del" = "trash put";
     "db" = "GDK_BACKEND=x11 dbeaver";
+    "ls" = "eza -l";
+    "tree" = "eza -T";
   };
 in
 {
