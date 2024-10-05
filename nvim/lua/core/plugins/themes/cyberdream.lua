@@ -1,4 +1,3 @@
-
 require("cyberdream").setup({
 	-- Enable transparent background
 	transparent = vim.g.config.theme.cyberdream.tranparent,
@@ -23,6 +22,8 @@ require("cyberdream").setup({
 
 			-- Example:
 			-- Comment = { fg = "#696969", bg = "NONE", italic = true },
+			CursorLineNr = { fg = "#16181A", bg = "#656C7B" },
+			CursorLine = { fg = "NONE", bg = "NONE" },
 
 			-- Complete list can be found in `lua/cyberdream/theme.lua`
 		},
@@ -36,29 +37,29 @@ require("cyberdream").setup({
 
 		-- Override a color entirely
 		-- colors = {
-			-- For a list of colors see `lua/cyberdream/colours.lua`
-			-- Example:
-			-- bg = "#000000",
-			-- green = "#00ff00",
-			-- magenta = "#ff00ff",
+		-- For a list of colors see `lua/cyberdream/colours.lua`
+		-- Example:
+		-- bg = "#000000",
+		-- green = "#00ff00",
+		-- magenta = "#ff00ff",
 		-- },
 	},
 
 	-- Disable or enable colorscheme extensions
 	extensions = {
-    cmp=true,
-    fzflua=true,
-    dashboard=true,
-    indentblankline=true,
-    lazy=true,
-    leap=true,
-    hop=true,
-    noice=true,
-    whichkey=true,
+		cmp = true,
+		fzflua = true,
+		dashboard = true,
+		indentblankline = true,
+		lazy = true,
+		leap = true,
+		hop = true,
+		noice = true,
+		whichkey = true,
 		notify = true,
 		mini = true,
-    grapple=true,
-    gitsigns=true,
+		grapple = true,
+		gitsigns = true,
 	},
 })
 

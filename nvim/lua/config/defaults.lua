@@ -6,7 +6,7 @@ return {
     completeopt = 'menuone,noselect', -- A comma separated list of options for Insert mode completion
     conceallevel = 0, -- so that `` is visible in markdown files
     confirm = true, -- confirm to save changes before exiting modified buffer
-    cursorline = false, -- highlight the current line
+    cursorline = true, -- highlight the current line
     dir = fn.stdpath 'data' .. '/swp', -- swap file directory
     -- formatoptions = "jcroqlnt",               -- tcqj
     grepprg = 'rg --vimgrep --smart-case --', -- use rg instead of grep
@@ -246,9 +246,9 @@ return {
 
     -- PYTHON
     'jedi_language_server',
-    -- 'pylsp',
     'ruff_lsp',
-    -- 'basedpyright',
+    -- 'pylsp',
+    -- 'pyright',
 
     -- WEB
     'bufls',

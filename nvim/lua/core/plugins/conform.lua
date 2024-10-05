@@ -18,7 +18,7 @@ local M = {
     -- Define your formatters
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'black' },
+      python = { 'black', 'ruff', 'isort' },
       go = { 'goimports', 'gofumpt' },
       sql = { 'sqlfluff' },
       nix={'nixfmt'},
