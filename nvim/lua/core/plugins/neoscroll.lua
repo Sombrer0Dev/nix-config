@@ -8,7 +8,7 @@ local M = {
 
     neoscroll.setup {
       -- All these keys will be mapped to their corresponding default scrolling animation
-      -- mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', 'zt', 'zz', 'zb' },
+      mappings = { '<C-u>', '<C-d>', 'zz' },
       hide_cursor = true, -- Hide cursor while scrolling
       stop_eof = true, -- Stop at <EOF> when scrolling downwards
       respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
@@ -31,16 +31,6 @@ local M = {
       end,
       performance_mode = false, -- Disable "Performance Mode" on all buffers.
     }
-    neoscroll = require('neoscroll')
-    local keymap = {
-      ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 250 }) end;
-      ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 250 }) end;
-      ["zz"]    = function() neoscroll.zz({ half_win_duration = 250 }) end;
-    }
-    local modes = { 'n', 'v', 'x' }
-    for key, func in pairs(keymap) do
-      vim.keymap.set(modes, key, func)
-    end
   end
 }
 

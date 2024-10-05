@@ -21,8 +21,11 @@ function M.default_keymaps()
 		{ "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true }, mode = { "n", "v" } },
 		{ "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true }, mode = { "n", "v" } },
 
-		{ "n", "nzz", mode = "n" },
-		{ "N", "Nzz", mode = "n" },
+
+		{ "<leader>mp", "<cmd>Precognition toggle<cr>", mode = "n" },
+		{ "<leader>mh", "<cmd>Hardtime toggle<cr>", mode = "n" },
+		{ "n", "nzzzv", mode = "n" },
+		{ "N", "Nzzzv", mode = "n" },
 
 		-- better indenting
 		{ "<", "<gv", mode = "v" },
