@@ -37,7 +37,6 @@
 
     environment.systemPackages =
       with pkgs;
-      with gnome;
       [
         morewaita-icon-theme
         adwaita-icon-theme

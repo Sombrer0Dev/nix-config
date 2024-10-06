@@ -65,7 +65,7 @@ in
 
         # lsp servers
         gopls
-        ruff-lsp
+        ruff
         sqls
         jedi-language-server
         marksman

@@ -74,8 +74,10 @@
 
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
     ags.url = "github:Aylur/ags";
-    astal.url = "github:Aylur/astal";
-    yandex-music.url = "github:cucumber-sp/yandex-music-linux";
+    astal = {
+      url = "github:Aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";

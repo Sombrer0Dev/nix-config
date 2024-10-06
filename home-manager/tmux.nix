@@ -194,6 +194,7 @@ in
 
       # messages
       set -g message-style 'fg=colour2 bg=colour0 bold'
+      set-option -g default-command 'tput cup "$(tput lines)"; exec "$SHELL" -l'
     '';
   };
 }

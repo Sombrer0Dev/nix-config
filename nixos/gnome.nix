@@ -27,8 +27,6 @@
           gnome-connections
           snapshot
           gedit
-        ])
-        ++ (with pkgs.gnome; [
           cheese # webcam tool
           gnome-music
           epiphany # web browser

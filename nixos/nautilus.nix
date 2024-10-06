@@ -4,8 +4,8 @@ let
     name = "nautilus-env";
 
     paths = with pkgs; [
-      gnome.nautilus
-      gnome.nautilus-python
+      nautilus
+      nautilus-python
       nautilus-open-any-terminal
     ];
   };
