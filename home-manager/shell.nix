@@ -88,7 +88,6 @@ in
     enable = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    enableBashIntegration = true;
   };
   config.programs.direnv = {
     enable = true;

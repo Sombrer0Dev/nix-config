@@ -140,7 +140,6 @@ in
           "SUPER, Q, killactive"
           "SUPER, W, togglefloating"
           "SUPER, F, fullscreen, 1"
-          "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
 
           "SUPER, T, togglespecialworkspace, special"
