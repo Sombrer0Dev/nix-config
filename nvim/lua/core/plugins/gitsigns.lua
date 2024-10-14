@@ -36,34 +36,6 @@ local M = {
 				{ "<leader>gb", gs.toggle_current_line_blame, desc = "Blame line" },
 				{ "<leader>gD", gs.diffthis, desc = "Diff" },
 				{ "<leader>gd", gs.toggle_deleted, desc = "Show deleted" },
-				{
-					"]c",
-					function()
-						if vim.wo.diff then
-							return "]c"
-						end
-						vim.schedule(function()
-							gs.next_hunk()
-						end)
-						return "<Ignore>"
-					end,
-					desc = "Next hunk",
-					expr = true,
-				},
-				{
-					"[c",
-					function()
-						if vim.wo.diff then
-							return "]c"
-						end
-						vim.schedule(function()
-							gs.next_hunk()
-						end)
-						return "<Ignore>"
-					end,
-					desc = "Previous hunk",
-					expr = true,
-				},
         {"gH", "<cmd><C-U>Gitsigns select_hunk<cr>", desc="Select hunk", mode={"o", "x"}},
 			})
 		end

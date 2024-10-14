@@ -32,6 +32,7 @@ in
         "ags -b hypr"
         "xterm"
         "nm-applet"
+        "nekoray"
       ];
 
       monitor = [

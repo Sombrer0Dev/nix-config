@@ -23,6 +23,7 @@
       dbeaver-bin
       postman
       zoom-us
+      nekoray
     ];
     cli = [
       nix-your-shell

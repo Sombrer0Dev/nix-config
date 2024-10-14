@@ -14,15 +14,15 @@ return {
 			-- Create `;` and `,` key mappings
 			repeat_motions = true,
 		},
-		integrations = {
-			-- Integration with https://github.com/lewis6991/gitsigns.nvim
-			gitsigns = {
-				enabled = true,
-				keymaps = {
-					next = "]c",
-					prev = "[c",
-				},
-			},
-		},
+		-- integrations = {
+		-- 	-- Integration with https://github.com/lewis6991/gitsigns.nvim
+		-- 	gitsigns = {
+		-- 		enabled = true,
+		-- 		keymaps = {
+		-- 			next = "]c",
+		-- 			prev = "[c",
+		-- 		},
+		-- 	},
+		-- },
 	},
 }

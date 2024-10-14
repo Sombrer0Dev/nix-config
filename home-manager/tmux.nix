@@ -10,6 +10,16 @@ let
       hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
     };
   };
+  tmux-ssh-split = pkgs.tmuxPlugins.mkTmuxPlugin {
+    name = "ssh-split";
+    pluginName = "ssh-split";
+    src = pkgs.fetchFromGitHub {
+      owner = "noscript";
+      repo = "tmux-mighty-scroll";
+      rev = "36618744e0a84446deccec468ad5b08d7f16f985";
+      hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
+    };
+  };
   tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "sessionx";
     version = "20240119";

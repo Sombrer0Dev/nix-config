@@ -1,5 +1,8 @@
 return {
   'stevearc/oil.nvim',
+  keys = {
+    {'-', "<cmd>lua require('oil').toggle_float()<CR>", { desc = 'Oil' }}
+  },
   config = function()
     require('oil').setup {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -148,6 +151,5 @@ return {
         },
       },
     }
-    vim.keymap.set('n', '-', "<cmd>lua require('oil').toggle_float()<CR>", { desc = 'Oil' })
   end,
 }

@@ -26,7 +26,7 @@ local M = {
           runner = 'pytest',
           -- !!EXPERIMENTAL!! Enable shelling out to `pytest` to discover test
           -- instances for files containing a parametrize mark (default: false)
-          pytest_discover_instances = true,
+          pytest_discover_instances = false,
         },
 
         require 'neotest-golang' {
