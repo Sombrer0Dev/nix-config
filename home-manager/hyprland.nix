@@ -14,6 +14,18 @@ in
     categories = [ "X-Preferences" ];
     terminal = false;
   };
+  services.hypridle = {
+    enable = true;
+    settings = {
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "systemctl suspend";
+          on-resume = "notify-send 'Welcome back!'";
+        }
+      ];
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
