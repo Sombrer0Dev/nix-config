@@ -12,6 +12,7 @@
       packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {
         inherit inputs;
       };
+
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {

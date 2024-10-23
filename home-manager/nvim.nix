@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  pypkg = pkgs.python311Packages;
+  pypkg = pkgs.python312Packages;
 in
 {
   xdg = {

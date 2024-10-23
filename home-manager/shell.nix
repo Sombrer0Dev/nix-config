@@ -19,6 +19,7 @@ let
     "db" = "GDK_BACKEND=x11 dbeaver";
     "ls" = "eza -l";
     "tree" = "eza -T";
+    "clear" = "clear && tput cup $(tput lines) 0";
   };
 in
 {

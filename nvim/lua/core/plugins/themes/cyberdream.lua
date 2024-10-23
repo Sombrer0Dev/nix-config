@@ -1,6 +1,6 @@
 require("cyberdream").setup({
 	-- Enable transparent background
-	transparent = vim.g.config.theme.cyberdream.tranparent,
+	transparent = vim.g.config.theme.cyberdream.transparent,
 
 	-- Enable italics comments
 	italic_comments = true,
@@ -36,13 +36,13 @@ require("cyberdream").setup({
 		-- end,
 
 		-- Override a color entirely
-		-- colors = {
-		-- For a list of colors see `lua/cyberdream/colours.lua`
-		-- Example:
-		-- bg = "#000000",
-		-- green = "#00ff00",
-		-- magenta = "#ff00ff",
-		-- },
+		colors = {
+			-- For a list of colors see `lua/cyberdream/colours.lua`
+			-- Example:
+			-- bg = "#000000",
+			-- green = "#00ff00",
+			-- magenta = "#ff00ff",
+		},
 	},
 
 	-- Disable or enable colorscheme extensions

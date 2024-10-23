@@ -10,16 +10,6 @@ let
       hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
     };
   };
-  tmux-ssh-split = pkgs.tmuxPlugins.mkTmuxPlugin {
-    name = "ssh-split";
-    pluginName = "ssh-split";
-    src = pkgs.fetchFromGitHub {
-      owner = "noscript";
-      repo = "tmux-mighty-scroll";
-      rev = "36618744e0a84446deccec468ad5b08d7f16f985";
-      hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
-    };
-  };
   tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "sessionx";
     version = "20240119";
@@ -125,7 +115,6 @@ in
       bind-key C-Space send-prefix
 
 
-      # split panes using | and -
       unbind "'"
       bind "'" split-window -v -c '#{pane_current_path}' -l 15
       bind / split-window -h -c '#{pane_current_path}' -l 50
@@ -134,7 +123,7 @@ in
       unbind %
 
       # reload config file (change file location to your the tmux.conf you want to use)
-      bind r source-file ~/.tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
 
       # Smart pane switching with awareness of Neovim splits.
       bind-key -n M-h if -F "#{@pane-is-vim}" 'send-keys M-h'  'select-pane -L'

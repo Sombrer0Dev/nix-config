@@ -11,7 +11,7 @@
         font-bold-italic = "MonaspiceKr Nerd Font:size=11";
       };
       colors = {
-        # alpha = 0.5;
+        # alpha = 0.8;
         background = "16181a";
         foreground = "ffffff";
 
