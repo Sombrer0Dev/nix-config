@@ -47,7 +47,6 @@ in
       home.homeDirectory = "/home/${username}";
       imports = [
         ../home-manager/nvim.nix
-        ../home-manager/emacs.nix
         ../home-manager/ags.nix
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
