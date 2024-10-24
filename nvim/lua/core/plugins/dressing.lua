@@ -1,7 +1,7 @@
 local M = {
   'stevearc/dressing.nvim',
   lazy = true,
-  enabled=false,
+  enabled=true,
   opts = {
     input = {
       border = 'single',

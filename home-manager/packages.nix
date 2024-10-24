@@ -43,6 +43,8 @@
       delta
 
       nodePackages.vscode-json-languageserver
+      codeium
+      steam-run
     ];
   };
 }

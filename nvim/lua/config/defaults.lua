@@ -253,8 +253,6 @@ return {
     -- WEB
     'bufls',
     'gopls',
-    'templ',
-    'tailwindcss',
     'ts_ls',
     'html',
     -- 'htmx',

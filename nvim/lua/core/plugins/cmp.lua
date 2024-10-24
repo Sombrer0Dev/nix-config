@@ -13,50 +13,15 @@ local M = {
 	config = function()
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-		local lspkind = require("lspkind")
 
 		local sources = {
 			{ name = "nvim_lsp" },
 			{ name = "codeium" },
-			{ name = "buffer", keyword_length = 5 },
+			{ name = "buffer", keyword_length = 3 },
 			{ name = "luasnip" },
 			{ name = "calc" },
 			{ name = "path" },
-			{ name = "rg", keyword_length = 5 },
-		}
-
-		local format = {
-			mode = "symbol_text",
-			max_width = 50,
-			symbol_map = {
-				Text = "󰉿",
-				Method = "󰆧",
-				Function = "󰊕",
-				Constructor = "",
-				Field = "󰜢",
-				Variable = "󰀫",
-				Class = "󰠱",
-				Interface = "",
-				Module = "",
-				Property = "󰜢",
-				Unit = "󰑭",
-				Value = "󰎠",
-				Enum = "",
-				Keyword = "󰌋",
-				Snippet = "",
-				Color = "󰏘",
-				File = "󰈙",
-				Reference = "󰈇",
-				Folder = "󰉋",
-				EnumMember = "",
-				Constant = "󰏿",
-				Struct = "󰙅",
-				Event = "",
-				Operator = "󰆕",
-				TypeParameter = "",
-				Codeium = "",
-			},
-			before = require("tailwind-tools.cmp").lspkind_format,
+			{ name = "rg", keyword_length = 3 },
 		}
 
 		cmp.setup({
@@ -92,7 +57,7 @@ local M = {
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
-					local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+					local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50, symbol_map = { Codeium = "",}})(entry, vim_item)
 					local strings = vim.split(kind.kind, "%s", { trimempty = true })
 					kind.kind = " " .. (strings[1] or "") .. " "
 					kind.menu = "    (" .. (strings[2] or "") .. ")"

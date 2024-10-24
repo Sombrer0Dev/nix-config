@@ -16,7 +16,7 @@ return {
 	"WolfeCub/harpeek.nvim",
 	-- dir = '~/Workspace/personal/lua/harpeek.nvim/',
 	event = { "BufReadPre", "BufNewFile" },
-  enabled = false,
+  enabled = true,
 	config = function()
 		local harpeek = require("harpeek")
 		harpeek.setup({

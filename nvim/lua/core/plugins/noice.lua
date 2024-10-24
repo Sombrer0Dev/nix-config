@@ -36,6 +36,7 @@ local M = {
 				long_message_to_split = true,
 				lsp_doc_border = true,
         command_palette=false,
+        inc_rename = true,
 			},
 			cmdline = {
 				view = "cmdline",

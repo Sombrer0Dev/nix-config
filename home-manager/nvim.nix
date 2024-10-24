@@ -71,7 +71,6 @@ in
         marksman
         yaml-language-server
         bash-language-server
-        tailwindcss-language-server
         typescript-language-server
         vscode-json-languageserver
 
