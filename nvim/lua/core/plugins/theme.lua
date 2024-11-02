@@ -43,6 +43,12 @@ local themes = {
       require 'core.plugins.themes.cyberdream'
     end
   },
+  onedark = {
+    "olimorris/onedarkpro.nvim",
+    config = function ()
+      require 'core.plugins.themes.onedark'
+    end
+  },
 }
 
 local selectedTheme = themes[vim.g.config.theme.name]

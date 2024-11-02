@@ -10,6 +10,16 @@ let
       hash = "sha256-HQtvUIS32QEjNAzP8oD69MNGr+HlRjLAVXewdU9alDg=";
     };
   };
+  tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
+    name = "fingers";
+    pluginName = "super-fingers";
+    src = pkgs.fetchFromGitHub {
+      owner = "artemave";
+      repo = "tmux_super_fingers";
+      rev = "2771f791a03880b3653c043cff48ee81db66212b";
+      hash = "sha256-GnVlV8JRKVx6muVKYvqkCSMds7IBTYp1NFEgQnnuYEc=";
+    };
+  };
   tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "sessionx";
     version = "20240119";
@@ -81,10 +91,9 @@ in
       tmux-mighty-scroll
 
       {
-        plugin = tmuxPlugins.tmux-fzf;
+        plugin = tmux-super-fingers;
         extraConfig = ''
-          unbind f
-          TMUX_FZF_LAUNCH_KEY="f"
+          set -ga update-environment EDITOR
         '';
       }
       {

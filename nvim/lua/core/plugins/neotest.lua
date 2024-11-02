@@ -8,6 +8,7 @@ local M = {
     'fredrikaverpil/neotest-golang',
     'nvim-neotest/neotest-python',
   },
+	event = { "BufReadPre", "BufNewFile" },
   config = function()
     neotest = require('neotest')
     neotest.setup {

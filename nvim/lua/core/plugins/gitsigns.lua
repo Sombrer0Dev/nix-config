@@ -3,12 +3,13 @@ local M = {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	event = { "BufReadPre", "BufNewFile" },
+	-- event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local function mappings()
 			local wk = require("which-key")
 			local icons = require("mini.icons")
 			local gs = package.loaded.gitsigns
+      local diff = require('diffview')
 
 			wk.add({
 				{ "<leader>g", group = "Git" },
@@ -34,7 +35,7 @@ local M = {
 					desc = "Blame full",
 				},
 				{ "<leader>gb", gs.toggle_current_line_blame, desc = "Blame line" },
-				{ "<leader>gD", gs.diffthis, desc = "Diff" },
+				{ "<leader>gD", '<cmd>DiffviewOpen<cr>', desc = "Diff" },
 				{ "<leader>gd", gs.toggle_deleted, desc = "Show deleted" },
         {"gH", "<cmd><C-U>Gitsigns select_hunk<cr>", desc="Select hunk", mode={"o", "x"}},
 			})

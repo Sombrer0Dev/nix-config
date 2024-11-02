@@ -42,6 +42,7 @@ in
       iconTheme.package
       adwaita-icon-theme
       papirus-icon-theme
+      victor-mono
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;

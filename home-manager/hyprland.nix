@@ -63,9 +63,9 @@ in
         touchpad = {
           natural_scroll = "no";
         };
-        sensitivity = -0.7;
+        sensitivity=-0.75;
         accel_profile = "flat";
-        force_no_accel = 1;
+        force_no_accel = 0;
         repeat_delay = 200;
         repeat_rate = 35;
       };

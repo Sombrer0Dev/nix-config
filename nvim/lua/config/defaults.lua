@@ -23,6 +23,14 @@ return {
       space = '·',
       nbsp = '␣',
     },
+    fillchars = {
+      eob = " ",
+      fold = " ",
+      foldopen = "",
+      foldclose = "",
+      foldsep = " ", -- or "│" to use bar for show fold area
+    },
+    statuscolumn = require("core.modules.status").column(),
     wrap = false,
     mouse = 'a', -- enable mouse see :h mouse
     number = true, -- set numbered lines
@@ -194,6 +202,7 @@ return {
       variant = 'night',
     },
     oxocarbon = {},
+    onedark = {},
     cyberdream = {
       -- dark light
       dark = true,
@@ -202,33 +211,7 @@ return {
   },
   -- treesitter parsers to be installed
   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  treesitter_ensure_installed = {
-    'bash',
-    'proto',
-    'vimdoc',
-    'cmake',
-    'php',
-    'css',
-    'dockerfile',
-    'go',
-    'gomod',
-    'gosum',
-    'html',
-    'javascript',
-    'json',
-    'lua',
-    'markdown',
-    'markdown_inline',
-    'query',
-    'python',
-    'regex',
-    'toml',
-    'vim',
-    'yaml',
-    'http',
-    'c',
-    'templ',
-  },
+  treesitter_ensure_installed = 'all',
 
   -- LSPs that should be installed by Mason-lspconfig
   lsp_servers = {
@@ -250,6 +233,8 @@ return {
     -- 'pylsp',
     -- 'pyright',
 
+    -- ZIG
+    'zls',
     -- WEB
     'bufls',
     'gopls',

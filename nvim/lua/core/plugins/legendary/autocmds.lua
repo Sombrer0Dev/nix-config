@@ -62,6 +62,15 @@ function M.default_autocmds()
 				end,
 			},
 		},
+    {
+      name = "Lint",
+      {
+        "BufWritePost",
+        function ()
+          require('lint').try_lint()
+        end
+      }
+    }
 	}
 end
 
