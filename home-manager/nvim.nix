@@ -45,6 +45,7 @@ in
         git
         gcc
         gnumake
+        sqlite
         unzip
         wget
         curl
@@ -71,8 +72,6 @@ in
         marksman
         yaml-language-server
         bash-language-server
-        typescript-language-server
-        vscode-json-languageserver
 
         # formatters
         black

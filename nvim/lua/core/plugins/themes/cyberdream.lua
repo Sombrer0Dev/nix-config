@@ -57,7 +57,7 @@ require("cyberdream").setup({
 		whichkey = true,
 		notify = true,
 		mini = true,
-		grapple = true,
+		grapple = false,
 		gitsigns = true,
 	},
 })

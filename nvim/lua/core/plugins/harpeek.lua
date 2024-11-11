@@ -46,7 +46,7 @@ return {
 			end,
 			winopts = {
 				row = vim.api.nvim_win_get_height(0) - 15,
-				border = "none",
+				-- border = "none",
 			},
 		})
 		harpeek.open()
@@ -59,7 +59,6 @@ return {
 				harpeek.open({
 					winopts = {
 						row = vim.api.nvim_win_get_height(0) - 15,
-						border = "none",
 					},
 				})
 			end,

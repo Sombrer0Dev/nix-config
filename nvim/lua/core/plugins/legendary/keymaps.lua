@@ -110,12 +110,12 @@ function M.default_keymaps()
 
 		-- LSP hover and fold preview
 		{ "K", vim.lsp.buf.hover, description = "Hover doc or preview fold", mode = "n" },
-		{ "<leader>a", "<cmd>Grapple toggle<cr>", description = "Grapple mark" },
-		{ "<C-e>", "<cmd>Grapple open_tags<cr>", description = "Grapple open tags" },
-		{ "<C-n>", "<cmd>Grapple select index=1<cr>" },
-		{ "<C-t>", "<cmd>Grapple select index=2<cr>" },
-		{ "<C-l>", "<cmd>Grapple select index=3<cr>" },
-		{ "<C-p>", "<cmd>Grapple select index=4<cr>" },
+		-- { "<leader>a", "<cmd>Grapple toggle<cr>", description = "Grapple mark" },
+		-- { "<C-e>", "<cmd>Grapple open_tags<cr>", description = "Grapple open tags" },
+		-- { "<C-n>", "<cmd>Grapple select index=1<cr>" },
+		-- { "<C-t>", "<cmd>Grapple select index=2<cr>" },
+		-- { "<C-l>", "<cmd>Grapple select index=3<cr>" },
+		-- { "<C-p>", "<cmd>Grapple select index=4<cr>" },
 		{
 			"<leader>h",
 			function()

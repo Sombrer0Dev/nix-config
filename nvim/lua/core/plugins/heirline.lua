@@ -17,8 +17,8 @@ return {
       -- stylua: ignore start
 			statusline = {
         c.ViMode, Space, c.WorkingDir, Space, c.FileName, Space, c.Git, Space, c.Diagnostics, Align,
-        c.Debugger, Align,
-        c.LSPNames, Space, c.MacroRec, c.Ruler, Space, c.ScrollBar
+        c.MacroRec, c.Debugger, Align,
+        c.LSPNames, Space, c.Ruler, Space, c.ScrollBar
       },
 			-- stylua: ignore end
 			winbar = { c.Navic },

@@ -4,10 +4,10 @@ local Diagnostics = {
 	condition = conditions.has_diagnostics,
 
 	static = {
-		error_icon = "",
-		warn_icon = "",
-		info_icon = "",
-		hint_icon = "",
+		error_icon = " ",
+		warn_icon = " ",
+		info_icon = " ",
+		hint_icon = " ",
 	},
 
 	init = function(self)
@@ -27,25 +27,25 @@ local Diagnostics = {
 			-- 0 is just another output, we can decide to print it or not!
 			return self.errors > 0 and (self.error_icon .. self.errors .. " ")
 		end,
-		hl = { fg = "diag_error" },
+		hl = { fg = "red" },
 	},
 	{
 		provider = function(self)
 			return self.warnings > 0 and (self.warn_icon .. self.warnings .. " ")
 		end,
-		hl = { fg = "diag_warn" },
+		hl = { fg = "yellow" },
 	},
 	{
 		provider = function(self)
 			return self.info > 0 and (self.info_icon .. self.info .. " ")
 		end,
-		hl = { fg = "diag_info" },
+		hl = { fg = "blue" },
 	},
 	{
 		provider = function(self)
 			return self.hints > 0 and (self.hint_icon .. self.hints)
 		end,
-		hl = { fg = "diag_hint" },
+		hl = { fg = "cyan" },
 	},
 	{
 		provider = "]",

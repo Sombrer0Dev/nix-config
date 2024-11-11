@@ -15,11 +15,11 @@ local M = {
     { '<leader>fq', pickers.zoxide, desc = 'Fzf zoxide' },
     { '<leader>f<space>', '<cmd>FzfLua resume<cr>', desc = 'Fzf resume search' },
     {
-      '<leader>fw',
+      '<leader>fW',
       function()
         pickers.grep({}, true, true)
       end,
-      desc = 'Fzf resume search',
+      desc = 'Grep current workd',
     },
 
     {
@@ -35,6 +35,7 @@ local M = {
   config = function()
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
+      'fzf-tmux',
       fzf_opts = {
         ['--margin'] = '0,0',
         -- ['--select-1'] = '',

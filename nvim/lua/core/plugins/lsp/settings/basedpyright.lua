@@ -1,4 +1,3 @@
-print('loh')
 local opts = {
 }
 

@@ -239,6 +239,7 @@ return {
     'bufls',
     'gopls',
     'ts_ls',
+    'denols',
     'html',
     -- 'htmx',
     'jsonls',
