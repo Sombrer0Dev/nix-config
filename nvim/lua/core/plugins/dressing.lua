@@ -5,6 +5,7 @@ local M = {
   opts = {
     input = {
       border = 'single',
+      mappings
     },
     select = {
       buitin = {

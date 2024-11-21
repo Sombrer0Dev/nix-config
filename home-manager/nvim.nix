@@ -45,7 +45,7 @@ in
         git
         gcc
         gnumake
-        sqlite
+        sqlite.dev
         unzip
         wget
         curl
@@ -60,6 +60,7 @@ in
         php
 
         # config helpers
+        vale
         nil
         lua-language-server
         stylua

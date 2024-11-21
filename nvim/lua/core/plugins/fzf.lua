@@ -13,14 +13,9 @@ local M = {
     { '<leader>qf', '<cmd>FzfLua quickfix_stack<cr>', desc = 'Fzf last quickfix lists' },
     { '<leader>fq', '<cmd>FzfLua quickfix<cr>', desc = 'Fzf quickfix' },
     { '<leader>fq', pickers.zoxide, desc = 'Fzf zoxide' },
+    { '<leader>fw', pickers.switch_worktree, desc = 'Switch Worktree' },
+    { '<leader>fW', pickers.add_worktree, desc = 'Switch Worktree' },
     { '<leader>f<space>', '<cmd>FzfLua resume<cr>', desc = 'Fzf resume search' },
-    {
-      '<leader>fW',
-      function()
-        pickers.grep({}, true, true)
-      end,
-      desc = 'Grep current workd',
-    },
 
     {
       '<leader>fg',

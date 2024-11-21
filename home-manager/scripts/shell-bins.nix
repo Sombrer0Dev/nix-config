@@ -4,6 +4,39 @@ let
     page=$(man -k . | fzf-tmux --nth 1,2)
     echo $page | awk 'BEGIN {ORS=" "}; {print $2} {print $1}'| tr -d '()' | xargs man
   '';
+  get-worktree-branch = pkgs.writeShellApplication {
+    name = "get-worktree-branch";
+    runtimeInputs = with pkgs; [
+      git
+      ripgrep
+    ];
+    text = ''
+      git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf
+    '';
+  };
+  delete-worktree-branch = pkgs.writeShellApplication {
+    name = "delete-worktree-branch";
+    runtimeInputs = with pkgs; [
+      git
+      ripgrep
+    ];
+    text = ''
+      git worktree remove "$(git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf)"
+    '';
+  };
+  add-worktree-branch = pkgs.writeShellApplication {
+    name = "add-worktree-branch";
+    runtimeInputs = with pkgs; [
+      git
+      ripgrep
+    ];
+    text = ''
+      BRANCH="$(git branch --format='%(refname:short)' |fzf)"
+      WORKTREE_PATH="$(git worktree list | rg bare | awk '{print $1}')";
+      git worktree add "$WORKTREE_PATH/$BRANCH"
+      echo "$WORKTREE_PATH/$BRANCH"
+    '';
+  };
 
   rf = pkgs.writeShellApplication {
     name = "rf";
@@ -71,5 +104,8 @@ in
     bman
     rf
     rfq
+    add-worktree-branch
+    delete-worktree-branch
+    get-worktree-branch
   ];
 }

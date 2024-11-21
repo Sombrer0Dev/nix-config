@@ -10,6 +10,7 @@ local M = {
 	ScrollBar = require("core.plugins.heirline.ScrollBar"),
 	ViMode = require("core.plugins.heirline.ViMode"),
 	WorkingDir = require("core.plugins.heirline.WorkingDir"),
+	TabLine = require("core.plugins.heirline.TabLine"),
 }
 
 return M

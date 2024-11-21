@@ -63,7 +63,7 @@ in
         touchpad = {
           natural_scroll = "no";
         };
-        sensitivity=-0.75;
+        sensitivity = -0.75;
         accel_profile = "flat";
         force_no_accel = 0;
         repeat_delay = 200;
@@ -86,12 +86,13 @@ in
       windowrule =
         let
           f = regex: "float, ^(${regex})$";
+          fs = { regex, size }: "float, size ${size}, ^(${regex})";
         in
         [
           (f "org.gnome.Calculator")
           (f "org.gnome.Nautilus")
           (f "pavucontrol")
-          (f "spotify")
+          (f "Spotify")
           (f "nm-connection-editor")
           (f "blueberry.py")
           (f "org.gnome.Settings")
@@ -101,6 +102,10 @@ in
           (f "xdg-desktop-portal-gnome")
           (f "transmission-gtk")
           (f "com.github.Aylur.ags")
+          (fs {
+            size = "50% 50%";
+            regex = "Bitwarden";
+          })
           ("bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1")
         ];
 
@@ -111,6 +116,7 @@ in
             "${mod}, ${key}, ${cmd}, ${arg}";
           mvfocus = binding "SUPER" "movefocus";
           ws = binding "SUPER" "workspace";
+          wsfocus = binding "SUPER" "focusworkspaceoncurrentmonitor";
           resizeactive = binding "SUPER ALT" "resizeactive";
           mvwindow = binding "SUPER SHIFT" "movewindow";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
@@ -142,6 +148,8 @@ in
           "SUPER, W, togglefloating"
           "SUPER, F, fullscreen, 1"
           "SUPER, P, togglesplit"
+          "SUPER, G, togglegroup"
+          "SUPER CONTROL, G, changegroupactive"
 
           "SUPER, T, togglespecialworkspace, special"
           "SUPER CONTROL, T, movetoworkspace, special"
@@ -160,6 +168,7 @@ in
           (mvwindow "h" "l")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
+        ++ (map (i: wsfocus (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);
 
       bindle = [

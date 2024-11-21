@@ -21,8 +21,8 @@ return {
         c.LSPNames, Space, c.Ruler, Space, c.ScrollBar
       },
 			-- stylua: ignore end
-			winbar = { c.Navic },
-			-- tabline = { c.Navic },
+			-- winbar = { c.ViMode },
+			-- tabline = { c.TabLine },
 			-- statuscolumn = {},
 		})
 	end,

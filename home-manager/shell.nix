@@ -9,14 +9,16 @@ let
 
     "gs" = "git status";
     "gb" = "git branch";
-    "gch" = "git checkout";
+    "gsw" = "git switch";
     "gc" = "git commit";
     "ga" = "git add";
     "gr" = "git reset --soft HEAD~1";
     "gall" = "git add . && git commit";
+    "workswitch" = "cd $(get-worktree-branch)";
+    "workdel" = "delete-worktree-branch";
+    "workadd" = "cd $(add-worktree-branch)";
 
     "del" = "trash put";
-    "db" = "GDK_BACKEND=x11 dbeaver";
     "ls" = "eza -l";
     "tree" = "eza -T";
     "clear" = "clear && tput cup $(tput lines) 0";
@@ -90,9 +92,34 @@ in
     enableFishIntegration = true;
     enableZshIntegration = true;
   };
+
   config.programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  config.programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+    tmux.enableShellIntegration = true;
+  };
+  config.programs.bat = {
+    enable = true;
+    themes = {
+      cyberdream = {
+        src = pkgs.fetchFromGitHub {
+          owner = "scottmckendry";
+          repo = "cyberdream.nvim";
+          rev = "b0e14290e737b1ae3f3cdcaf9bdcc7c3070ab88e";
+          sha256 = "sha256-T+fNR3iZOosdCIb+0DaCukyVdnTUtKu4VdTwHX/5sgg=";
+        };
+        file = "./extras/textmate/cyberdream.tmTheme";
+      };
+    };
+    config = {
+      theme = "\"cyberdream\"";
+    };
   };
   # config.programs.nix-index = {
   #   enable = true;

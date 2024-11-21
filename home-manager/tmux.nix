@@ -109,7 +109,8 @@ in
     extraConfig = ''
       set -g base-index 1
       setw -g pane-base-index 1
-      set -as terminal-features ",alacritty*:RGB"
+      set -g default-terminal "tmux-256color"
+      set -as terminal-features ",xterm-256color:RGB"
       set-option -g focus-events on
 
       # Enable mouse control (clickable windows, panes, resizable panes)

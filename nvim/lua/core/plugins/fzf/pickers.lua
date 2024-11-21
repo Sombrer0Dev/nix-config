@@ -326,7 +326,7 @@ end
 function M.grep(opts, is_live, is_word)
 	local fzfutils = require("core.plugins.fzf.utils")
 	opts = opts or {}
-  opts.fzf_opts = {['-p']='95%,90%'}
+	opts.fzf_opts = { ["-p"] = "95%,90%" }
 	if is_live == nil then
 		is_live = true
 	end
@@ -392,6 +392,52 @@ end
 
 function M.fixtures()
 	require("fzf-lua").grep({ search = "def " .. vim.fn.expand("<cword>") })
+end
+
+function M.switch_worktree()
+	local fzflua = require("fzf-lua")
+
+	fzflua.fzf_exec("git worktree list | rg -v bare | awk '{print $1}'", {
+		actions = {
+			["enter"] = {
+				desc = "change-directory",
+				fn = function(sel)
+					if type(next(sel)) == "nil" then
+						return
+					end
+
+					require("git-worktree").switch_worktree(vim.fs.basename(sel[1]))
+				end,
+			},
+			["ctrl-d"] = function(sel)
+        if type(next(sel)) == "nil" then
+          return
+        end
+				require("git-worktree").delete_worktree(sel[1])
+			end,
+		},
+	})
+end
+
+function M.add_worktree()
+	vim.ui.input({ prompt = "Input worktree name" }, function(str)
+		if str == nil then
+			return
+		end
+
+		local fzflua = require("fzf-lua")
+
+		fzflua.fzf_exec("git branch --format='%(refname:short)'", {
+			actions = {
+				["enter"] = {
+					desc = "choose-branch",
+					fn = function(sel)
+						require("git-worktree").create_worktree(str, sel[1], "origin")
+					end,
+				},
+			},
+		})
+	end)
 end
 
 return M

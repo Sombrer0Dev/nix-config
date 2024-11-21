@@ -8,7 +8,7 @@ local M = {
 		disable_signs = false,
 		disable_context_highlighting = false,
 		-- tab | replace | split | split_above | vsplit | auto
-		kind = "tab",
+		-- kind = "tab",
 
 		-- ascii | unicode
 		graph_style = "unicode",

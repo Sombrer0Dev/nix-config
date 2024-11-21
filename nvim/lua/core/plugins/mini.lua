@@ -47,7 +47,7 @@ return {
 					-- Highlight 'FIXME', 'HACK', 'TODO', 'NOTE'
 					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
 					hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-					todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+					todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsNote" },
 					note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 					gogen = { pattern = "%f[%w]()go:generate()%f[%W]", group = "MiniHipatternsNote" },
 					gobuild = { pattern = "%f[%w]()go:build()%f[%W]", group = "MiniHipatternsNote" },

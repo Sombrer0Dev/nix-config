@@ -24,6 +24,7 @@ return {
       nbsp = '␣',
     },
     fillchars = {
+
       eob = " ",
       fold = " ",
       foldopen = "",
@@ -236,7 +237,7 @@ return {
     -- ZIG
     'zls',
     -- WEB
-    'bufls',
+    'buf_ls',
     'gopls',
     'ts_ls',
     'denols',

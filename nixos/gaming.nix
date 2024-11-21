@@ -6,16 +6,12 @@
 }:
 {
   options.gaming = {
-    enable = lib.mkEnableOption "Hyprland";
+    enable = lib.mkEnableOption "Gaming";
   };
 
   config = lib.mkIf config.gaming.enable {
     # opengl
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    hardware.graphics.enable = true;
 
     # gpu drivers
     services.xserver.videoDrivers = [ "amdgpu" ];
@@ -27,7 +23,6 @@
 
     environment.systemPackages = with pkgs; [
       mangohud
-
       protonup
     ];
     environment.sessionVariables = {
