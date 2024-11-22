@@ -394,6 +394,14 @@ function M.fixtures()
 	require("fzf-lua").grep({ search = "def " .. vim.fn.expand("<cword>") })
 end
 
+local function switch_tmux(name)
+	local output = io.popen("tmux list-panes"):read("*all")
+	if #SPLIT(output, "\n") > 2 then
+		os.execute("tmux send-keys -t .+ C-c")
+		local cmd = "tmux send-keys -t .+ 'workswitch " .. name .. "' KPENTER"
+		os.execute(cmd)
+	end
+end
 function M.switch_worktree()
 	local fzflua = require("fzf-lua")
 
@@ -407,12 +415,13 @@ function M.switch_worktree()
 					end
 
 					require("git-worktree").switch_worktree(vim.fs.basename(sel[1]))
+					switch_tmux(sel[1])
 				end,
 			},
 			["ctrl-d"] = function(sel)
-        if type(next(sel)) == "nil" then
-          return
-        end
+				if type(next(sel)) == "nil" then
+					return
+				end
 				require("git-worktree").delete_worktree(sel[1])
 			end,
 		},
@@ -433,6 +442,7 @@ function M.add_worktree()
 					desc = "choose-branch",
 					fn = function(sel)
 						require("git-worktree").create_worktree(str, sel[1], "origin")
+						switch_tmux(sel[1])
 					end,
 				},
 			},

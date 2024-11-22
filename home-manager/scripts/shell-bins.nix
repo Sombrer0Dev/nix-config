@@ -11,7 +11,12 @@ let
       ripgrep
     ];
     text = ''
-      git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf
+      if [ $# -eq 0 ]; then
+        QUERY=""
+      else
+        QUERY="$1"
+      fi
+      git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf --query "$QUERY" --select-1
     '';
   };
   delete-worktree-branch = pkgs.writeShellApplication {
@@ -21,7 +26,12 @@ let
       ripgrep
     ];
     text = ''
-      git worktree remove "$(git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf)"
+      if [ $# -eq 0 ]; then
+        QUERY=""
+      else
+        QUERY="$1"
+      fi
+      git worktree remove "$(git worktree list --porcelain | rg worktree | awk '{print $2}' | fzf --query "$QUERY" --select-1)"
     '';
   };
   add-worktree-branch = pkgs.writeShellApplication {
@@ -31,7 +41,13 @@ let
       ripgrep
     ];
     text = ''
-      BRANCH="$(git branch --format='%(refname:short)' |fzf)"
+      if [ $# -eq 0 ]; then
+        QUERY=""
+      else
+        QUERY="$1"
+      fi
+
+      BRANCH="$(git branch --format='%(refname:short)' |fzf --query "$QUERY" --select-1)"
       WORKTREE_PATH="$(git worktree list | rg bare | awk '{print $1}')";
       git worktree add "$WORKTREE_PATH/$BRANCH"
       echo "$WORKTREE_PATH/$BRANCH"

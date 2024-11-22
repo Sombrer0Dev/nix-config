@@ -14,9 +14,6 @@ let
     "ga" = "git add";
     "gr" = "git reset --soft HEAD~1";
     "gall" = "git add . && git commit";
-    "workswitch" = "cd $(get-worktree-branch)";
-    "workdel" = "delete-worktree-branch";
-    "workadd" = "cd $(add-worktree-branch)";
 
     "del" = "trash put";
     "ls" = "eza -l";
@@ -41,20 +38,51 @@ in
       syntaxHighlighting.enable = true;
       initExtra = ''
         SHELL=${pkgs.zsh}/bin/zsh
+        workswitch() {
+          cd $(get-worktree-branch $1)
+        }
+        workdel() {
+          delete-worktree-branch $1
+        }
+        workadd() {
+          cd $(add-worktree-branch $1)
+        }
       '';
     };
 
     bash = {
       shellAliases = aliases;
       enable = true;
-      initExtra = "SHELL=${pkgs.bash}";
+      initExtra = ''
+        SHELL=${pkgs.bash}
+        workswitch() {
+          cd $(get-worktree-branch $1)
+        }
+        workdel() {
+          delete-worktree-branch $1
+        }
+        workadd() {
+          cd $(add-worktree-branch $1)
+        }
+      '';
     };
 
     fish = {
       enable = true;
       shellAliases = aliases;
       interactiveShellInit = ''
+        set SHELL ${pkgs.fish}
         nix-your-shell fish | source
+
+        function workswitch -d "Swtich git worktree"
+          cd (get-worktree-branch $argv)
+        end
+        function workdel -d "Delete git worktree"
+          delete-worktree-branch $argv
+        end
+        function workadd -d "Create new git worktree"
+          cd (add-worktree-branch $argv)
+        end
       '';
       shellInit = "set -gx SHELL '${pkgs.fish}/bin/fish'";
       plugins = [
