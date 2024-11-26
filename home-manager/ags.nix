@@ -25,4 +25,8 @@
     configDir = ../ags;
     extraPackages = with pkgs; [ accountsservice ];
   };
+  xdg.configFile.ags = {
+    source = ../ags;
+    recursive = true;
+    };
 }
