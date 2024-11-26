@@ -71,7 +71,6 @@ in
       enable = true;
       shellAliases = aliases;
       interactiveShellInit = ''
-        set SHELL ${pkgs.fish}
         nix-your-shell fish | source
 
         function workswitch -d "Swtich git worktree"
