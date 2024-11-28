@@ -21,7 +21,7 @@ require("cyberdream").setup({
 			-- See `:h highlight-groups` for a list of highlight groups or run `:hi` to see all groups and their current values
 
 			-- Example:
-			-- Comment = { fg = "#696969", bg = "NONE", italic = true },
+			Comment = { fg = "#7b8496", bg = "NONE", italic = true },
 			CursorLineNr = { fg = "#16181A", bg = "#656C7B" },
 			CursorLine = { fg = "NONE", bg = "NONE" },
 

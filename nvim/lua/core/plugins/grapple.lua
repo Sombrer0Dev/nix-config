@@ -2,6 +2,7 @@ return {
 	"cbochs/grapple.nvim",
 	lazy = false,
   cmd = {'Grapple'},
+  enabled = false,
 	keys = {
 		{ "<c-e>", "<cmd>Grapple toggle_tags<cr>", desc = "Toggle tags menu" },
 
