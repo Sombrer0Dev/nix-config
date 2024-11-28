@@ -83,7 +83,6 @@ in
           cd (add-worktree-branch $argv)
         end
       '';
-      shellInit = "set -gx SHELL '${pkgs.fish}/bin/fish'";
       plugins = [
         {
           name = "pure.fish";
