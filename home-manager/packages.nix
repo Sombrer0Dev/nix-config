@@ -24,6 +24,7 @@
     ];
     cli = [
       nix-your-shell
+      fzf-git-sh
       zoxide
       eza
       fd

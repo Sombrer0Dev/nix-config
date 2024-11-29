@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
   aliases = {
-    "ll" = "ls";
+    "ll" = "eza";
     "l" = "ls";
 
     ":q" = "exit";
@@ -31,13 +31,36 @@ in
 
   config.programs = {
     zsh = {
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
+      zplug = {
+        enable = true;
+        plugins = [
+          {
+            name = "zsh-users/zsh-completions";
+          }
+          {
+            name = "Aloxaf/fzf-tab";
+          }
+        ];
+      };
       shellAliases = aliases;
+      autocd = true;
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       initExtra = ''
         SHELL=${pkgs.zsh}/bin/zsh
+
+        if command -v nix-your-shell > /dev/null; then
+          nix-your-shell zsh | source /dev/stdin
+        fi
         workswitch() {
           cd $(get-worktree-branch $1)
         }
@@ -47,9 +70,34 @@ in
         workadd() {
           cd $(add-worktree-branch $1)
         }
+
+        source ~/.p10k.zsh
+
+        # Keybindings
+        bindkey -e
+
+        # Completion
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        # zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+        # zstyle ':completion:*' menu no
+        # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+        # zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls --color $realpath'
+
+        zstyle ':completion:*:git-checkout:*' sort false
+        zstyle ':completion:*:descriptions' format '[%d]'
+        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+        zstyle ':fzf-tab:*' use-fzf-default-opts yes
+        zstyle ':fzf-tab:*' switch-group '<' '>'
+        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+        source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
       '';
     };
-
     bash = {
       shellAliases = aliases;
       enable = true;
@@ -112,45 +160,42 @@ in
       ];
     };
 
-  };
-  config.programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-    enableZshIntegration = true;
-  };
-
-  config.programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
-  config.programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-    enableZshIntegration = true;
-    tmux.enableShellIntegration = true;
-  };
-  config.programs.bat = {
-    enable = true;
-    themes = {
-      cyberdream = {
-        src = pkgs.fetchFromGitHub {
-          owner = "scottmckendry";
-          repo = "cyberdream.nvim";
-          rev = "b0e14290e737b1ae3f3cdcaf9bdcc7c3070ab88e";
-          sha256 = "sha256-T+fNR3iZOosdCIb+0DaCukyVdnTUtKu4VdTwHX/5sgg=";
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+    };
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      tmux.enableShellIntegration = true;
+    };
+    bat = {
+      enable = true;
+      themes = {
+        cyberdream = {
+          src = pkgs.fetchFromGitHub {
+            owner = "scottmckendry";
+            repo = "cyberdream.nvim";
+            rev = "b0e14290e737b1ae3f3cdcaf9bdcc7c3070ab88e";
+            sha256 = "sha256-T+fNR3iZOosdCIb+0DaCukyVdnTUtKu4VdTwHX/5sgg=";
+          };
+          file = "./extras/textmate/cyberdream.tmTheme";
         };
-        file = "./extras/textmate/cyberdream.tmTheme";
+      };
+      config = {
+        theme = "\"cyberdream\"";
       };
     };
-    config = {
-      theme = "\"cyberdream\"";
-    };
   };
-  # config.programs.nix-index = {
-  #   enable = true;
-  #   enableFishIntegration = true;
-  #   enableZshIntegration = true;
-  #   enableBashIntegration = true;
-  # };
+
 }

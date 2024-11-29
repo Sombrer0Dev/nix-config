@@ -52,6 +52,7 @@
     distrobox
     networkmanagerapplet
   ];
+  environment.pathsToLink = [ "/share/zsh" ];
 
   # services
   services = {
