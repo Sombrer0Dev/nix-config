@@ -24,9 +24,9 @@ in
         current = "rev-parse --abbrev-ref HEAD";
 
         # worktrees
-        workswitch = "!cd (git worktree list --porcelain | rg worktree | rg branches | awk '{print $2}' | fzf) && git status";
-        # workadd= "!cd (git worktree list --porcelain | rg worktree | rg branches | awk '{print $2}' | fzf) && git status";
-        workdel = "!git worktree remove (git worktree list --porcelain | rg worktree | rg branches | awk '{print $2}' | fzf) && git status";
+        wa = "worktree add";
+        wl = "worktree list";
+        wr = "worktree remove";
         # Stolen))
         pam = "!BRANCH=`git recent | fzf` && git checkout \${BRANCH}";
         pamadd = "!FILES=`git status -s | awk '{ print $2 }' | fzf -x -m` && git add --all \${FILES}";
