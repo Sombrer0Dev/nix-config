@@ -21,7 +21,7 @@ local M = {
           end, key = "p", desc = ""},
           { action = "e $MYVIMRC | cd %:p:h | wincmd k | pwd",  key = "s", desc = ""},
           { action = require("core.plugins.fzf.pickers").grep,  key = "g", desc = ""},
-          { action = require("core.plugins.fzf.pickers").switch_worktree,  key = "w", desc = ""},
+          { action = require("core.plugins.fzf.pickers").universal_worktree,  key = "w", desc = ""},
           { action = "qa",                                      key = "q", desc = ""},
         },
         footer = {},

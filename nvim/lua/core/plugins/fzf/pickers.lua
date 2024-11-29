@@ -450,4 +450,82 @@ function M.add_worktree()
 	end)
 end
 
+function M.universal_worktree()
+	local worktree_path = vim.g.config.worktree_path
+
+	local fzflua = require("fzf-lua")
+
+	local opts = {
+		header_separator = "  ",
+		prompt = "WorkTrees> ",
+		fzf_opts = {
+			["--nth"] = 1,
+			["--preview"] = 'echo {3} | sed "s/[][]//g"| xargs git log --oneline --color --decorate --graph',
+			-- ["--header-lines"] = 1,
+		},
+		actions = {
+			["enter"] = {
+				desc = "Switch worktree",
+				fn = function(sel)
+					local worktree = SPLIT(sel[1], "  ")
+					local path = worktree[1]
+					vim.print(path)
+
+					require("git-worktree").switch_worktree(path)
+				end,
+			},
+
+			["ctrl-d"] = {
+				desc = "Delete worktree",
+				fn = function(sel)
+					if type(next(sel)) == "nil" then
+						return
+					end
+					local worktree = SPLIT(sel[1], "  ")
+					local path = worktree[1]
+					require("git-worktree").delete_worktree(path)
+				end,
+				header = "Delete worktree",
+			},
+
+			["ctrl-g"] = {
+				desc = "Create Worktree",
+				header = "Create worktree",
+				fn = function(_)
+					local c_opts = {
+						prompt = "Choose branch> ",
+						fzf_opts = {
+							["--preview"] = "git log --oneline --color --decorate --graph {}",
+						},
+						actions = {
+							["enter"] = {
+								desc = "choose-branch",
+								fn = function(sel)
+									if
+										pcall(function()
+											require("git-worktree").create_worktree(
+												"../" .. worktree_path .. "/" .. sel[1],
+												sel[1],
+												"origin"
+											)
+										end)
+									then
+									else
+										vim.notify("Worktree already exists", vim.log.levels.WARN)
+									end
+								end,
+							},
+						},
+					}
+					fzflua.fzf_exec("git branch --format='%(refname:short)'", c_opts)
+				end,
+			},
+		},
+	}
+
+	opts = fzflua.config.normalize_opts(opts, {})
+	opts = fzflua.core.set_header(opts, { "actions" })
+	fzflua.fzf_exec("git worktree list | rg -v 'bare'", opts)
+end
+
 return M
