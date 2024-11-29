@@ -28,5 +28,5 @@
   xdg.configFile.ags = {
     source = ../ags;
     recursive = true;
-    };
+  };
 }

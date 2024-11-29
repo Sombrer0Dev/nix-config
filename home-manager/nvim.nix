@@ -1,13 +1,38 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   pypkg = pkgs.python312Packages;
 in
 {
+  home.sessionVariables = {
+    MANPAGER = "nvim -c 'Man!' -o -";
+    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+  };
   xdg = {
-    # TODO
-    configFile.nvim = {
-    source = ../nvim;
-    recursive = true;
+    configFile = {
+      ripgrep_ignore.text = ''
+        .git/
+        yarn.lock
+        package-lock.json
+        packer_compiled.lua
+        .DS_Store
+        .netrwhist
+        dist/
+        node_modules/
+        **/node_modules/
+        wget-log
+        wget-log.*
+        /vendor
+      '';
+      nvim = {
+
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/nix-config/nvim";
+        recursive = true;
+      };
     };
     desktopEntries."nvim" = lib.mkIf pkgs.stdenv.isLinux {
       name = "NeoVim";
@@ -26,20 +51,18 @@ in
     };
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
-
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
 
-    withRuby = true;
-    withNodeJs = true;
-    withPython3 = true;
+    withRuby = false;
+    withNodeJs = false;
+    withPython3 = false;
+    defaultEditor = true;
 
+    extraLuaPackages = ps: [ ps.jsregexp ];
     extraPackages =
       with pkgs;
       with pypkg;
@@ -48,7 +71,7 @@ in
         git
         gcc
         gnumake
-        sqlite.dev
+        sqlite
         unzip
         wget
         curl
