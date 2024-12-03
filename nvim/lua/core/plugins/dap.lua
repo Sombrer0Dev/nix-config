@@ -37,7 +37,7 @@ local M = {
 				},
 			},
 			config = function()
-				require("dap-python").setup(require("utils.functions").safe_cwd() .. "/venv/bin/python")
+				require("dap-python").setup()
 			end,
 		},
 		-- fancy UI for the debugger

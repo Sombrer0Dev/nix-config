@@ -42,6 +42,9 @@ in
       workspace = [
         "1,monitor:HDMI-A-1"
         "2,monitor:DP-2"
+        "w[t1], gapsout:0, gapsin:0"
+        "w[tg1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
       ];
 
       general = {
@@ -106,8 +109,16 @@ in
             size = "50% 50%";
             regex = "Bitwarden";
           })
-          ("bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1")
+          "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
+      windowrulev2 = [
+        "bordersize 0, floating:0, onworkspace:w[t1]"
+        "rounding 0, floating:0, onworkspace:w[t1]"
+        "bordersize 0, floating:0, onworkspace:w[tg1]"
+        "rounding 0, floating:0, onworkspace:w[tg1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
 
       bind =
         let

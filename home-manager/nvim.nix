@@ -87,7 +87,7 @@ in
 
         # config helpers
         vale
-        nil
+        nixd
         lua-language-server
         stylua
 

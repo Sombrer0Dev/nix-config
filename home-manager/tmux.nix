@@ -190,6 +190,7 @@ in
       set -g status-justify centre
       set -g status-style 'fg=colour1'
       set -g status-right '%Y-%m-%d %H:%M '
+      set -g status-left '#{session_name} '
       set -g status-right-length 50
       set -g status-left-length 100
 

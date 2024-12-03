@@ -7,7 +7,7 @@ return {
 	-- to make sure all required plugins and colorschemes are loaded before setup
 	-- event = "UiEnter",
 	dependencies = { "SmiteshP/nvim-navic" },
-	enabled = true,
+	enabled = false,
 
 	config = function()
 		local colors = require("cyberdream.colors").default

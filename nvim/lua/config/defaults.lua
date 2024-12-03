@@ -227,7 +227,7 @@ return {
 		"yamlls",
 		"rust_analyzer",
 		-- 'hls',
-		"nil_ls",
+		"nixd",
 
 		-- PYTHON
 		"jedi_language_server",

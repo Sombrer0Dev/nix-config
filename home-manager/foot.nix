@@ -9,6 +9,7 @@
         font-bold = "MonaspiceKr Nerd Font:size=9";
         font-italic = "MonaspiceKr Nerd Font:size=9";
         font-bold-italic = "MonaspiceKr Nerd Font:size=9";
+        pad = "10x10 center";
       };
       colors = {
         # alpha = 0.8;

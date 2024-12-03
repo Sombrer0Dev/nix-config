@@ -2,7 +2,7 @@ return {
 	"utilyre/barbecue.nvim",
 	name = "barbecue",
 	version = "*",
-	enabled = true,
+	enabled = false,
 	dependencies = {
 		"SmiteshP/nvim-navic",
 	},
