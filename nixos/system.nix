@@ -45,6 +45,7 @@
     home-manager
     neovim
     go
+    cargo
     bottles
     git
     wget

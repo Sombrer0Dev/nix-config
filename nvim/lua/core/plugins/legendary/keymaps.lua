@@ -116,18 +116,6 @@ function M.default_keymaps()
 		-- { "<C-t>", "<cmd>Grapple select index=2<cr>" },
 		-- { "<C-l>", "<cmd>Grapple select index=3<cr>" },
 		-- { "<C-p>", "<cmd>Grapple select index=4<cr>" },
-		{
-			"<leader>h",
-			function()
-				require("harpeek").toggle({
-					winopts = {
-						row = vim.api.nvim_win_get_height(0) - 15,
-						border = "none",
-					},
-				})
-			end,
-			description = "Harpeek",
-		},
 	}
 end
 

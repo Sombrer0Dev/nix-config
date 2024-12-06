@@ -41,5 +41,4 @@ api.nvim_create_user_command('OilFm', function()
     },
   }
   oil.open(nil)
-  require('harpeek').close()
 end, {})
