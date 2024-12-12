@@ -205,6 +205,7 @@ return {
 		},
 		oxocarbon = {},
 		onedark = {},
+		rosepine = {},
 		cyberdream = {
 			-- dark light
 			dark = true,

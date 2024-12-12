@@ -19,6 +19,9 @@
       postman
       zoom-us
       nekoray
+      rofi
+      tofi
+      hyprpicker
 
       prismlauncher
     ];

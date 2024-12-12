@@ -29,10 +29,10 @@ in
 
     settings = {
       exec-once = [
-        "ags -b hypr"
         "xterm"
         "nm-applet"
         "nekoray"
+        "hyprpanel"
       ];
 
       monitor = [
@@ -104,7 +104,6 @@ in
           (f "xdg-desktop-portal")
           (f "xdg-desktop-portal-gnome")
           (f "transmission-gtk")
-          (f "com.github.Aylur.ags")
           (fs {
             size = "50% 50%";
             regex = "Bitwarden";
@@ -131,7 +130,6 @@ in
           resizeactive = binding "SUPER ALT" "resizeactive";
           mvwindow = binding "SUPER SHIFT" "movewindow";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
-          e = "exec, ags -b hypr";
           arr = [
             1
             2
@@ -143,15 +141,15 @@ in
           ];
         in
         [
-          "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
-          "SUPER, Backspace, ${e} -t launcher"
-          "SUPER, Tab,       ${e} -t overview"
-          ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
-          "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
-          "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
-          "SUPER SHIFT, S,   ${e} -r 'recorder.screenshot()'"
-          "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, xterm"
+          # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
+          "SUPER, Backspace, exec , tofi-drun --drun-launch=true"
+          # "SUPER, Tab,       ${e} -t overview"
+          # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
+          # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
+          # "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
+          "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+          # "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
+          "SUPER, Return, exec, ghostty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
@@ -202,11 +200,6 @@ in
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
-
         dim_inactive = false;
 
         blur = {

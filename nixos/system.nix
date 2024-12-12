@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  ...
+}:
 {
   # nix
   documentation.nixos.enable = false; # .desktop
@@ -45,6 +51,7 @@
     home-manager
     neovim
     go
+    inputs.ghostty.packages.x86_64-linux.default
     cargo
     bottles
     git
@@ -52,6 +59,8 @@
     vesktop
     distrobox
     networkmanagerapplet
+    where-is-my-sddm-theme
+    hyprpanel
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 
@@ -64,6 +73,11 @@
     printing.enable = true;
     flatpak.enable = true;
     openssh.enable = true;
+    displayManager.sddm = lib.mkIf config.hyprland.enable {
+      enable = true;
+      wayland.enable = true;
+      theme = "where_is_my_sddm_theme";
+    };
   };
 
   # logind

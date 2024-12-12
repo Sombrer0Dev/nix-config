@@ -1,24 +1,11 @@
 { pkgs, config, ... }:
 let
-  nerdfonts = pkgs.nerdfonts.override {
-    fonts = [
-      "Ubuntu"
-      "UbuntuMono"
-      "CascadiaCode"
-      "FantasqueSansMono"
-      "FiraCode"
-      "Mononoki"
-      "Monaspace"
-    ];
-  };
-
   theme = {
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
   };
   font = {
     name = "Ubuntu Nerd Font";
-    package = nerdfonts;
     size = 11;
   };
   cursorTheme = {
@@ -37,12 +24,18 @@ in
       cantarell-fonts
       font-awesome
       theme.package
-      font.package
       cursorTheme.package
       iconTheme.package
       adwaita-icon-theme
       papirus-icon-theme
       victor-mono
+      nerd-fonts.ubuntu
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.caskaydia-mono
+      nerd-fonts.fantasque-sans-mono
+      nerd-fonts.fira-code
+      nerd-fonts.mononoki
+      nerd-fonts.monaspace
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -63,6 +56,10 @@ in
   };
   fonts.fontconfig.enable = true;
 
+  services.mako = {
+    enable = true;
+    defaultTimeout = 4000;
+  };
   gtk = {
     inherit font cursorTheme iconTheme;
     theme.name = theme.name;

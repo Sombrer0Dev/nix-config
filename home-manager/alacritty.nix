@@ -3,8 +3,8 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      shell.program = "${pkgs.tmux}/bin/tmux";
-      shell.args = [
+      terminal.shell.program = "${pkgs.tmux}/bin/tmux";
+      terminal.shell.args = [
         "new-session"
         "-A"
         "-s"

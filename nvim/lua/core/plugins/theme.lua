@@ -49,6 +49,12 @@ local themes = {
 			require("core.plugins.themes.onedark")
 		end,
 	},
+	rosepine = {
+		"rose-pine/neovim",
+		config = function()
+			require("core.plugins.themes.rosepine")
+		end,
+	},
 }
 
 local selectedTheme = themes[vim.g.config.theme.name]
