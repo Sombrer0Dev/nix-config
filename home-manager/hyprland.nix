@@ -29,7 +29,7 @@ in
 
     settings = {
       exec-once = [
-        "xterm"
+        "ghostty"
         "nm-applet"
         "nekoray"
         "hyprpanel"
@@ -110,14 +110,14 @@ in
           })
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
-      windowrulev2 = [
-        "bordersize 0, floating:0, onworkspace:w[t1]"
-        "rounding 0, floating:0, onworkspace:w[t1]"
-        "bordersize 0, floating:0, onworkspace:w[tg1]"
-        "rounding 0, floating:0, onworkspace:w[tg1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
-      ];
+      # windowrulev2 = [
+      #   "bordersize 0, floating:0, onworkspace:w[t1]"
+      #   "rounding 0, floating:0, onworkspace:w[t1]"
+      #   "bordersize 0, floating:0, onworkspace:w[tg1]"
+      #   "rounding 0, floating:0, onworkspace:w[tg1]"
+      #   "bordersize 0, floating:0, onworkspace:f[1]"
+      #   "rounding 0, floating:0, onworkspace:f[1]"
+      # ];
 
       bind =
         let
