@@ -50,7 +50,6 @@ local M = {
     end
 
     vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#E7516A' })
-    vim.keymap.set("n", "<leader>md", "<cmd>Dashboard<cr>")
 
     return opts
   end,

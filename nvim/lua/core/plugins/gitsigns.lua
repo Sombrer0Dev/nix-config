@@ -27,13 +27,6 @@ local M = {
 				{ "<leader>grR", gs.reset_buffer, icon = icons.get("filetype", "git"), desc = "Reset buffer" },
 				{ "<leader>grr", gs.reset_hunk, desc = "Reset hunk", mode = { "n", "v" } },
 				{ "<leader>gp", gs.preview_hunk, desc = "Preview hunk" },
-				{
-					"<leader>gB",
-					function()
-						gs.blame_line({ full = true })
-					end,
-					desc = "Blame full",
-				},
 				{ "<leader>gb", gs.toggle_current_line_blame, desc = "Blame line" },
 				{ "<leader>gD", '<cmd>DiffviewOpen<cr>', desc = "Diff" },
 				{ "<leader>gd", gs.toggle_deleted, desc = "Show deleted" },
