@@ -54,6 +54,8 @@ function M.default_keymaps()
 		-- paste over currently selected text without yanking it
 		{ "p", '"_dp', mode = "x" },
 		{ "P", '"_dP', mode = "x" },
+		{ "<c-d>", "<c-d>zz", mode = "n" },
+		{ "<c-u>", "<c-u>zz", mode = "n" },
 
 		-- Diagnostic keymaps
 		{
@@ -107,6 +109,7 @@ function M.default_keymaps()
 			end,
 			description = "List TODOs",
 		},
+		{ "<leader>qc", "<cmd>GitConflictListQf<cr>", description = "Open conflict list" },
 
 		-- LSP hover and fold preview
 		{ "K", vim.lsp.buf.hover, description = "Hover doc or preview fold", mode = "n" },

@@ -16,7 +16,7 @@ return {
 		input = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = true },
+		scroll = { enabled = false },
 		scope = { enabled = true },
 		statuscolumn = { enabled = false },
 		words = { enabled = false },

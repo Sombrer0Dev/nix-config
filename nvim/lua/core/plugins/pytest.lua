@@ -3,6 +3,7 @@ return {
     "pytest.nvim",
     dir = "/home/arsokolov/Work/pytest.nvim",
     lazy = false,
+    enabled = false,
     opts = {},
     dependencies = {
     "nvim-lua/plenary.nvim",

@@ -5,8 +5,8 @@ local lsp_settings = require("core.plugins.lsp.settings")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local vlsp = vim.lsp
--- enable autocompletion via nvim-cmp
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- -- enable autocompletion via nvim-cmp
+-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- NVIM UFO
 capabilities.textDocument.foldingRange = {
