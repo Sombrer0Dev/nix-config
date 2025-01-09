@@ -2,7 +2,7 @@ return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
 	dependencies = { "echasnovski/mini.icons" },
-  enabled = true,
+	enabled = true,
 	opts = function()
 		local utils = require("utils.functions")
 
@@ -36,7 +36,7 @@ return {
 						},
 					},
 					{ "filetype", icon_only = true, separator = "", padding = { left = 0, right = 0 } },
-					{ "filename", padding = { left = 0, right = 0 } },
+					{ "filename", path = 1, padding = { left = 0, right = 0 } },
 					{
 						function()
 							local buffer_count = utils.get_buffer_count()

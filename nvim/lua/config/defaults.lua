@@ -88,6 +88,9 @@ return {
 		indent_blankline = {
 			enable_scope = false,
 		},
+    blink = {
+      enable = true,
+    },
 		ai = {
 			codeium = {
 				enabled = false,
@@ -221,7 +224,6 @@ return {
 	lsp_servers = {
 		-- MISC
 		"bashls",
-		"typst_lsp",
 		"dockerls",
 		"marksman",
 		"lua_ls",

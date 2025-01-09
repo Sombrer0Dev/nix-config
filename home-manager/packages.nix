@@ -22,6 +22,7 @@
       rofi
       tofi
       hyprpicker
+      obs-studio
 
       prismlauncher
     ];
@@ -40,6 +41,9 @@
       delta
       nodePackages.vscode-json-languageserver
       steam-run
+      bitwarden-cli
+      uv
+      btop
     ];
   };
 }

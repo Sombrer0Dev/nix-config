@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	enabled = true,
+	enabled = vim.g.config.plugins.blink.enable,
 	-- optional: provides snippets for the snippet source
 	dependencies = {
 		"rafamadriz/friendly-snippets",
@@ -86,7 +86,7 @@ return {
 
 						-- the minimum length of the current word to start searching
 						-- (if the word is shorter than this, the search will not start)
-						prefix_min_len = 3,
+						prefix_min_len = 5,
 
 						-- The number of lines to show around each match in the preview
 						-- (documentation) window. For example, 5 means to show 5 lines
@@ -129,6 +129,8 @@ return {
 						-- treesitter parser installed, fall back to regex based highlighting
 						-- that is bundled in Neovim.
 						fallback_to_regex_highlighting = true,
+
+					score_offset = -100,
 					},
 				},
 				lazydev = {

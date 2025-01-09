@@ -5,8 +5,12 @@ local lsp_settings = require("core.plugins.lsp.settings")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local vlsp = vim.lsp
--- -- enable autocompletion via nvim-cmp
--- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- -- enable autocompletion
+if vim.g.config.plugins.blink.enable then
+	capabilities = require("blink.cmp").get_lsp_capabilities()
+else
+	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+end
 
 -- NVIM UFO
 capabilities.textDocument.foldingRange = {
@@ -66,11 +70,11 @@ for _, lsp in ipairs(conf.lsp_servers) do
 	nvim_lsp[lsp].setup({
 		capabilities = capabilities,
 		flags = { debounce_text_changes = 150 },
-    root_dir = root_dir_options(lsp),
+		root_dir = root_dir_options(lsp),
 		-- filetypes = filetypes(lsp),
 		init_options = init_options(lsp),
 		cmd = cmd_options(lsp),
-    single_file_support = false,
+		single_file_support = false,
 		settings = {
 			json = lsp_settings.json,
 			Lua = lsp_settings.lua,
