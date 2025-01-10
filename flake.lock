@@ -155,11 +155,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1736402835,
-        "narHash": "sha256-SiG2B2KfU4BIOggrJJa9nKoagXtLXWWo9vXJ88a+ls8=",
+        "lastModified": 1736455421,
+        "narHash": "sha256-TsDbQIHOi84hTjb0SSLSyX27P1MA1DVLagX8uik+WGk=",
         "ref": "refs/heads/main",
-        "rev": "2d7706ec4f7042b9072d3b8ac8ea496dee209bc8",
-        "revCount": 9027,
+        "rev": "6ef757a8f85db7a124d370378850339a899c9e65",
+        "revCount": 9031,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -197,11 +197,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736366465,
-        "narHash": "sha256-Fo68EF6p/N9GJyHiAUbXtiE7IJlb3IMjK86LuxFMsRU=",
+        "lastModified": 1736421950,
+        "narHash": "sha256-RyrX0WFXxFrYvzHNLTIyuk3NcNl3UBykuYru/P0zW5E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7e00856596891850ba5ad4c5ecd2ed74468c08c5",
+        "rev": "d4aebb947a301b8da8654a804979a738c5c5da50",
         "type": "github"
       },
       "original": {
@@ -284,11 +284,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1736370994,
-        "narHash": "sha256-xVk761ZJJpuomSQS0T1v0qMlB0GXhhoALWsx+kpDXGM=",
+        "lastModified": 1736462318,
+        "narHash": "sha256-O30Sy+MYVEXwbdEfl8ggB2GSmVXxL73IXjVSeTbjUFA=",
         "ref": "refs/heads/main",
-        "rev": "c9822b08f914da2997e8ef47c8bef8016e5ff313",
-        "revCount": 5651,
+        "rev": "f9c37ca43b14a4564d92b5788c81bf16f7bb719c",
+        "revCount": 5656,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -439,11 +439,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1736419010,
-        "narHash": "sha256-+KZmJEjU/oCn7y5DvUmXw6LTh5SPHrgb+IflVx8TdiE=",
+        "lastModified": 1736493666,
+        "narHash": "sha256-ckYwk1wFACUXq+KsnBXsboM1a8+Rhibd0fSt4qICrQI=",
         "owner": "Jas-SinghFSU",
         "repo": "HyprPanel",
-        "rev": "df847f46becd3e083335f1b8427b3d6b2213bd0a",
+        "rev": "1812193658f2c32c87fa9d4b24c7f36b48101080",
         "type": "github"
       },
       "original": {
@@ -536,11 +536,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1736241350,
-        "narHash": "sha256-CHd7yhaDigUuJyDeX0SADbTM9FXfiWaeNyY34FL1wQU=",
+        "lastModified": 1736320768,
+        "narHash": "sha256-nIYdTAiKIGnFNugbomgBJR+Xv5F1ZQU+HfaBqJKroC0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8c9fd3e564728e90829ee7dbac6edc972971cd0f",
+        "rev": "4bc9c909d9ac828a039f288cf872d16d38185db8",
         "type": "github"
       },
       "original": {
@@ -582,7 +582,8 @@
         "hyprland-hyprspace": "hyprland-hyprspace",
         "hyprland-plugins": "hyprland-plugins",
         "hyprpanel": "hyprpanel",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "zen-browser": "zen-browser"
       }
     },
     "systems": {
@@ -668,6 +669,26 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736481947,
+        "narHash": "sha256-+UVOSR6I+hJuPyDKgmgVddCLu/MjNxlE4is7eZeLzS0=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "283ae25af7e9f0ca47f35a3d21cf1727bb1d8e35",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     },

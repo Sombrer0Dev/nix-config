@@ -51,7 +51,8 @@
     home-manager
     neovim
     go
-    inputs.ghostty.packages.x86_64-linux.default
+    inputs.ghostty.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${pkgs.system}.default
     cargo
     bottles
     git

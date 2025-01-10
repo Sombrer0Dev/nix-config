@@ -66,8 +66,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
