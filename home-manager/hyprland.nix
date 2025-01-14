@@ -33,6 +33,7 @@ in
         "nm-applet"
         "nekoray"
         "hyprpanel"
+        "pkill mako"
       ];
 
       monitor = [
@@ -104,20 +105,20 @@ in
           (f "xdg-desktop-portal")
           (f "xdg-desktop-portal-gnome")
           (f "transmission-gtk")
+          # (f "title:Picture-in-Picture")
           (fs {
             size = "50% 50%";
             regex = "Bitwarden";
           })
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
-      # windowrulev2 = [
-      #   "bordersize 0, floating:0, onworkspace:w[t1]"
-      #   "rounding 0, floating:0, onworkspace:w[t1]"
-      #   "bordersize 0, floating:0, onworkspace:w[tg1]"
-      #   "rounding 0, floating:0, onworkspace:w[tg1]"
-      #   "bordersize 0, floating:0, onworkspace:f[1]"
-      #   "rounding 0, floating:0, onworkspace:f[1]"
-      # ];
+      windowrulev2 =
+        let
+          f = text: "float, ${text}";
+        in
+        [
+          (f "title:Picture-in-Picture")
+        ];
 
       bind =
         let

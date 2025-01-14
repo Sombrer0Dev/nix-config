@@ -19,7 +19,7 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		completion = {
-			ghost_text = { enabled = true },
+			ghost_text = { enabled = false },
 			menu = {
 				border = "single",
 				draw = {
@@ -55,6 +55,7 @@ return {
 			nerd_font_variant = "mono",
 		},
 		snippets = {
+      preset = 'luasnip',
 			expand = function(snippet)
 				require("luasnip").lsp_expand(snippet)
 			end,
@@ -72,7 +73,7 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lazydev", "lsp", "path", "luasnip", "buffer", "ripgrep" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "ripgrep" },
 			providers = {
 				ripgrep = {
 					module = "blink-ripgrep",
@@ -130,7 +131,7 @@ return {
 						-- that is bundled in Neovim.
 						fallback_to_regex_highlighting = true,
 
-					score_offset = -100,
+						score_offset = -100,
 					},
 				},
 				lazydev = {

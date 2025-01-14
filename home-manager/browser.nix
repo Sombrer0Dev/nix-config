@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   home = {
     sessionVariables.BROWSER = "firefox";
@@ -7,6 +12,20 @@
       target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
       source = inputs.firefox-gnome-theme;
     };
+  };
+
+  xdg.desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
+    name = "GNOME Control Center";
+    comment = "GNOME control center";
+    icon = "gnome";
+    exec = "gnome-control-center";
+  };
+
+  xdg.desktopEntries."zen-browser" = lib.mkIf pkgs.stdenv.isLinux {
+    name = "Zen";
+    comment = "Zen Browser";
+    icon = "zen";
+    exec = "zen --name zen %U";
   };
 
   programs.firefox = {

@@ -51,7 +51,7 @@
     home-manager
     neovim
     go
-    inputs.ghostty.packages.${pkgs.system}.default
+    ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
     cargo
     bottles

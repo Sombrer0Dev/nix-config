@@ -4,6 +4,7 @@
     ./modules/packages.nix
     ./scripts/blocks.nix
     ./scripts/nix-scripts.nix
+    ./scripts/worktree.nix
     ./scripts/shell-bins.nix
   ];
 

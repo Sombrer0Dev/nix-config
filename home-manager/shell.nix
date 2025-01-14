@@ -19,6 +19,7 @@ let
     "ls" = "eza -l";
     "tree" = "eza -T";
     "clear" = "clear && tput cup $(tput lines) 0";
+    "work-add" = "worktree $(_fzf_git_branches)";
   };
 in
 {
@@ -61,34 +62,23 @@ in
         if command -v nix-your-shell > /dev/null; then
           nix-your-shell zsh | source /dev/stdin
         fi
-        workswitch() {
-          cd $(get-worktree-branch $1)
-        }
-        workdel() {
-          delete-worktree-branch $1
-        }
-        workadd() {
-          cd $(add-worktree-branch $1)
-        }
 
         source ~/.p10k.zsh
 
         # Keybindings
         bindkey -e
+        bindkey "^[[1~" beginning-of-line
+        bindkey "^[[4~" end-of-line
+        bindkey "^[[3~" delete-char
 
         # Completion
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-        # zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-        # zstyle ':completion:*' menu no
-        # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-        # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-        # zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls --color $realpath'
-
         zstyle ':completion:*:git-checkout:*' sort false
         zstyle ':completion:*:descriptions' format '[%d]'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
         zstyle ':completion:*' menu no
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --color=always $realpath'
         zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
         zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
         zstyle ':fzf-tab:*' use-fzf-default-opts yes
