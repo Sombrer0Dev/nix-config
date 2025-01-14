@@ -4,17 +4,14 @@ let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
+  hyprlock-blur = pkgs.writeShellScriptBin "hyprlock-blur" ''
+    ${pkgs.grim}/bin/grim -o DP-2 -l 0 /tmp/screenshot1.png &
+    ${pkgs.grim}/bin/grim -o HDMI-A-1 -l 0 /tmp/screenshot2.png &
+    wait &&
+    hyprlock
+  '';
 in
 {
-  xdg.desktopEntries."org.gnome.Settings" = {
-    name = "Settings";
-    comment = "Gnome Control Center";
-    icon = "org.gnome.Settings";
-    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome-control-center}/bin/gnome-control-center";
-    categories = [ "X-Preferences" ];
-    terminal = false;
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland;
@@ -255,4 +252,99 @@ in
       };
     };
   };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = [
+        {
+          blur_passes = 1; # 0 disables blurring
+          blur_size = 7;
+          noise = 1.17e-2;
+        }
+      ];
+
+      label = [
+        {
+          text = "$TIME";
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 95;
+          font_family = "Ubuntu Nerd Mono";
+          position = "0, 300";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 22;
+          font_family = "Ubuntu Nerd Mono";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+
+        }
+      ];
+
+      image = {
+        path = "/home/arsokolov/Documents/avatar.jpg";
+
+        position = "0, 50";
+        halign = "center";
+        valign = "center";
+      };
+
+      input-field = {
+        size = "200,50";
+        outline_thickness = 2;
+        dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
+        dots_spacing = 0.35; # Scale of dots' absolute size, 0.0 - 1.0
+        dots_center = true;
+        outer_color = "rgba(0, 0, 0, 0)";
+        inner_color = "rgba(0, 0, 0, 0.2)";
+        font_color = "rgb(111, 45, 104)";
+        fade_on_empty = false;
+        rounding = -1;
+        check_color = "rgb(30, 107, 204)";
+        placeholder_text = ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
+        hide_input = false;
+        position = "0, -100";
+        halign = "center";
+        valign = "center";
+      };
+    };
+  };
+
+  xdg.desktopEntries."org.gnome.Settings" = {
+    name = "Settings";
+    comment = "Gnome Control Center";
+    icon = "org.gnome.Settings";
+    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome-control-center}/bin/gnome-control-center";
+    categories = [ "X-Preferences" ];
+    terminal = false;
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
+        lock_cmd = "hyprlock";
+      };
+
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 1200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
+  };
+
 }
