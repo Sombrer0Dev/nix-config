@@ -125,7 +125,8 @@ function M.buffers_or_recent(no_buffers)
 	local fzflua = require("fzf-lua")
 	local fzfutils = require("core.plugins.fzf.utils")
 	local bufopts = {
-		fzf_opts = { ["-p"] = "30%,25%" },
+		header_separator = "  ",
+		fzf_opts = { ["--tmux"] = "center,30%,25%" },
 		filename_first = true,
 		sort_lastused = true,
 		winopts = {
@@ -138,7 +139,8 @@ function M.buffers_or_recent(no_buffers)
 		},
 	}
 	local oldfiles_opts = {
-		fzf_opts = { ["-p"] = "30%,25%" },
+		header_separator = "  ",
+		fzf_opts = { ["--tmux"] = "center,30%,25%" },
 		prompt = " Recent: ",
 		cwd_only = true,
 		include_current_session = true,
@@ -163,32 +165,44 @@ function M.buffers_or_recent(no_buffers)
 
 	local oldfiles_actions = {
 		actions = {
-			["ctrl-e"] = function()
-				return fzflua.buffers(vim.tbl_extend("force", {
-					query = fzfutils.get_last_query(),
-				}, bufopts, buffers_actions))
-			end,
-			["ctrl-f"] = function()
-				local query = fzfutils.get_last_query()
-				if query == "" or not query then
-					vim.notify("please provide query before switch to find files mode.")
-					return
-				end
+			["ctrl-e"] = {
+				desc = "switch",
+				header = "switch",
+				fn = function()
+					return fzflua.buffers(vim.tbl_extend("force", {
+						query = fzfutils.get_last_query(),
+					}, bufopts, buffers_actions))
+				end,
+			},
+			["ctrl-f"] = {
+				desc = "find-files",
+				header = "find-files",
+				fn = function()
+					local query = fzfutils.get_last_query()
+					if query == "" or not query then
+						vim.notify("please provide query before switch to find files mode.")
+						return
+					end
 
-				M.files({
-					cwd = oldfiles_opts.cwd,
-					query = query,
-				})
-			end,
+					M.files({
+						cwd = oldfiles_opts.cwd,
+						query = query,
+					})
+				end,
+			},
 		},
 	}
 	buffers_actions = {
 		actions = {
-			["ctrl-e"] = function()
-				fzflua.oldfiles(vim.tbl_extend("force", {
-					query = fzfutils.get_last_query(),
-				}, oldfiles_opts, oldfiles_actions))
-			end,
+			["ctrl-e"] = {
+				desc = "switch",
+				header = "switch",
+				function()
+					fzflua.oldfiles(vim.tbl_extend("force", {
+						query = fzfutils.get_last_query(),
+					}, oldfiles_opts, oldfiles_actions))
+				end,
+			},
 		},
 	}
 
@@ -326,7 +340,9 @@ end
 function M.grep(opts, is_live, is_word)
 	local fzfutils = require("core.plugins.fzf.utils")
 	opts = opts or {}
-	opts.fzf_opts = { ["-p"] = "95%,90%" }
+	-- opts.winopts = {fullscreen = true}
+	opts.fzf_opts = { ["--tmux"] = "center,95%,90%" }
+	-- opts.fzf_opts = { ["-h"] = "90%" }
 	if is_live == nil then
 		is_live = true
 	end

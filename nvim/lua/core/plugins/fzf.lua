@@ -19,6 +19,8 @@ local M = {
 		{
 			"<leader>fg",
 			function()
+				-- local fzflua = require("fzf-lua")
+				-- fzflua.live_grep({ winopts = { fullscreen = true } })
 				pickers.grep({}, true, false)
 			end,
 			desc = "Fzf live grep",

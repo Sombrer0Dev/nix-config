@@ -140,14 +140,14 @@ in
         in
         [
           # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
-          "SUPER, Backspace, exec , tofi-drun --drun-launch=true"
+          "SUPER, Return, exec , tofi-drun --drun-launch=true"
           # "SUPER, Tab,       ${e} -t overview"
           # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           # "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, ghostty"
+          "SUPER, Tab, exec, ghostty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
