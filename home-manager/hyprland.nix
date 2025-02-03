@@ -34,11 +34,11 @@ in
       ];
 
       monitor = [
-        "DP-2, 1920x1080, 0x0, 1"
-        "HDMI-A-1, 2560x1440, 1920x0, 1"
+        "DP-1, 2560x1440@180.06Hz, 2560x0, 1"
+        "DP-2, 2560x1440@59.95Hz, 0x0, 1"
       ];
       workspace = [
-        "1,monitor:HDMI-A-1"
+        "1,monitor:DP-1"
         "2,monitor:DP-2"
         "w[t1], gapsout:0, gapsin:0"
         "w[tg1], gapsout:0, gapsin:0"
@@ -140,7 +140,7 @@ in
         in
         [
           # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
-          "SUPER, Return, exec , tofi-drun --drun-launch=true"
+          "SUPER, Return, exec , walker"
           # "SUPER, Tab,       ${e} -t overview"
           # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
@@ -324,7 +324,30 @@ in
     terminal = false;
   };
 
-  services.hypridle = {
+  imports = [inputs.walker.homeManagerModules.default];
+  programs.walker = {
+    enable = true;
+    runAsService = true;
+
+    # All options from the config.json can be used here.
+    config = {
+      search.placeholder = "Example";
+      ui.fullscreen = true;
+      list = {
+        height = 200;
+      };
+      websearch.prefix = "?";
+      switcher.prefix = "/";
+    };
+
+    # If this is not set the default styling is used.
+    # style = ''
+    #   * {
+    #     color: #dcd7ba;
+    #   }
+    # '';
+  };
+    services.hypridle = {
     enable = true;
     settings = {
       general = {

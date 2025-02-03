@@ -75,6 +75,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    walker.url = "github:abenz1267/walker";
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprland-plugins = {

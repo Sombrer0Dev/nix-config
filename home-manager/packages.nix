@@ -20,9 +20,9 @@
       postman
       zoom-us
       nekoray
-      rofi
-      tofi
+      sshfs
       hyprpicker
+      wdisplays
       obs-studio
 
       prismlauncher

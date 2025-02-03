@@ -21,13 +21,6 @@
     exec = "gnome-control-center";
   };
 
-  xdg.desktopEntries."zen-browser" = lib.mkIf pkgs.stdenv.isLinux {
-    name = "Zen";
-    comment = "Zen Browser";
-    icon = "zen";
-    exec = "zen --name zen %U";
-  };
-
   programs.firefox = {
     enable = true;
     profiles.default = {

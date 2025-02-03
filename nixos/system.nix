@@ -60,7 +60,6 @@
     vesktop
     distrobox
     networkmanagerapplet
-    where-is-my-sddm-theme
     hyprpanel
   ];
   environment.pathsToLink = [ "/share/zsh" ];
@@ -70,15 +69,14 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
+      displayManager.gdm = lib.mkIf config.hyprland.enable {
+        enable = true;
+        wayland = true;
+      };
     };
     printing.enable = true;
     flatpak.enable = true;
     openssh.enable = true;
-    displayManager.sddm = lib.mkIf config.hyprland.enable {
-      enable = true;
-      wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
-    };
   };
 
   # logind
@@ -111,6 +109,7 @@
     powerOnBoot = false;
     settings.General.Experimental = true; # for gnome-bluetooth percentage
     settings.General.Disable = "Headset"; # to disable headphones micro
+    settings.Policy.AutoEnable = true; # to disable headphones micro
   };
 
   # bootloader
