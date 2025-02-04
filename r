@@ -52,9 +52,9 @@ in
             {
               name = "zsh-users/zsh-completions";
             }
-            # {
-            #   name = "Aloxaf/fzf-tab";
-            # }
+            {
+              name = "Aloxaf/fzf-tab";
+            }
           ];
         };
         shellAliases = aliases;
@@ -80,17 +80,17 @@ in
           bindkey "^[[3~" delete-char
 
           # Completion
-          zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-          zstyle ':completion:*:git-checkout:*' sort false
-          zstyle ':completion:*:descriptions' format '[%d]'
-          zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-          zstyle ':completion:*' menu no
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-          zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --color=always $realpath'
-          zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
-          zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
-          zstyle ':fzf-tab:*' use-fzf-default-opts yes
-          zstyle ':fzf-tab:*' switch-group '<' '>'
+          # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+          # zstyle ':completion:*:git-checkout:*' sort false
+          # zstyle ':completion:*:descriptions' format '[%d]'
+          # zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+          # zstyle ':completion:*' menu no
+          # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+          # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --color=always $realpath'
+          # zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
+          # zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+          # zstyle ':fzf-tab:*' use-fzf-default-opts yes
+          # zstyle ':fzf-tab:*' switch-group '<' '>'
           # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
           source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh

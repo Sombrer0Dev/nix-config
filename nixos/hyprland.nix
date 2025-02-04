@@ -22,11 +22,16 @@
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
+      withUWSM = true;
     };
 
     xdg.portal = {
       enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-wlr ];
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        # xdg-desktop-portal-wlr
+      ];
     };
 
     security = {
@@ -57,6 +62,9 @@
       swww
       grim
       slurp
+
+      xdg-desktop-portal-gtk
+      # xdg-desktop-portal-wlr
     ];
 
     systemd = {

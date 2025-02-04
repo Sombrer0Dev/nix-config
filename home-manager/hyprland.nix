@@ -140,7 +140,7 @@ in
         in
         [
           # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
-          "SUPER, Return, exec , walker"
+          "SUPER, Return, exec , walker --modules applications,windows"
           # "SUPER, Tab,       ${e} -t overview"
           # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
