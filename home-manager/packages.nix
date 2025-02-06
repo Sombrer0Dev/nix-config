@@ -23,6 +23,7 @@
       sshfs
       hyprpicker
       wdisplays
+      easyeffects
       obs-studio
 
       prismlauncher

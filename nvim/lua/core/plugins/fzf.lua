@@ -15,6 +15,10 @@ local M = {
 		{ "<leader>fq", pickers.zoxide, desc = "Fzf zoxide" },
 		{ "<leader>fw", pickers.universal_worktree, desc = "Switch Worktree" },
 		{ "<leader>f<space>", "<cmd>FzfLua resume<cr>", desc = "Fzf resume search" },
+		{ mode = "n", "gd", "<CMD>FzfLua lsp_definitions<CR>", desc = "Fzf definitions"  },
+		{ mode = "n", "gD", "<CMD>FzfLua lsp_references<CR>", desc = "Fzf references"  },
+		{ mode = "n", "gT", "<CMD>FzfLua lsp_typedefs<CR>", desc = "Fzf type definitions"  },
+		{ mode = "n", "gM", "<CMD>FzfLua lsp_implementations<CR>", desc = "Fzf implementations"  },
 
 		{
 			"<leader>fg",

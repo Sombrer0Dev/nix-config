@@ -140,14 +140,14 @@ in
         in
         [
           # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
-          "SUPER, Return, exec , walker --modules applications,windows"
+          "SUPER, TAB, exec , walker --modules applications,windows"
           # "SUPER, Tab,       ${e} -t overview"
           # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
           # "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           # "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Tab, exec, ghostty"
+          "SUPER, Return, exec, ghostty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"

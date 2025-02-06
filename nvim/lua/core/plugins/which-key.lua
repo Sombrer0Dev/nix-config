@@ -22,6 +22,7 @@ local M = {
 			{ "<leader>m", group = "Misc",},
 			{ "<leader>q", group = "QuickFix"},
 			{ "<leader>t", group = "Test",},
+			{ "<leader>r", group = "Refactor",},
 		})
 	end,
 }
