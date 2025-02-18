@@ -6,7 +6,11 @@ with lib.hm.gvariant;
       sources = [
         (mkTuple [
           "xkb"
-          "us, ru"
+          "us"
+        ])
+        (mkTuple [
+          "xkb"
+          "ru"
         ])
       ];
       xkb-options = [ "grp:win_space_toggle" ];
@@ -71,7 +75,7 @@ with lib.hm.gvariant;
       mouse-button-modifier = "<Super>";
       num-workspaces = 5;
       resize-with-right-button = true;
-      focus-mode = "sloppy";
+      focus-mode = "click";
     };
 
     "org/gnome/mutter" = {
@@ -113,11 +117,10 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "foot.desktop"
+        "com.mitchellh.ghostty.desktop"
+        "org.telegram.desktop"
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Calendar.desktop"
-        "vesktop.desktop"
-        "com.usebottles.bottles.desktop"
+        "Mattermost.desktop"
         "org.gnome.Software.desktop"
       ];
     };
@@ -127,7 +130,7 @@ with lib.hm.gvariant;
     };
 
     "system/locale" = {
-      region = "hu_HU.UTF-8";
+      region = "ru_RU.UTF-8";
     };
 
     "org/virt-manager/virt-manager/connections" = {

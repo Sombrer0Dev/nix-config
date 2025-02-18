@@ -1,10 +1,34 @@
 {
+  "def + func": {
+    "body": [
+      "@staticmethod",
+      "def ${1:func}(${2:args}) -> ${3:None}:",
+      "    ${4:pass}"
+    ],
+    "prefix": [
+      "def",
+      "func",
+      "de",
+      "des"
+    ]
+  },
   "dprint + db": {
     "body": "print(f\"${1:msg} {${2:var}}\")",
     "prefix": [
       "dprint",
       "dp",
       "printbug"
+    ]
+  },
+  "fix + fixture": {
+    "body": [
+      "@mark.fixture(scope='${4:function}')",
+      "def ${1:func}(${2:params}):",
+      "    ${3:pass}"
+    ],
+    "prefix": [
+      "fix",
+      "fixture"
     ]
   },
   "main": {

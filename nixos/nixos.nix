@@ -71,5 +71,11 @@ in
       hyprland.enable = lib.mkForce false;
       gnome.enable = true;
     };
+
+    # hyprland.configuration = {
+    #   system.nixos.tags = [ "Hyprland" ];
+    #   gnome.enable = lib.mkForce false;
+    #   hyprland.enable = false;
+    # };
   };
 }

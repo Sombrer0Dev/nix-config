@@ -61,6 +61,16 @@
     distrobox
     networkmanagerapplet
     hyprpanel
+
+    # pycharm
+    jetbrains.pycharm-community
+
+    # office
+    libreoffice-qt
+    jre_minimal
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.ru_RU
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 
@@ -75,7 +85,7 @@
       };
     };
     printing.enable = true;
-    flatpak.enable = true;
+    flatpak.enable = false;
     openssh.enable = true;
   };
 

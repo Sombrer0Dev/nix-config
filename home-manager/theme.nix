@@ -1,8 +1,8 @@
 { pkgs, config, ... }:
 let
   theme = {
-    name = "adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
+    name = "Adwaita-dark";
+    package = pkgs.gnome-themes-extra;
   };
   font = {
     name = "Ubuntu Nerd Font";
@@ -63,18 +63,20 @@ in
   gtk = {
     inherit font cursorTheme iconTheme;
     theme.name = theme.name;
+    # theme.package = theme.package;
     enable = true;
-    gtk3.extraCss = ''
-      headerbar, .titlebar,
-      .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-        border-radius: 0;
-      }
-    '';
+    # gtk3.extraCss = ''
+    #   headerbar, .titlebar,
+    #   .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
+    #     border-radius: 0;
+    #   }
+    # '';
   };
 
   qt = {
     enable = true;
-    platformTheme.name = "kde";
+    platformTheme = "gnome";
+    style.name = "adwaita-dark";
   };
 
   home.file.".local/share/flatpak/overrides/global".text =

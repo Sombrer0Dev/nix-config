@@ -5,12 +5,12 @@ let
 in
 {
   services.emacs = {
-    enable = true;
+    enable = false;
     package = emacsWithNativeComp;
   };
   # Configure Emacs
   programs.emacs = {
-    enable = true;
+    enable = false;
     package = emacsWithNativeComp;
 
     # Optionally, specify additional Emacs packages.

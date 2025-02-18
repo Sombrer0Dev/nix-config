@@ -10,6 +10,14 @@
   };
 
   config = lib.mkIf config.gnome.enable {
+    xdg.portal = {
+      enable = true;
+      # xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        # xdg-desktop-portal-wlr
+      ];
+    };
     environment = {
       systemPackages = with pkgs; [
         morewaita-icon-theme
