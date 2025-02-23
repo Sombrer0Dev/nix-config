@@ -117,8 +117,8 @@ let
 
           # packages in node_modules packages can have sub-node-modules packages, and
           # we don't want to copy them; only copy the root node_modules directory
-          if [ -d "node_modules" ]; then
-            cp_cow node_modules ../"$dirname"/node_modules
+          if [ -d "venv" ]; then
+            cp_cow venv ../"$dirname"/venv
           fi
 
           # this will fail for any files with \n in their names. don't do that.
@@ -139,7 +139,7 @@ let
           # other way around
           #
           # shellcheck disable=SC2207
-          files_to_copy=( $(find . -not -path '*node_modules*' -and \
+          files_to_copy=( $(find . -not -path '*venv*' -and \
               -iregex '.*\/\.(envrc|env|env.local|tool-versions|mise.toml)' ) )
           for f in "''${files_to_copy[@]}"; do
             cp_cow "$f" ../"$dirname"/"$f"

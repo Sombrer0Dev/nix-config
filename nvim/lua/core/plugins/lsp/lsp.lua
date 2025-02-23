@@ -82,6 +82,7 @@ for _, lsp in ipairs(conf.lsp_servers) do
 			gopls = lsp_settings.gopls,
 			jedi_language_server = lsp_settings.jedi,
 			pylsp = lsp_settings.pylsp,
+			pylyzer = lsp_settings.pylyzer,
 			ruff_lsp = lsp_settings.ruff,
 			sqlls = lsp_settings.sqlls,
 			tailwindcss = lsp_settings.tailwindcss,

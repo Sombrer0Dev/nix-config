@@ -236,6 +236,7 @@ return {
 		-- PYTHON
 		"jedi_language_server",
 		"ruff",
+		-- 'pylyzer',
 		-- 'pylsp',
 		-- 'pyright',
 

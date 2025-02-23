@@ -32,7 +32,13 @@
     };
     docker.enable = true;
     libvirtd.enable = true;
+
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
   };
+  users.extraGroups.vborusers.members = [ "arsokolov" ];
 
   # dconf
   programs.dconf.enable = true;
