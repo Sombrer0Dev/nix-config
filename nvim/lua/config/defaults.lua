@@ -1,5 +1,7 @@
 local fn = vim.fn
 
+-- vim.keymap.set('n', ':', 'q:i')
+
 return {
 	options = {
 		-- clipboard = 'unnamedplus', -- keep in sync with the system clipboard

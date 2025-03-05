@@ -64,7 +64,7 @@ in
         touchpad = {
           natural_scroll = "no";
         };
-        sensitivity = -0.75;
+        sensitivity = -0.1;
         accel_profile = "flat";
         force_no_accel = 0;
         repeat_delay = 200;
@@ -93,7 +93,6 @@ in
           (f "org.gnome.Calculator")
           (f "org.gnome.Nautilus")
           (f "pavucontrol")
-          (f "Spotify")
           (f "nm-connection-editor")
           (f "blueberry.py")
           (f "org.gnome.Settings")
@@ -102,7 +101,7 @@ in
           (f "xdg-desktop-portal")
           (f "xdg-desktop-portal-gnome")
           (f "transmission-gtk")
-          # (f "title:Picture-in-Picture")
+          (f "title:Picture-in-Picture")
           (fs {
             size = "50% 50%";
             regex = "Bitwarden";
