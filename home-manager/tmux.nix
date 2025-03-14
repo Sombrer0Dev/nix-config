@@ -112,6 +112,7 @@ in
       set -g default-terminal "tmux-256color"
       set -as terminal-features ",xterm-256color:RGB"
       set-option -g focus-events on
+      set-option -g allow-passthrough on
 
       # Enable mouse control (clickable windows, panes, resizable panes)
       set -g mouse on

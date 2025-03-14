@@ -46,6 +46,7 @@
       bitwarden-cli
       uv
       btop
+      presenterm
     ];
   };
 }
