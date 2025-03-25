@@ -26,9 +26,9 @@ in
 
     settings = {
       exec-once = [
-        "ghostty"
+        # "ghostty"
         "nm-applet"
-        "nekoray"
+        "hiddify"
         "hyprpanel"
         "pkill mako"
       ];
@@ -86,26 +86,26 @@ in
 
       windowrule =
         let
-          f = regex: "float, ^(${regex})$";
+          f = regex: "float, ${regex}";
           fs = { regex, size }: "float, size ${size}, ^(${regex})";
         in
         [
-          (f "org.gnome.Calculator")
-          (f "org.gnome.Nautilus")
-          (f "pavucontrol")
-          (f "nm-connection-editor")
-          (f "blueberry.py")
-          (f "org.gnome.Settings")
-          (f "org.gnome.design.Palette")
-          (f "Color Picker")
-          (f "xdg-desktop-portal")
-          (f "xdg-desktop-portal-gnome")
-          (f "transmission-gtk")
+          (f "title:org.gnome.Calculator")
+          (f "title:org.gnome.Nautilus")
+          (f "title:pavucontrol")
+          (f "title:nm-connection-editor")
+          (f "title:blueberry.py")
+          (f "title:org.gnome.Settings")
+          (f "title:org.gnome.design.Palette")
+          (f "title:Color Picker")
+          (f "title:xdg-desktop-portal")
+          (f "title:xdg-desktop-portal-gnome")
+          (f "title:transmission-gtk")
           (f "title:Picture-in-Picture")
-          (fs {
-            size = "50% 50%";
-            regex = "Bitwarden";
-          })
+          # (fs {
+          #   size = "50% 50%";
+          #   regex = "Bitwarden";
+          # })
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
       windowrulev2 =

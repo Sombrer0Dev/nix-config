@@ -55,13 +55,13 @@
     ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
     cargo
-    bottles
     git
     wget
     vesktop
     distrobox
     networkmanagerapplet
     hyprpanel
+    sqlite
 
     # pycharm
     jetbrains.pycharm-community
@@ -86,8 +86,15 @@
       };
     };
     printing.enable = true;
-    flatpak.enable = false;
+    flatpak.enable = true;
     openssh.enable = true;
+  };
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    '';
   };
 
   # logind

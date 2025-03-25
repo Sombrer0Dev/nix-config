@@ -19,7 +19,7 @@
       bitwarden-desktop
       postman
       zoom-us
-      nekoray
+      hiddify-app
       sshfs
       hyprpicker
       wdisplays
@@ -47,6 +47,8 @@
       uv
       btop
       presenterm
+      docker-compose
+      matugen
     ];
   };
 }
