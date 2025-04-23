@@ -58,6 +58,7 @@ in
         ../home-manager/kitty.nix
         ../home-manager/alacritty.nix
         ../home-manager/foot.nix
+        ../home-manager/ghostty.nix
         ../home-manager/tmux.nix
         ./home.nix
 

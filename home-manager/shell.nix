@@ -52,9 +52,9 @@ in
             {
               name = "zsh-users/zsh-completions";
             }
-            # {
-            #   name = "Aloxaf/fzf-tab";
-            # }
+            {
+              name = "jeffreytse/zsh-vi-mode";
+            }
           ];
         };
         shellAliases = aliases;
