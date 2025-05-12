@@ -52,9 +52,9 @@ in
             {
               name = "zsh-users/zsh-completions";
             }
-            {
-              name = "jeffreytse/zsh-vi-mode";
-            }
+            # {
+            #   name = "jeffreytse/zsh-vi-mode";
+            # }
           ];
         };
         shellAliases = aliases;
@@ -63,9 +63,8 @@ in
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initExtra = ''
+        initContent = ''
           SHELL=${pkgs.zsh}/bin/zsh
-          source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
           if command -v nix-your-shell > /dev/null; then
             nix-your-shell zsh | source /dev/stdin
@@ -93,7 +92,10 @@ in
           zstyle ':fzf-tab:*' switch-group '<' '>'
           # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
+          # zvm_after_init() {
           source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
+          source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+          # }
         '';
       };
       bash = {

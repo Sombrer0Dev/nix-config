@@ -84,7 +84,7 @@ in
         fzf
         cargo
         go
-        python3
+        python
         php
 
         # config helpers
