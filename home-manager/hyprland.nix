@@ -26,7 +26,6 @@ in
 
     settings = {
       exec-once = [
-        # "ghostty"
         "nm-applet"
         "hiddify"
         "hyprpanel"
@@ -146,7 +145,7 @@ in
           # "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           # "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, ghostty"
+          "SUPER, Return, exec, kitty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"
