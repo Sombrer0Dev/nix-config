@@ -215,7 +215,7 @@ return {
 		cyberdream = {
 			-- dark light
 			dark = true,
-			transparent = false,
+			transparent = true,
 		},
 	},
 	-- treesitter parsers to be installed

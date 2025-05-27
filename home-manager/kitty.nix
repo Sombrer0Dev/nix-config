@@ -15,9 +15,10 @@
       bold_font = "MonaspiceKr Nerd Font Bold";
       italic_font = "MonaspiceKr Nerd Font Italic";
       bold_italic_font = "MonaspiceKr Nerd Font Bold Italic";
-      symbol_map = "U+0400-U+04FF Source Sans Pro";  # Cyrillic range
+      symbol_map = "U+0400-U+04FF Source Sans Pro"; # Cyrillic range
       allow_hidpi = true;
 
+      background_opacity = 0.9;
       background = "#16181a";
       foreground = "#ffffff";
       cursor = "#ffffff";
