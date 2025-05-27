@@ -1,6 +1,6 @@
 let
   name = "Artem Sokolov";
-  mail = "arsokolov@ptsecurity.com";
+  mail = "smbrer1@gmail.com";
 in
 {
   programs.git = {
