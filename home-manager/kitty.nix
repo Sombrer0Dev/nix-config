@@ -2,14 +2,15 @@
   programs.kitty = {
     enable = true;
     settings = {
-      # shell = "tmux new-session -A -s nix";
+      shell = "tmux new-session -A -s nix";
 
       confirm_os_window_close = 0;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       # window_padding_width = 10;
       cursor_trail = 1;
-      font_size = 10;
+      font_size = 11;
+      window_padding_width = 5;
       font_family = "MonaspiceKr Nerd Font";
       bold_font = "MonaspiceKr Nerd Font Bold";
       italic_font = "MonaspiceKr Nerd Font Italic";

@@ -177,31 +177,31 @@ in
       set -g bell-action none
 
       # clock mode
-      setw -g clock-mode-colour colour1
+      setw -g clock-mode-colour colour15
 
       # copy mode
-      setw -g mode-style 'fg=colour1 bg=colour18 bold'
+      setw -g mode-style 'fg=colour15 bg=colour18 bold'
 
       # pane borders
       set -g pane-border-style 'fg=colour238'
-      set -g pane-active-border-style 'fg=colour1'
+      set -g pane-active-border-style 'fg=colour15'
 
       # statusbar
       set -g status-position bottom
       set -g status-justify centre
-      set -g status-style 'fg=colour1'
+      set -g status-style 'fg=colour15'
       set -g status-right '%Y-%m-%d %H:%M '
       set -g status-left '#{session_name} '
       set -g status-right-length 50
       set -g status-left-length 100
 
-      setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
+      setw -g window-status-current-style 'fg=colour0 bg=colour15 bold'
       setw -g window-status-current-format ' #I #W #F '
 
-      setw -g window-status-style 'fg=colour1 dim'
-      setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+      setw -g window-status-style 'fg=colour15 dim'
+      setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour15]#F '
 
-      setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+      setw -g window-status-bell-style 'fg=colour2 bg=colour15 bold'
 
       # messages
       set -g message-style 'fg=colour2 bg=colour0 bold'
