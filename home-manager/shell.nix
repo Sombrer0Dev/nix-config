@@ -95,6 +95,10 @@ in
           # zvm_after_init() {
           source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
           source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+          if [ -n "$TMUX" ]; then
+            precmd() { tmux rename-window "$(tmux-tabs | cut -c -20)"; }
+          fi
+
           # }
         '';
       };

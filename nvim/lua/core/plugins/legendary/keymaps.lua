@@ -41,8 +41,8 @@ function M.default_keymaps()
 		{ "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true }, mode = { "n", "v" } },
 		{ "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true }, mode = { "n", "v" } },
 
-		{ "<leader>y", '"+y', mode = "n" },
-		{ "<leader>p", '"+p', mode = "n" },
+		{ "<leader>y", '"+y', mode = { "n", "v" } },
+		{ "<leader>p", '"+p', mode = { "n" } },
 		{ "<leader>mp", "<cmd>Precognition toggle<cr>", mode = "n" },
 		-- { "<leader>mh", "<cmd>Hardtime toggle<cr>", mode = "n" },
 		{ "n", "nzzzv", mode = "n" },

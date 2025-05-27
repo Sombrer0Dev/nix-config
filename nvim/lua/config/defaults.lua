@@ -9,7 +9,7 @@ return {
 		conceallevel = 0, -- so that `` is visible in markdown files
     cmdheight = 0, -- so that cmd is visible only when in use
 		confirm = true, -- confirm to save changes before exiting modified buffer
-		cursorline = true, -- highlight the current line
+		cursorline = false, -- highlight the current line
 		dir = fn.stdpath("data") .. "/swp", -- swap file directory
 		-- formatoptions = "jcroqlnt",               -- tcqj
 		grepprg = "rg --vimgrep --smart-case --", -- use rg instead of grep
