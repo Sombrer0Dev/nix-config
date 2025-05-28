@@ -18,7 +18,7 @@
       symbol_map = "U+0400-U+04FF Source Sans Pro"; # Cyrillic range
       allow_hidpi = true;
 
-      background_opacity = 0.85;
+      background_opacity = 0.7;
       background = "#16181a";
       foreground = "#ffffff";
       cursor = "#ffffff";
