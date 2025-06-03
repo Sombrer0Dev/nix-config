@@ -9,7 +9,7 @@
     enable = lib.mkEnableOption "Gnome";
   };
 
-  config = lib.mkIf config.gnome.enable {
+  config = {
     xdg.portal = {
       enable = true;
       # xdgOpenUsePortal = true;

@@ -1,15 +1,15 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
-  hyprlock-blur = pkgs.writeShellScriptBin "hyprlock-blur" ''
-    ${pkgs.grim}/bin/grim -o DP-2 -l 0 /tmp/screenshot1.png &
-    ${pkgs.grim}/bin/grim -o HDMI-A-1 -l 0 /tmp/screenshot2.png &
-    wait &&
-    hyprlock
-  '';
 in
 {
   wayland.windowManager.hyprland = {
@@ -18,7 +18,6 @@ in
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [
-      # inputs.hyprland-hyprspace.packages.${pkgs.system}.default
       # plugins.hyprexpo
       # plugins.hyprbars
       # plugins.borderspp
@@ -29,12 +28,10 @@ in
         "nm-applet"
         "hiddify"
         "hyprpanel"
-        "pkill mako"
       ];
 
       monitor = [
-        "DP-1, 2560x1440@180.06Hz, 2560x0, 1"
-        "DP-2, 2560x1440@59.95Hz, 0x0, 1"
+        "default,preferred,auto,1"
       ];
       workspace = [
         "1,monitor:DP-1"
@@ -86,7 +83,6 @@ in
       windowrule =
         let
           f = regex: "float, ${regex}";
-          fs = { regex, size }: "float, size ${size}, ^(${regex})";
         in
         [
           (f "title:org.gnome.Calculator")
@@ -101,10 +97,6 @@ in
           (f "title:xdg-desktop-portal-gnome")
           (f "title:transmission-gtk")
           (f "title:Picture-in-Picture")
-          # (fs {
-          #   size = "50% 50%";
-          #   regex = "Bitwarden";
-          # })
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
       windowrulev2 =
@@ -137,14 +129,8 @@ in
           ];
         in
         [
-          # "CTRL SHIFT, R,    ${e} quit; ags -b hypr"
           "SUPER, TAB, exec , walker --modules applications,websearch"
-          # "SUPER, Tab,       ${e} -t overview"
-          # ",XF86PowerOff,    ${e} -r 'powermenu.shutdown()'"
-          # "SUPER SHIFT, P,   ${e} -r 'powermenu.shutdown()'"
-          # "SUPER SHIFT, V,   ${e} -r 'recorder.start()'"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
-          # "SUPER CONTROL, S, ${e} -r 'recorder.screenshot(true)'"
           "SUPER, Return, exec, kitty"
 
           "ALT, Tab, focuscurrentorlast"
@@ -322,12 +308,14 @@ in
     terminal = false;
   };
 
-  imports = [inputs.walker.homeManagerModules.default];
+  imports = [
+    inputs.walker.homeManagerModules.default
+  ];
+
   programs.walker = {
     enable = true;
     runAsService = true;
 
-    # All options from the config.json can be used here.
     config = {
       search.placeholder = "Example";
       ui.fullscreen = true;
@@ -338,14 +326,8 @@ in
       switcher.prefix = "/";
     };
 
-    # If this is not set the default styling is used.
-    # style = ''
-    #   * {
-    #     color: #dcd7ba;
-    #   }
-    # '';
   };
-    services.hypridle = {
+  services.hypridle = {
     enable = true;
     settings = {
       general = {
