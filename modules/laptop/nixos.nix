@@ -15,6 +15,7 @@
     username
   ];
   hyprland.enable = true;
+  network.hostName = "laptop";
 
   home-manager = {
     backupFileExtension = "backup";
