@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     walker.url = "github:abenz1267/walker";
+    niri.url = "github:sodiboo/niri-flake";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";
@@ -58,6 +59,7 @@
             services.xserver.videoDrivers = [ "amdgpu" ];
             nixpkgs.overlays = [
               inputs.hyprpanel.overlay
+              inputs.niri.overlays.niri
               # add any other overlays you need
             ];
           }
@@ -70,7 +72,7 @@
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs username;
           hostname = "laptop";
         };
         modules = genericModules ++ [
@@ -79,6 +81,7 @@
             {
               nixpkgs.overlays = [
                 inputs.hyprpanel.overlay
+                inputs.niri.overlays.niri
                 # add any other overlays you need
               ];
               services.xserver.videoDrivers = [ "nvidia" ];
