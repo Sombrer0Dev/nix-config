@@ -1,9 +1,5 @@
 { lib, inputs, ... }:
 {
-
-  # imports = [
-  #   inputs.hyprpanel.homeManagerModules.hyprpanel
-  # ];
   programs.hyprpanel.settings = {
     layout = lib.mkForce {
       "bar.layouts" = {

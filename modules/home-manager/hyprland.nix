@@ -314,10 +314,10 @@ in
 
   programs.walker = {
     enable = true;
-    runAsService = true;
+    # runAsService = true;
 
     config = {
-      search.placeholder = "Example";
+      search.placeholder = "Search";
       ui.fullscreen = true;
       list = {
         height = 200;
