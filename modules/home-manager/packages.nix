@@ -45,6 +45,7 @@ in
   imports = [
     ../../scripts/nix-scripts.nix
     ../../scripts/shell-bins.nix
+    ../../scripts/worktree.nix
   ];
 
   home.packages = genericPackages ++ perHost;
