@@ -46,6 +46,7 @@ in
     ../../scripts/nix-scripts.nix
     ../../scripts/shell-bins.nix
     ../../scripts/worktree.nix
+    ../../scripts/work-scripts.nix
   ];
 
   home.packages = genericPackages ++ perHost;

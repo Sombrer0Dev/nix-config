@@ -80,10 +80,10 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
+    };
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
     printing.enable = true;
     flatpak.enable = true;
