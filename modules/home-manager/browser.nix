@@ -7,11 +7,6 @@
 {
   home = {
     sessionVariables.BROWSER = "firefox";
-
-    file."firefox-gnome-theme" = {
-      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
-      source = inputs.firefox-gnome-theme;
-    };
   };
 
   xdg.desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
@@ -35,12 +30,12 @@
         "gnomeTheme.normalWidthTabs" = false;
         "gnomeTheme.tabsAsHeaderbar" = false;
       };
-      userChrome = ''
-        @import "firefox-gnome-theme/userChrome.css";
-      '';
-      userContent = ''
-        @import "firefox-gnome-theme/userContent.css";
-      '';
+      # userChrome = ''
+      #   @import "firefox-gnome-theme/userChrome.css";
+      # '';
+      # userContent = ''
+      #   @import "firefox-gnome-theme/userContent.css";
+      # '';
     };
   };
 }

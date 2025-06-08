@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  username,
   lib,
   config,
   ...
@@ -52,15 +53,14 @@
     home-manager
     neovim
     go
-    ghostty
+    # ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
     cargo
     git
     wget
-    vesktop
-    distrobox
+    # distrobox
     networkmanagerapplet
-    hyprpanel
+    inputs.hyprpanel
     sqlite
 
     # pycharm
@@ -80,10 +80,10 @@
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
-      displayManager.gdm = lib.mkIf config.hyprland.enable {
-        enable = true;
-        wayland = true;
-      };
+    };
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
     printing.enable = true;
     flatpak.enable = true;
@@ -139,6 +139,21 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+  };
+
+  # users
+  users.users.${username} = {
+    isNormalUser = true;
+    initialPassword = username;
+    extraGroups = [
+      "nixosvmtest"
+      "networkmanager"
+      "wheel"
+      "audio"
+      "video"
+      "libvirtd"
+      "docker"
+    ];
   };
 
   system.stateVersion = "24.05";

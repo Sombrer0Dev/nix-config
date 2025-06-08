@@ -21,14 +21,17 @@ in
 {
   home = {
     packages = with pkgs; [
+      material-symbols
       cantarell-fonts
       font-awesome
       theme.package
       cursorTheme.package
       iconTheme.package
       adwaita-icon-theme
+      adwaita-icon-theme-legacy
       papirus-icon-theme
       victor-mono
+      nerd-fonts.symbols-only
       nerd-fonts.ubuntu
       nerd-fonts.ubuntu-mono
       nerd-fonts.caskaydia-mono
@@ -36,6 +39,9 @@ in
       nerd-fonts.fira-code
       nerd-fonts.mononoki
       nerd-fonts.monaspace
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -58,7 +64,7 @@ in
 
   services.mako = {
     enable = true;
-    defaultTimeout = 4000;
+    settings.default-timeout = 4000;
   };
   gtk = {
     inherit font cursorTheme iconTheme;

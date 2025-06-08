@@ -9,7 +9,7 @@
     enable = lib.mkEnableOption "Gnome";
   };
 
-  config = lib.mkIf config.gnome.enable {
+  config = {
     xdg.portal = {
       enable = true;
       # xdgOpenUsePortal = true;
@@ -54,7 +54,7 @@
         ]);
     };
 
-    services.xserver = {
+    services = {
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };

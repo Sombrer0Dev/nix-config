@@ -31,7 +31,6 @@ in
     };
 
   config = {
-
     home.packages = with pkgs; [
       zsh-forgit
       zsh-fzf-history-search
@@ -52,9 +51,6 @@ in
             {
               name = "zsh-users/zsh-completions";
             }
-            # {
-            #   name = "jeffreytse/zsh-vi-mode";
-            # }
           ];
         };
         shellAliases = aliases;
@@ -102,71 +98,17 @@ in
           # }
         '';
       };
+
       bash = {
         shellAliases = aliases;
         enable = true;
         initExtra = ''
           SHELL=${pkgs.bash}
-          workswitch() {
-            cd $(get-worktree-branch $1)
-          }
-          workdel() {
-            delete-worktree-branch $1
-          }
-          workadd() {
-            cd $(add-worktree-branch $1)
-          }
         '';
-      };
-
-      fish = {
-        enable = true;
-        shellAliases = aliases;
-        interactiveShellInit = ''
-          nix-your-shell fish | source
-
-          function workswitch -d "Swtich git worktree"
-            cd (get-worktree-branch $argv)
-          end
-          function workdel -d "Delete git worktree"
-            delete-worktree-branch $argv
-          end
-          function workadd -d "Create new git worktree"
-            cd (add-worktree-branch $argv)
-          end
-        '';
-        plugins = [
-          {
-            name = "pure.fish";
-            src = pkgs.fishPlugins.pure.src;
-          }
-          {
-            name = "nix.fish";
-            src = pkgs.fetchFromGitHub {
-              owner = "kidonng";
-              repo = "nix.fish";
-              rev = "ad57d970841ae4a24521b5b1a68121cf385ba71e";
-              hash = "sha256-GMV0GyORJ8Tt2S9wTCo2lkkLtetYv0rc19aA5KJbo48=";
-            };
-          }
-          {
-            name = "fzf-fish";
-            src = pkgs.fishPlugins.fzf-fish.src;
-          }
-          {
-            name = "autopair";
-            src = pkgs.fishPlugins.autopair.src;
-          }
-          {
-            name = "puffer";
-            src = pkgs.fishPlugins.puffer.src;
-          }
-        ];
       };
 
       zoxide = {
         enable = true;
-        enableFishIntegration = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
       };
@@ -178,7 +120,6 @@ in
       };
       fzf = {
         enable = true;
-        enableFishIntegration = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
         tmux.enableShellIntegration = true;
