@@ -12,7 +12,7 @@ return {
 			-- Create ]d/[d, etc. key mappings to jump to diganostics. See demicolon.keymaps.create_default_diagnostic_keymaps
 			diagnostic_motions = true,
 			-- Create `;` and `,` key mappings
-			repeat_motions = true,
+			repeat_motions = "stateless",
 		},
 		-- integrations = {
 		-- 	-- Integration with https://github.com/lewis6991/gitsigns.nvim

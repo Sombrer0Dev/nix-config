@@ -38,6 +38,7 @@
           ../home-manager/git.nix
           ../home-manager/hyprland.nix
           ../home-manager/hyprpanel.nix
+          ../home-manager/niri.nix
           ../home-manager/shell.nix
           ../home-manager/theme.nix
           ../home-manager/kitty.nix
