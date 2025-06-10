@@ -79,7 +79,6 @@
             {
               nixpkgs.overlays = [
                 inputs.hyprpanel.overlay
-                inputs.niri.overlays.niri
                 # add any other overlays you need
               ];
               services.xserver.videoDrivers = [ "nvidia" ];
