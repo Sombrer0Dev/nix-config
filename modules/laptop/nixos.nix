@@ -43,7 +43,7 @@
         ../generic/home.nix
 
         ../home-manager/work.nix
-      ] ++ [ ./hyprpanel.nix ];
+      ] ++ [ ./hyprpanel.nix ./hyprland.nix];
     };
   };
 }
