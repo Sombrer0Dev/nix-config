@@ -86,9 +86,15 @@
                 modesetting.enable = true;
                 powerManagement.enable = false;
                 powerManagement.finegrained = false;
-                open = true;
+                open = false;
                 nvidiaSettings = true;
-                package = config.boot.kernelPackages.nvidiaPackages.stable;
+                package = config.boot.kernelPackages.nvidiaPackages.production;
+                prime = {
+                  reverseSync.enable = true;
+                  intelBusId = "PCI:0:2:0";
+                  nvidiaBusId = "PCI:1:0:0";
+                  #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
+                };
               };
             }
           )
