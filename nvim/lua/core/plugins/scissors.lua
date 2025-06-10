@@ -25,7 +25,16 @@ local M = {
 			-- 	enabled = true,
 			-- 	blend = 50, -- between 0-100
 			-- },
-      telescope = {alsoSearchSnippetBody=false},
+			snippetSelection = {
+				picker = "vim.ui.select",
+			},
+			backdrop = {
+				enabled = true,
+				blend = 50, -- between 0-100
+			},
+			icons = {
+				scissors = "󰩫",
+			},
 		})
 		require("which-key").add({
 			{ "<leader>c", group = "Coding" },
