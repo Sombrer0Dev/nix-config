@@ -12,6 +12,11 @@ let
   pactl = "${pkgs.pulseaudio}/bin/pactl";
 in
 {
+  home.sessionVariables={
+    LIBVA_DRIVER_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NDV_BACKEND = "direct";
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland;
