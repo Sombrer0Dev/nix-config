@@ -43,6 +43,9 @@ let
   nx-stage = pkgs.writeShellScriptBin "nx-stage" ''
     git add . && git commit -m "$1" && git push
   '';
+  nx-hardware = pkgs.writeShellScriptBin "nx-hardware" ''
+    nixos-generate-config --show-hardware-config > hardware-configuration.nix
+  '';
 in
 {
   home.packages = [
@@ -55,5 +58,6 @@ in
     nx-up-switch
     nx-gc
     nx-dev
+    nx-hardware
   ];
 }

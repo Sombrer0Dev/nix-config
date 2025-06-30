@@ -16,14 +16,15 @@
   };
   # garbage collection
   nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+    # let nh handle it
+    automatic = false;
+    # dates = "daily";
+    # options = "--delete-older-than 7d";
   };
 
   time.hardwareClockInLocalTime = true;
 
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
   programs.seahorse.enable = true;
   # virtualisation
   programs.virt-manager.enable = true;
@@ -154,6 +155,14 @@
       "libvirtd"
       "docker"
     ];
+  };
+
+  # Nix Helper
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 5 --keep-since 3d";
+    flake = "/home/arsokolov/Documents/nix-config";
   };
 
   system.stateVersion = "24.05";
