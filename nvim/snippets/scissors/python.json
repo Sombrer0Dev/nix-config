@@ -22,7 +22,7 @@
   },
   "fix + fixture": {
     "body": [
-      "@mark.fixture(scope='${4:function}')",
+      "@fixture(scope='${4:function}')",
       "def ${1:func}(${2:params}):",
       "    ${3:pass}"
     ],

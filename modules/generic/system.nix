@@ -51,28 +51,26 @@
 
   # packages
   environment.systemPackages = with pkgs; [
+    cachix
     home-manager
     neovim
     go
-    # ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
     cargo
     git
     wget
-    # distrobox
     networkmanagerapplet
-    inputs.hyprpanel
     sqlite
 
     # pycharm
-    jetbrains.pycharm-community
+    # jetbrains.pycharm-community
 
     # office
-    libreoffice-qt
-    jre_minimal
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.ru_RU
+    # libreoffice-qt
+    # jre_minimal
+    # hunspell
+    # hunspellDicts.en_US
+    # hunspellDicts.ru_RU
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 
@@ -121,6 +119,12 @@
 
   # network
   networking.networkmanager.enable = true;
+  services.openvpn.servers = {
+    officeVPN = {
+      config = ''config /home/arsokolov/Documents/PTsecurity.ovpn'';
+      updateResolvConf = true;
+    };
+  };
 
   # bluetooth
   hardware.bluetooth = {

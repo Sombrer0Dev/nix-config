@@ -1,9 +1,5 @@
 { pkgs, config, ... }:
 let
-  theme = {
-    name = "Adwaita-dark";
-    package = pkgs.gnome-themes-extra;
-  };
   font = {
     name = "Ubuntu Nerd Font";
     size = 11;
@@ -24,7 +20,6 @@ in
       material-symbols
       cantarell-fonts
       font-awesome
-      theme.package
       cursorTheme.package
       iconTheme.package
       adwaita-icon-theme
@@ -50,15 +45,6 @@ in
     pointerCursor = cursorTheme // {
       gtk.enable = true;
     };
-    file = {
-      ".config/gtk-4.0/gtk.css".text = ''
-        window.messagedialog .response-area > button,
-        window.dialog.message .dialog-action-area > button,
-        .background.csd{
-          border-radius: 0;
-        }
-      '';
-    };
   };
   fonts.fontconfig.enable = true;
 
@@ -67,16 +53,10 @@ in
     settings.default-timeout = 4000;
   };
   gtk = {
-    inherit font cursorTheme iconTheme;
-    theme.name = theme.name;
-    # theme.package = theme.package;
     enable = true;
-    # gtk3.extraCss = ''
-    #   headerbar, .titlebar,
-    #   .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-    #     border-radius: 0;
-    #   }
-    # '';
+    inherit font cursorTheme iconTheme;
+    theme.name = "Adwaita-dark";
+    theme.package = pkgs.gnome-themes-extra;
   };
 
   qt = {
