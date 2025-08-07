@@ -37,7 +37,7 @@ local M = {
 			},
 		})
 		require("which-key").add({
-			{ "<leader>c", group = "Coding" },
+			{ "<leader>cs", group = "Snippets" },
 			{
 				"<leader>cse",
 				function()

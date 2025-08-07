@@ -1,8 +1,47 @@
+{ pkgs, ... }:
 {
   programs.kitty = {
     enable = true;
+    keybindings = {
+      "ctrl+shift+0" = "change_font_size all 0";
+      # "ctrl+space>enter" = "new_window";
+      # "ctrl+space>x" = "close_window";
+      # "ctrl+space>h" = "kitty_scrollback_nvim";
+      # "ctrl+space>g" = "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
+    };
+
+    # actionAliases = {
+    #   "kitty_scrollback_nvim" =
+    #     "kitten /home/arsokolov/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
+    # };
+    # extraConfig = ''
+    #   map alt+j neighboring_window down
+    #   map alt+k neighboring_window up
+    #   map alt+h neighboring_window left
+    #   map alt+l neighboring_window right
+    #
+    #   # Unset the mapping to pass the keys to neovim
+    #   map --when-focus-on var:IS_NVIM alt+j
+    #   map --when-focus-on var:IS_NVIM alt+k
+    #   map --when-focus-on var:IS_NVIM alt+h
+    #   map --when-focus-on var:IS_NVIM alt+l
+    #
+    #   # the 3 here is the resize amount, adjust as needed
+    #   map alt+shift+j kitten relative_resize.py down  3
+    #   map alt+shift+k kitten relative_resize.py up    3
+    #   map alt+shift+h kitten relative_resize.py left  3
+    #   map alt+shift+l kitten relative_resize.py right 3
+    #
+    #   map --when-focus-on var:IS_NVIM alt+shift+j
+    #   map --when-focus-on var:IS_NVIM alt+shift+k
+    #   map --when-focus-on var:IS_NVIM alt+shift+h
+    #   map --when-focus-on var:IS_NVIM alt+shift+l
+    # '';
     settings = {
+
       shell = "tmux new-session -A -s nix";
+      # shell = "${pkgs.zsh}/bin/zsh";
+      enabled_layouts = "fat:bias=50;full_size=1;mirrored=false";
 
       confirm_os_window_close = 0;
       enable_audio_bell = false;
@@ -16,7 +55,9 @@
       italic_font = "MonaspiceKr Nerd Font Italic";
       bold_italic_font = "MonaspiceKr Nerd Font Bold Italic";
       symbol_map = "U+0400-U+04FF Source Sans Pro"; # Cyrillic range
-      allow_hidpi = true;
+
+      allow_remote_control = true;
+      listen_on = "unix:@mykitty";
 
       background_opacity = 0.7;
       background = "#16181a";
@@ -45,6 +86,9 @@
       active_tab_background = "#ffbd5e";
       inactive_tab_foreground = "#ffffff";
       inactive_tab_background = "#16181a";
+    };
+    shellIntegration = {
+      enableZshIntegration = true;
     };
   };
 }

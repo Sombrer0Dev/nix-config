@@ -4,7 +4,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			{ "onsails/lspkind-nvim" },
-			"williamboman/mason.nvim",
 		},
 		opts = {
 			inlay_hints = true,

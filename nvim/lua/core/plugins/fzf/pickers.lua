@@ -57,40 +57,40 @@ function M.buffers_or_recent(no_buffers)
 	local fzfutils = require("core.plugins.fzf.utils")
 	local bufopts = {
 		header_separator = "  ",
-		fzf_opts = { ["--tmux"] = "center,30%,25%" },
+		-- fzf_opts = { ["--tmux"] = "center,30%,25%" },
 		filename_first = true,
 		sort_lastused = true,
-		winopts = {
-			height = 0.3,
-			width = 0.3,
-			fullscreen = false,
-			preview = {
-				hidden = "hidden",
-			},
-		},
+		-- winopts = {
+		-- 	height = 0.3,
+		-- 	width = 0.3,
+		-- 	fullscreen = false,
+		-- 	preview = {
+		-- 		hidden = "hidden",
+		-- 	},
+		-- },
 	}
 	local oldfiles_opts = {
 		header_separator = "  ",
-		fzf_opts = { ["--tmux"] = "center,30%,25%" },
+		-- fzf_opts = { ["--tmux"] = "center,30%,25%" },
 		prompt = " Recent: ",
 		cwd_only = true,
 		include_current_session = true,
-		winopts = {
-			height = 0.3,
-			width = 0.3,
-			fullscreen = false,
-			preview = {
-				hidden = "hidden",
-			},
-		},
-		keymap = {
-			-- fzf = {
-			--   ['tab'] = 'down',
-			--   ['btab'] = 'up',
-			--   ['ctrl-j'] = 'toggle+down',
-			--   ['ctrl-i'] = 'down',
-			-- },
-		},
+		-- winopts = {
+		-- 	height = 0.3,
+		-- 	width = 0.3,
+		-- 	fullscreen = false,
+		-- 	preview = {
+		-- 		hidden = "hidden",
+		-- 	},
+		-- },
+		-- keymap = {
+		-- 	-- fzf = {
+		-- 	--   ['tab'] = 'down',
+		-- 	--   ['btab'] = 'up',
+		-- 	--   ['ctrl-j'] = 'toggle+down',
+		-- 	--   ['ctrl-i'] = 'down',
+		-- 	-- },
+		-- },
 	}
 	local buffers_actions = {}
 

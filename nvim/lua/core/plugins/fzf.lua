@@ -7,7 +7,14 @@ local M = {
 	lazy = false,
 	keys = {
 		{ "<leader>ff", '<cmd>FzfLua files formatter="path.filename_first"<cr>', desc = "Fzf files" },
-		{ "<leader>fg", '<cmd>FzfLua live_grep formatter="path.filename_first"<cr>', desc = "Fzf files" },
+		{ "<leader>fg", '<cmd>FzfLua live_grep formatter="path.filename_first"<cr>', desc = "Live Grep" },
+		{ "<leader>fG", '<cmd>FzfLua grep_cword formatter="path.filename_first"<cr>', desc = "Grep word" },
+		{
+			"<leader>fg",
+			'<cmd>FzfLua grep_visual formatter="path.filename_first"<cr>',
+			desc = "Visual Grep",
+			mode = "v",
+		},
 		{ "<leader>qf", "<cmd>FzfLua quickfix_stack<cr>", desc = "Fzf last quickfix lists" },
 		{ "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Fzf quickfix" },
 		{ "<leader>f<space>", "<cmd>FzfLua resume<cr>", desc = "Fzf resume search" },
@@ -18,12 +25,12 @@ local M = {
 
 		{ "<leader><space>", pickers.buffers_or_recent, desc = "Fzf open buffers" },
 		{ "<leader>fF", "<cmd>FzfLua<cr>", desc = "FzfLua" },
-		{ "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "FzfLua" },
+		{ "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep current buffer" },
 	},
 	config = function()
 		-- calling `setup` is optional for customization
 		require("fzf-lua").setup({
-			{ "ivy" },
+			{ "fzf-tmux" },
 			fzf_opts = {
 				["--margin"] = "0,0",
 				-- ['--select-1'] = '',
