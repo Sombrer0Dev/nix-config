@@ -1,85 +1,11 @@
 {
-  pkgs,
-  lib,
-  inputs,
   ...
 }:
 {
-  # WORKAROUND https://github.com/Jas-SinghFSU/HyprPanel/issues/815
-  xdg.configFile.hyprpanel.onChange = lib.mkForce ''
-    if [[ $(${pkgs.hyprpanel}/bin/hyprpanel -l) ]]; then
-       ${pkgs.hyprpanel}/bin/hyprpanel r
-    fi
-  '';
-
   programs.hyprpanel = {
     enable = true;
 
     settings = {
-      layout = {
-        "bar.layouts" = {
-          "0" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
-            middle = [ "media" ];
-            right = [
-              "volume"
-              "kbinput"
-              "bluetooth"
-              "systray"
-              "clock"
-              "notifications"
-            ];
-          };
-          "1" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
-            middle = [ "media" ];
-            right = [
-              "volume"
-              "kbinput"
-              "bluetooth"
-              "systray"
-              "clock"
-              "notifications"
-            ];
-          };
-          "2" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
-            middle = [ "media" ];
-            right = [
-              "volume"
-              "kbinput"
-              "bluetooth"
-              "systray"
-              "clock"
-              "notifications"
-            ];
-          };
-          "3" = {
-            left = [
-              "dashboard"
-              "workspaces"
-            ];
-            middle = [ "media" ];
-            right = [
-              "volume"
-              "kbinput"
-              "bluetooth"
-              "systray"
-              "clock"
-              "notifications"
-            ];
-          };
-        };
-      };
 
       theme = {
         matugen_settings = {
@@ -107,6 +33,23 @@
       };
 
       bar = {
+        layouts = {
+          "*" = {
+            left = [
+              "dashboard"
+              "workspaces"
+            ];
+            middle = [ "media" ];
+            right = [
+              "volume"
+              "kbinput"
+              "bluetooth"
+              "systray"
+              "clock"
+              "notifications"
+            ];
+          };
+        };
         clock = {
           format = "%a %b %d  %H:%M:%S";
         };
