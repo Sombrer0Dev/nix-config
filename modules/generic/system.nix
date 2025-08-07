@@ -16,14 +16,15 @@
   };
   # garbage collection
   nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+    # let nh handle it
+    automatic = false;
+    # dates = "daily";
+    # options = "--delete-older-than 7d";
   };
 
   time.hardwareClockInLocalTime = true;
 
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
   programs.seahorse.enable = true;
   # virtualisation
   programs.virt-manager.enable = true;
@@ -50,28 +51,26 @@
 
   # packages
   environment.systemPackages = with pkgs; [
+    cachix
     home-manager
     neovim
     go
-    # ghostty
     inputs.zen-browser.packages.${pkgs.system}.default
     cargo
     git
     wget
-    # distrobox
     networkmanagerapplet
-    inputs.hyprpanel
     sqlite
 
     # pycharm
-    jetbrains.pycharm-community
+    # jetbrains.pycharm-community
 
     # office
-    libreoffice-qt
-    jre_minimal
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.ru_RU
+    # libreoffice-qt
+    # jre_minimal
+    # hunspell
+    # hunspellDicts.en_US
+    # hunspellDicts.ru_RU
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 
@@ -120,6 +119,12 @@
 
   # network
   networking.networkmanager.enable = true;
+  services.openvpn.servers = {
+    officeVPN = {
+      config = ''config /home/arsokolov/Documents/PTsecurity.ovpn'';
+      updateResolvConf = true;
+    };
+  };
 
   # bluetooth
   hardware.bluetooth = {
@@ -154,6 +159,14 @@
       "libvirtd"
       "docker"
     ];
+  };
+
+  # Nix Helper
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 5 --keep-since 3d";
+    flake = "/home/arsokolov/Documents/nix-config";
   };
 
   system.stateVersion = "24.05";

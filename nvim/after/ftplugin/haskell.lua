@@ -25,7 +25,6 @@ require("legendary").keymaps({
 })
 local wk = require("which-key")
 wk.add({
-	{ "<leader>c", group = "Coding" },
 	{ "<leader>ch", group = "Helper" },
 	-- { "<leader>ct", group = "Tests" },
 })

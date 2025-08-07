@@ -1,7 +1,7 @@
 return {
 	"danymat/neogen",
 	keys = {
-		{ "<leader>cc", "<cmd>lua require('neogen').generate()<cr>", { desc = "Generate comment" } },
+		{ "<leader>cc", "<cmd>lua require('neogen').generate()<cr>", desc = "Generate comment" },
 	},
 	config = function()
 		require("neogen").setup({

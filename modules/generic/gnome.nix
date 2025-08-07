@@ -25,8 +25,9 @@
         wl-clipboard
       ];
 
-      gnome.excludePackages =
-        (with pkgs; [
+      gnome.excludePackages = (
+        with pkgs;
+        [
           # gnome-text-editor
           # gnome-console
           gnome-photos
@@ -51,10 +52,12 @@
           gnome-shell-extensions
           gnome-maps
           gnome-font-viewer
-        ]);
+        ]
+      );
     };
 
     services = {
+      xserver.enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };

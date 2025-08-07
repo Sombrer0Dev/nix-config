@@ -6,7 +6,6 @@
   ...
 }:
 let
-  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
@@ -19,7 +18,9 @@ in
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [

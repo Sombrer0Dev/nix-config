@@ -136,6 +136,9 @@ in
       # reload config file (change file location to your the tmux.conf you want to use)
       bind r source-file ~/.config/tmux/tmux.conf
 
+      # # copy scrollback to a file
+      # bind S run-shell "echo ''\'''\' > ~/tmux.scrollback.sh" capture-pane -S - ; save-buffer ~/tmux.scrollback.sh ; delete-buffer
+
       # Smart pane switching with awareness of Neovim splits.
       bind-key -n M-h if -F "#{@pane-is-vim}" 'send-keys M-h'  'select-pane -L'
       bind-key -n M-j if -F "#{@pane-is-vim}" 'send-keys M-j'  'select-pane -D'

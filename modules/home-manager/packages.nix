@@ -5,7 +5,6 @@ let
     btop
     delta
     docker-compose
-    easyeffects
     eza
     fd
     fzf-git-sh
@@ -23,16 +22,22 @@ let
     spotify
     sshfs
     steam-run
+    openvpn
+
     telegram-desktop
+    # kotatogram-desktop
+
     trash-cli
     uv
-    vlc
+
+    # vlc
+
     zoxide
   ];
   hostPackages = {
     "home-pc" = with pkgs; [
       postman
-      gimp
+      # gimp
     ];
     "laptop" = with pkgs; [
       wdisplays
