@@ -8,7 +8,7 @@
 }:
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -16,7 +16,9 @@
     "root"
     username
   ];
-  hyprland.enable = true;
+  hyprland.enable = false;
+  gnome.enable = false;
+  cosmic.enable = true;
   networking.hostName = "laptop";
 
   home-manager = {

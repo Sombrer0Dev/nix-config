@@ -17,7 +17,6 @@ let
     nix-your-shell
     obs-studio
     playerctl
-    presenterm
     ripgrep
     spotify
     sshfs
@@ -25,6 +24,7 @@ let
     openvpn
 
     telegram-desktop
+    bottles
     # kotatogram-desktop
 
     trash-cli
@@ -41,7 +41,7 @@ let
     ];
     "laptop" = with pkgs; [
       wdisplays
-      prismlauncher
+      # prismlauncher
     ];
   };
   perHost = hostPackages.${hostname} or [];

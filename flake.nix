@@ -39,6 +39,7 @@
         ./modules/generic/system.nix
         ./modules/generic/audio.nix
         ./modules/generic/gnome.nix
+        ./modules/generic/cosmic.nix
         ./modules/generic/locale.nix
         ./modules/generic/nautilus.nix
       ];
@@ -110,7 +111,7 @@
                   nvidiaSettings = true;
                   package = config.boot.kernelPackages.nvidiaPackages.production;
                   prime = {
-                    reverseSync.enable = true;
+                    sync.enable = true;
                     intelBusId = "PCI:0:2:0";
                     nvidiaBusId = "PCI:1:0:0";
                     #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
@@ -121,6 +122,7 @@
             ./modules/laptop/nixos.nix
             ./modules/generic/gaming.nix
             ./modules/generic/hyprland.nix
+            ./modules/laptop/specialisations.nix
           ];
       };
     };
