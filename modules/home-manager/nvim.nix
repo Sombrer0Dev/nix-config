@@ -11,7 +11,6 @@ in
 {
   home.sessionVariables = {
     MANPAGER = "nvim -c 'Man!' -o -";
-    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
   };
   xdg = {
     configFile = {
@@ -43,12 +42,6 @@ in
       categories = [ "TerminalEmulator" ];
       terminal = false;
       mimeType = [ "text/plain" ];
-    };
-    desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
-      name = "GNOME Control Center";
-      comment = "GNOME control center";
-      icon = "gnome";
-      exec = "gnome-control-center";
     };
   };
 
@@ -98,6 +91,7 @@ in
         ruff
         sqls
         jedi-language-server
+        basedpyright
         marksman
         yaml-language-server
         bash-language-server

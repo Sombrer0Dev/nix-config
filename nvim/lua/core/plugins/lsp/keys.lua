@@ -47,7 +47,7 @@ M._keys = {
 					preview = { horizontal = "up:70%" },
 				},
 				previewer = "codeaction_native",
-				preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'",
+				preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style=omit --file-style=omit",
 			})
 		end,
 		desc = "Code Action",

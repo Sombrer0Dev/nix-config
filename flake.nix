@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +21,24 @@
     };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
+
+    # Neovim
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    # Neovim plugins
+    plugins-neogit = {
+      url = "github:NeogitOrg/neogit";
+      flake = false;
+    };
+    plugins-starlite = {
+      url = "github:ironhouzi/starlite-nvim";
+      flake = false;
+    };
+    plugins-blink-tmux = {
+      url = "github:mgalliou/blink-cmp-tmux";
       flake = false;
     };
   };

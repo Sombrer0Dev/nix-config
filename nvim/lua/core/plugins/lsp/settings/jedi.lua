@@ -1,7 +1,10 @@
 local opts = {
-  workspace = {
-    environmentPath="./venv/bin/python"
-  }
+	init_options = {
+		codeAction = {
+			nameExtractVariable = "foo",
+			nameExtractFunction = "bar",
+		},
+	},
 }
 
 return opts

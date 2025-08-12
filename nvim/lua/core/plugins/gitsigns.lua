@@ -9,7 +9,7 @@ local M = {
 			local wk = require("which-key")
 			local icons = require("mini.icons")
 			local gs = package.loaded.gitsigns
-      local diff = require('diffview')
+			local diff = require("diffview")
 
 			wk.add({
 				{ "<leader>g", group = "Git" },
@@ -28,9 +28,10 @@ local M = {
 				{ "<leader>grr", gs.reset_hunk, desc = "Reset hunk", mode = { "n", "v" } },
 				{ "<leader>gp", gs.preview_hunk, desc = "Preview hunk" },
 				{ "<leader>gb", gs.toggle_current_line_blame, desc = "Blame line" },
-				{ "<leader>gD", '<cmd>DiffviewOpen<cr>', desc = "Diff" },
+				{ "<leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Diff" },
 				{ "<leader>gd", gs.toggle_deleted, desc = "Show deleted" },
-        {"gH", "<cmd><C-U>Gitsigns select_hunk<cr>", desc="Select hunk", mode={"o", "x"}},
+				{ "gH", "<cmd><C-U>Gitsigns select_hunk<cr>", desc = "Select hunk", mode = { "o", "x" } },
+				{ "<leader>qc", "<cmd>GitConflictListQf<cr>", desc = "Open conflict list" },
 			})
 		end
 

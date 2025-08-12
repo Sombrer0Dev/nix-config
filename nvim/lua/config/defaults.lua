@@ -7,7 +7,7 @@ return {
 		-- clipboard = 'unnamedplus', -- keep in sync with the system clipboard
 		completeopt = "menuone,noselect", -- A comma separated list of options for Insert mode completion
 		conceallevel = 0, -- so that `` is visible in markdown files
-    cmdheight = 0, -- so that cmd is visible only when in use
+		cmdheight = 0, -- so that cmd is visible only when in use
 		confirm = true, -- confirm to save changes before exiting modified buffer
 		cursorline = false, -- highlight the current line
 		dir = fn.stdpath("data") .. "/swp", -- swap file directory
@@ -90,9 +90,9 @@ return {
 		indent_blankline = {
 			enable_scope = false,
 		},
-    blink = {
-      enable = true,
-    },
+		blink = {
+			enable = true,
+		},
 		ai = {
 			codeium = {
 				enabled = false,
@@ -240,7 +240,7 @@ return {
 		"ruff",
 		-- 'pylyzer',
 		-- 'pylsp',
-		-- 'pyright',
+		-- "basedpyright",
 
 		-- ZIG
 		"zls",
