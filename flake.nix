@@ -41,6 +41,10 @@
       url = "github:mgalliou/blink-cmp-tmux";
       flake = false;
     };
+    plugins-oil-git-nvim = {
+      url = "github:benomahony/oil-git.nvim";
+      flake = false;
+    };
   };
 
   outputs =

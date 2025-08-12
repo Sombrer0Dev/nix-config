@@ -124,12 +124,12 @@ in
               pkgs.neovimPlugins.neogit
               pkgs.neovimPlugins.starlite
               pkgs.neovimPlugins.blink-tmux
+              pkgs.neovimPlugins.oil-git-nvim
               plenary-nvim
               noice-nvim
               nvim-notify
               nui-nvim
               oil-nvim
-              oil-git-status-nvim
               quicker-nvim
               render-markdown-nvim
               smart-splits-nvim

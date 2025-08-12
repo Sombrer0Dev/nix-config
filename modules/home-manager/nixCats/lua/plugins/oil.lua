@@ -1,4 +1,20 @@
 return {
+	-- {
+	-- 	"oil-git-status.nvim",
+	-- 	enabled = nixCats("general") or false,
+	-- 	event = "DeferredUIEnter",
+	-- 	after = function()
+	-- 		require("oil-git-status").setup()
+	-- 	end,
+	-- },
+	{
+		"oil-git-nvim",
+		enabled = nixCats("general") or false,
+		event = "DeferredUIEnter",
+		after = function(plugin)
+			require("oil-git").setup({})
+		end,
+	},
 	{
 		"oil.nvim",
 		keys = {
@@ -6,7 +22,7 @@ return {
 		},
 		event = "DeferredUIEnter",
 		enabled = nixCats("general") or false,
-		dep_of = { "oil-git-status.nvim" },
+		dep_of = { "oil-git.nvim" },
 		after = function(plugin)
 			require("oil").setup({
 				-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -28,8 +44,8 @@ return {
 				-- Window-local options to use for oil buffers
 				win_options = {
 					wrap = false,
-					signcolumn = "yes:2",
-					number = false,
+					-- signcolumn = "yes:2",
+					number = true,
 					relativenumber = false,
 					cursorcolumn = false,
 					foldcolumn = "0",
@@ -155,14 +171,6 @@ return {
 					},
 				},
 			})
-		end,
-	},
-	{
-		"oil-git-status.nvim",
-		enabled = nixCats("general") or false,
-		event = "DeferredUIEnter",
-		after = function()
-			require("oil-git-status").setup()
 		end,
 	},
 }

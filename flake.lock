@@ -688,6 +688,22 @@
         "type": "github"
       }
     },
+    "plugins-oil-git-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751407933,
+        "narHash": "sha256-uuGXGHr/7k7YArefuj85qkMEHS54uPwjMVerywQxkkY=",
+        "owner": "benomahony",
+        "repo": "oil-git.nvim",
+        "rev": "3abffa67597aab5f915816d71e96cbed76147016",
+        "type": "github"
+      },
+      "original": {
+        "owner": "benomahony",
+        "repo": "oil-git.nvim",
+        "type": "github"
+      }
+    },
     "plugins-starlite": {
       "flake": false,
       "locked": {
@@ -738,6 +754,7 @@
         "nixpkgs": "nixpkgs_3",
         "plugins-blink-tmux": "plugins-blink-tmux",
         "plugins-neogit": "plugins-neogit",
+        "plugins-oil-git-nvim": "plugins-oil-git-nvim",
         "plugins-starlite": "plugins-starlite",
         "walker": "walker",
         "zen-browser": "zen-browser"
