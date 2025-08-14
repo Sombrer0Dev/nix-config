@@ -24,6 +24,12 @@
       flake = false;
     };
 
+    # VSCode extensions
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Neovim
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -98,10 +104,12 @@
             {
               services.xserver.videoDrivers = [ "amdgpu" ];
               nixpkgs.overlays = [
+                inputs.nix-vscode-extensions.overlays.default
                 # add any other overlays you need
               ];
             }
             ./modules/home-pc/nixos.nix
+            ./modules/home-pc/secure-boot.nix
             ./modules/generic/gaming.nix
             ./modules/generic/hyprland.nix
           ];

@@ -11,6 +11,7 @@ let
     hiddify-app
     hyprpicker
     jq
+    zoxide
     lua51Packages.lua
     lua51Packages.luarocks
     matugen
@@ -28,11 +29,9 @@ let
     # kotatogram-desktop
 
     trash-cli
-    uv
 
     # vlc
 
-    zoxide
   ];
   hostPackages = {
     "home-pc" = with pkgs; [
@@ -44,7 +43,7 @@ let
       # prismlauncher
     ];
   };
-  perHost = hostPackages.${hostname} or [];
+  perHost = hostPackages.${hostname} or [ ];
 in
 {
   imports = [
