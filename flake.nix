@@ -51,6 +51,12 @@
       url = "github:benomahony/oil-git.nvim";
       flake = false;
     };
+
+    # SecureBoot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -112,6 +118,7 @@
             ./modules/home-pc/secure-boot.nix
             ./modules/generic/gaming.nix
             ./modules/generic/hyprland.nix
+            inputs.lanzaboote.nixosModules.lanzaboote
           ];
       };
 
