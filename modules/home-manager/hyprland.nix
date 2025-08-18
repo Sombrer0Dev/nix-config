@@ -106,8 +106,8 @@ in
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
       windowrulev2 = [
-        "float, initialTitle:(Netrw File Explorer)"
         "size 40% 40%, initialTitle:(Netrw File Explorer)"
+        "size 40% 40%, initialClass:(jetbrains-pycharm),initialTitle(^$)"
       ];
 
       bind =

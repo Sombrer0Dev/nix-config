@@ -67,8 +67,10 @@
         let g:WhichKeyDesc_goto_usages = "gD Go to Usages"
         let g:WhichKeyDesc_goto_test = "gt Go to Test"
 
-        nnoremap ]d <Action>(GotoNextError)
-        nnoremap [d <Action>(GotoPreviousError)
+        nmap ]d <Action>(GotoNextError)
+        nmap [d <Action>(GotoPreviousError)
+        nmap ]c <Action>(VcsShowNextChangeMarker)
+        nmap [c <Action>(VcsShowPrevChangeMarker)
         map <leader>dd <action>(ToggleDistractionFreeMode)
         map <leader>dz <action>(ToggleZenMode)
         map <leader>df <action>(ToggleFullScreen)
@@ -94,7 +96,15 @@
         map <leader>gc <Action>(CheckinProject)
         map <leader>gs <Action>(ActivateVersionControlToolWindow)
         map <leader>gb <Action>(Git.Branches)
+        map <leader>gB <Action>(Annotate)
+        map <leader>grr <Action>(Vcs.RollbackChangedLines)
+        map <leader>db <Action>(ToggleLineBreakpoint)
+        map <leader>dB <Action>(AddConditionalBreakpoint)
+        map <leader>pr <Action>(RunClass)
+        map <leader>pd <Action>(DebugClass)
+        map <leader>ps <Action>(Stop)
         map <leader>e <Action>(ShowErrorDescription)
+        map <leader>q <Action>(HideActiveWindow)
 
         nxmap <leader>y "+y
         nxmap <leader>p "+p
