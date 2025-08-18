@@ -81,7 +81,6 @@
         map <leader>fl <action>(RecentLocations)
         map <leader>fs <action>(NewScratchFile)
         map <A-x> <action>(GotoAction)
-        map <le> <action>(GotoAction)
         map <leader>rn <Action>(RenameElement)
         map <leader>rm <Action>(ExtractMethod)
         map <leader>rv <Action>(IntroduceVariable)
@@ -105,6 +104,7 @@
         map <leader>ps <Action>(Stop)
         map <leader>e <Action>(ShowErrorDescription)
         map <leader>q <Action>(HideActiveWindow)
+        map <leader>F :action ReformatCode<CR>:action OptimizeImports<CR>
 
         nxmap <leader>y "+y
         nxmap <leader>p "+p

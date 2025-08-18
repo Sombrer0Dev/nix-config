@@ -86,28 +86,13 @@ in
         workspace_swipe = "off";
       };
 
-      windowrule =
-        let
-          f = regex: "float, ${regex}";
-        in
-        [
-          (f "title:org.gnome.Calculator")
-          (f "title:org.gnome.Nautilus")
-          (f "title:pavucontrol")
-          (f "title:nm-connection-editor")
-          (f "title:blueberry.py")
-          (f "title:org.gnome.Settings")
-          (f "title:org.gnome.design.Palette")
-          (f "title:Color Picker")
-          (f "title:xdg-desktop-portal")
-          (f "title:xdg-desktop-portal-gnome")
-          (f "title:transmission-gtk")
-          (f "title:Picture-in-Picture")
-          "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
-        ];
+      windowrule = [
+        "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
+      ];
       windowrulev2 = [
         "size 40% 40%, initialTitle:(Netrw File Explorer)"
-        "size 40% 40%, initialClass:(jetbrains-pycharm),initialTitle(^$)"
+        "float, class:(org.gnome.Nautilus)"
+        "float, title:.*Bitwarden.*"
       ];
 
       bind =
