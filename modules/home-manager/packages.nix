@@ -37,6 +37,7 @@ let
     "home-pc" = with pkgs; [
       postman
       # gimp
+      jetbrains-toolbox
     ];
     "laptop" = with pkgs; [
       wdisplays

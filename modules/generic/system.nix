@@ -61,6 +61,8 @@
     wget
     networkmanagerapplet
     sqlite
+    uv
+    python312
 
     # pycharm
     # jetbrains.pycharm-community

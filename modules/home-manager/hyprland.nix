@@ -11,7 +11,7 @@ let
   pactl = "${pkgs.pulseaudio}/bin/pactl";
 in
 {
-  home.sessionVariables={
+  home.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
     NDV_BACKEND = "direct";
@@ -105,13 +105,10 @@ in
           (f "title:Picture-in-Picture")
           "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         ];
-      windowrulev2 =
-        let
-          f = text: "float, ${text}";
-        in
-        [
-          (f "title:Picture-in-Picture")
-        ];
+      windowrulev2 = [
+        "float, initialTitle:(Netrw File Explorer)"
+        "size 40% 40%, initialTitle:(Netrw File Explorer)"
+      ];
 
       bind =
         let

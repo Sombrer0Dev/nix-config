@@ -32,6 +32,8 @@
         ../home-manager/packages.nix
 
         ../home-manager/nvim.nix
+        ../home-manager/vimrc.nix
+
         ../home-manager/vscode.nix
         ../home-manager/nixCats/default.nix
         ../home-manager/browser.nix
