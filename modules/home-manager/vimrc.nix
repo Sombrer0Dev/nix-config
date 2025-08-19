@@ -129,6 +129,8 @@
         nmap <c-u> <c-u>zz
         nmap n nzzzv
         nmap N Nzzzv
+        nmap <esc> <cmd>noh<cr><esc>
+        imap <esc> <cmd>noh<cr><esc>
         nnoremap <A-h> <C-w>h
         nnoremap <A-l> <C-w>l
         nnoremap <A-k> <C-w>k
