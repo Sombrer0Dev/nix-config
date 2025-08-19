@@ -42,6 +42,7 @@ let
     "laptop" = with pkgs; [
       wdisplays
       # prismlauncher
+      jetbrains-toolbox
     ];
   };
   perHost = hostPackages.${hostname} or [ ];

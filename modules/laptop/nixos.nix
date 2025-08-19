@@ -36,6 +36,7 @@
           ../home-manager/packages.nix
 
           ../home-manager/nvim.nix
+          ../home-manager/vimrc.nix
           ../home-manager/browser.nix
           ../home-manager/dconf.nix
           ../home-manager/git.nix
