@@ -15,6 +15,7 @@
         set smartcase
         set incsearch
         set hlsearch
+        set clipboard=ideaput
 
         let mapleader = " "
 
@@ -28,6 +29,10 @@
         set notimeout
         set which-key
         set quickscope
+
+        " Idea settings
+        set ideajoin
+        set ideavimsupport=singleline
 
 
         " let g:WhichKeyDesc_<identifier> = "<keybinding> <helptext>"
@@ -129,12 +134,12 @@
         nmap <c-u> <c-u>zz
         nmap n nzzzv
         nmap N Nzzzv
-        nmap <esc> <cmd>noh<cr><esc>
-        imap <esc> <cmd>noh<cr><esc>
+        nnoremap <esc> :noh<return><esc>
         nnoremap <A-h> <C-w>h
         nnoremap <A-l> <C-w>l
         nnoremap <A-k> <C-w>k
         nnoremap <A-j> <C-w>j
+        command! Q close
 
         imap <A-p> <C-o>p
       '';
