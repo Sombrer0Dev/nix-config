@@ -6,7 +6,10 @@
     NDV_BACKEND = "direct";
     __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
-  wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
-    "eDP-1, 1920x1200@60.00Hz, 0x0, 1"
-  ];
+  wayland.windowManager.hyprland.settings = {
+    exec-once = [ "jetbrains-toolbox" ];
+    monitor = lib.mkForce [
+      "eDP-1, 1920x1200@60.00Hz, 0x0, 1"
+    ];
+  };
 }

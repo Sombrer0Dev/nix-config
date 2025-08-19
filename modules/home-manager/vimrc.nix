@@ -27,20 +27,28 @@
         set commentary
         set notimeout
         set which-key
+        set quickscope
 
 
         " let g:WhichKeyDesc_<identifier> = "<keybinding> <helptext>"
 
-        let g:WhichKeyDesc_display = "<leader>d Display options"
-        let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
-        let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
-        let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
-
-        let g:WhichKeyDesc_git = "<leader>g Git operations"
-        let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
-        let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
-        let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
-
+        let g:WhichKeyDesc_next = "] Next"
+        let g:WhichKeyDesc_prev = "[ Previous"
+        let g:WhichKeyDesc_next_error = "]d Next error"
+        let g:WhichKeyDesc_prev_error = "[d Previous error"
+        let g:WhichKeyDesc_next_change = "]c Next git change"
+        let g:WhichKeyDesc_prev_change = "[c Previous git change"
+        let g:WhichKeyDesc_display = "<leader>z Display options"
+        let g:WhichKeyDesc_df_mode = "<leader>zd Toggle Distraction-Free mode"
+        let g:WhichKeyDesc_zen_mode = "<leader>zz Toggle Zen mode"
+        let g:WhichKeyDesc_fullscreen = "<leader>zf Toggle full screen"
+        let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+        let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+        let g:WhichKeyDesc_file_nav_search_everywhere = "<leader>fF Search Everywhere"
+        let g:WhichKeyDesc_file_nav_grep = "<leader>fg Search for file content"
+        let g:WhichKeyDesc_switcher = "<leader><leader> Switcher"
+        let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+        let g:WhichKeyDesc_actions = "<A-x> Actions"
         let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
         let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
         let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
@@ -48,32 +56,40 @@
         let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
         let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
         let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
-        let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
-
-        let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
-        let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
-        let g:WhichKeyDesc_file_nav_goto_file = "<leader>fF Search Everywhere"
-        let g:WhichKeyDesc_file_nav_goto_file = "<leader><leader> Switcher"
-        let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
-        let g:WhichKeyDesc_file_nav_goto_file = "<leader>F NERD Tree"
-        let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
-        let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
-
-
         let g:WhichKeyDesc_goto = "g Go to X"
         let g:WhichKeyDesc_goto_declaration = "gd Go to Definition"
         let g:WhichKeyDesc_goto_type_declaration = "gy Go to Type Definition"
         let g:WhichKeyDesc_goto_implementation = "gi Go to Implementation"
         let g:WhichKeyDesc_goto_usages = "gD Go to Usages"
         let g:WhichKeyDesc_goto_test = "gt Go to Test"
+        let g:WhichKeyDesc_git = "<leader>g Git operations"
+        let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+        let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+        let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
+        let g:WhichKeyDesc_git_reset = "<leader>gr Git reset lines"
+        let g:WhichKeyDesc_debug = "<leader>d Debug"
+        let g:WhichKeyDesc_debug_breakpoint = "<leader>db Breakpoint"
+        let g:WhichKeyDesc_debug_cond_breakpoint = "<leader>dB Conditional breakpoint"
+        let g:WhichKeyDesc_debug_run_debug = "<leader>dd Run Debug"
+        let g:WhichKeyDesc_debug_cond_breakpoint = "<leader>dd Debug current"
+        let g:WhichKeyDesc_project = "<leader>p Project"
+        let g:WhichKeyDesc_project_run = "<leader>pr Run"
+        let g:WhichKeyDesc_project_stop = "<leader>ps Run"
+        let g:WhichKeyDesc_project_debug = "<leader>pd Debug"
+        let g:WhichKeyDesc_error = "<leader>e Show error"
+        let g:WhichKeyDesc_close = "<leader>q Hide active window"
+        let g:WhichKeyDesc_F = "<leader>fluF Format file"
+        let g:WhichKeyDesc_comment_current = "gcc Comment current line"
+        let g:WhichKeyDesc_comment = "gc Comment "
+        let g:WhichKeyDesc_comment_current = "gcc Comment current line"
 
         nmap ]d <Action>(GotoNextError)
         nmap [d <Action>(GotoPreviousError)
         nmap ]c <Action>(VcsShowNextChangeMarker)
         nmap [c <Action>(VcsShowPrevChangeMarker)
-        map <leader>dd <action>(ToggleDistractionFreeMode)
-        map <leader>dz <action>(ToggleZenMode)
-        map <leader>df <action>(ToggleFullScreen)
+        map <leader>zd <action>(ToggleDistractionFreeMode)
+        map <leader>zz <action>(ToggleZenMode)
+        map <leader>zf <action>(ToggleFullScreen)
         map <leader>ff <action>(GotoFile)
         map <leader>fF <action>(SearchEverywhere)
         map <leader>fg <action>(FindInPath)
@@ -96,12 +112,13 @@
         map <leader>gs <Action>(ActivateVersionControlToolWindow)
         map <leader>gb <Action>(Git.Branches)
         map <leader>gB <Action>(Annotate)
-        map <leader>grr <Action>(Vcs.RollbackChangedLines)
+        map <leader>gr <Action>(Vcs.RollbackChangedLines)
         map <leader>db <Action>(ToggleLineBreakpoint)
         map <leader>dB <Action>(AddConditionalBreakpoint)
+        map <leader>dd <Action>(DebugClass)
         map <leader>pr <Action>(RunClass)
-        map <leader>pd <Action>(DebugClass)
         map <leader>ps <Action>(Stop)
+        map <leader>pd <Action>(DebugClass)
         map <leader>e <Action>(ShowErrorDescription)
         map <leader>q <Action>(HideActiveWindow)
         map <leader>F :action ReformatCode<CR>:action OptimizeImports<CR>
@@ -116,6 +133,8 @@
         nnoremap <A-l> <C-w>l
         nnoremap <A-k> <C-w>k
         nnoremap <A-j> <C-w>j
+
+        imap <A-p> <C-o>p
       '';
       executable = false;
     };

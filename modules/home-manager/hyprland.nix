@@ -31,7 +31,7 @@ in
 
     settings = {
       exec-once = [
-        "nm-applet"
+        # "nm-applet"
         "hiddify"
         "hyprpanel"
       ];
