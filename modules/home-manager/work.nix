@@ -9,6 +9,6 @@ in
     # vpnpt
     pkgs.mattermost-desktop
     pkgs.networkmanager-openvpn
-    pkgs.openvp
+    pkgs.openvpn
   ];
 }
