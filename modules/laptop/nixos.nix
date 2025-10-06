@@ -16,9 +16,9 @@
     "root"
     username
   ];
-  hyprland.enable = false;
-  gnome.enable = false;
-  cosmic.enable = true;
+  hyprland.enable = true;
+  gnome.enable = true;
+  cosmic.enable = false;
   networking.hostName = "laptop";
 
   home-manager = {
