@@ -54,6 +54,7 @@ for _, lsp in ipairs(conf.lsp_servers) do
 	-- })
 end
 vim.lsp.config("jedi_language_server", lsp_settings.jedi)
+vim.lsp.config("clangd", lsp_settings.clangd)
 vim.lsp.config("json", lsp_settings.json)
 vim.lsp.config("yaml", lsp_settings.yaml)
 

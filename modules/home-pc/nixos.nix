@@ -40,7 +40,10 @@
         ../home-manager/dconf.nix
         ../home-manager/git.nix
         ../home-manager/hyprland.nix
+
         ../home-manager/hyprpanel.nix
+        # ../home-manager/caelestia.nix
+
         ../home-manager/shell.nix
         ../home-manager/theme.nix
         ../home-manager/kitty.nix

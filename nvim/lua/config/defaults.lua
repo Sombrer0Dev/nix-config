@@ -252,6 +252,8 @@ return {
 		"html",
 		-- 'htmx',
 		"jsonls",
+    -- C/CPP
+    "clangd",
 	},
 
 	-- Tools that should be installed by Mason
@@ -266,6 +268,8 @@ return {
 		"ruff",
 		"gofumpt",
 		"goimports",
+    "clang-format",
+    "cpplint",
 		-- Linter
 		"yamllint",
 		-- DAP
