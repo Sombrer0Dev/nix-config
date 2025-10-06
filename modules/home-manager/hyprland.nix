@@ -50,6 +50,7 @@ in
       general = {
         layout = "dwindle";
         resize_on_border = true;
+        border_size = 1;
       };
 
       misc = {
@@ -171,6 +172,7 @@ in
 
       decoration = {
         dim_inactive = false;
+        rounding = 0;
 
         blur = {
           enabled = true;

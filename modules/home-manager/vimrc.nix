@@ -15,7 +15,7 @@
         set smartcase
         set incsearch
         set hlsearch
-        set clipboard=ideaput
+        set clipboard=unnamedplus
 
         let mapleader = " "
 
@@ -43,6 +43,8 @@
         let g:WhichKeyDesc_prev_error = "[d Previous error"
         let g:WhichKeyDesc_next_change = "]c Next git change"
         let g:WhichKeyDesc_prev_change = "[c Previous git change"
+        let g:WhichKeyDesc_next_find = "]q Next find occurence"
+        let g:WhichKeyDesc_prev_finc = "[q Previous find occurence"
         let g:WhichKeyDesc_display = "<leader>z Display options"
         let g:WhichKeyDesc_df_mode = "<leader>zd Toggle Distraction-Free mode"
         let g:WhichKeyDesc_zen_mode = "<leader>zz Toggle Zen mode"
@@ -92,6 +94,8 @@
         nmap [d <Action>(GotoPreviousError)
         nmap ]c <Action>(VcsShowNextChangeMarker)
         nmap [c <Action>(VcsShowPrevChangeMarker)
+        nmap ]q <Action>(NextOccurence)
+        nmap [q <Action>(PreviousOccurence)
         map <leader>zd <action>(ToggleDistractionFreeMode)
         map <leader>zz <action>(ToggleZenMode)
         map <leader>zf <action>(ToggleFullScreen)
@@ -140,6 +144,8 @@
         nnoremap <A-k> <C-w>k
         nnoremap <A-j> <C-w>j
         command! Q close
+        xnoremap > >gv
+        xnoremap < <gv
 
         imap <A-p> <C-o>p
       '';
