@@ -82,11 +82,6 @@ in
         pseudotile = "yes";
         preserve_split = "yes";
       };
-
-      gestures = {
-        workspace_swipe = "off";
-      };
-
       windowrule = [
         "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
       ];
@@ -118,7 +113,7 @@ in
           ];
         in
         [
-          "SUPER, TAB, exec , walker --modules applications,websearch"
+          "SUPER, TAB, exec , walker"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "SUPER, Return, exec, kitty"
 

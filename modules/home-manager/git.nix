@@ -5,7 +5,11 @@ in
 {
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
+      user = {
+        email = mail;
+        name = name;
+      };
       color.ui = true;
       core.editor = "nvim";
       credential.helper = "store";
@@ -43,7 +47,5 @@ in
         pamresethard = "!HASH=`git log --pretty=oneline | head -n 50 | fzf` && git reset --hard `echo \${HASH} | awk '{ print $1 }'`";
       };
     };
-    userEmail = mail;
-    userName = name;
   };
 }

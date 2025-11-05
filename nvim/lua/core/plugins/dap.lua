@@ -9,6 +9,10 @@ local M = {
 			config = true,
 		},
 		{
+			"/nvim-dap-go",
+			config = true,
+		},
+		{
 			"mfussenegger/nvim-dap-python",
 			keys = {
 				{
@@ -72,6 +76,33 @@ local M = {
 		local dap = require("dap")
 		local fzf = require("fzf-lua")
 		local dapui = require("dapui")
+		dap.adapters.lldb = { type = "executable", command = "/run/current-system/sw/bin/lldb-dap", name = "lldb" }
+		dap.configurations.c = {
+			{
+				name = "Launch",
+				type = "lldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = {},
+
+				-- 💀
+				-- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+				--
+				--    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+				--
+				-- Otherwise you might get the following error:
+				--
+				--    Error on launch: Failed to attach to the target process
+				--
+				-- But you should be aware of the implications:
+				-- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+				-- runInTerminal = false,
+			},
+		}
 
 		require("which-key").add({
 			{ "<F2>", dap.continue, desc = "Continue" },

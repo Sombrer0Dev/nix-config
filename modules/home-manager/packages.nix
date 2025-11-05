@@ -8,7 +8,7 @@ let
     eza
     fd
     fzf-git-sh
-    hiddify-app
+    nekoray
     hyprpicker
     jq
     zoxide
@@ -35,7 +35,7 @@ let
   ];
   hostPackages = {
     "home-pc" = with pkgs; [
-      postman
+      # postman
       # gimp
       jetbrains-toolbox
     ];

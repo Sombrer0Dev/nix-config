@@ -8,7 +8,7 @@ let
   '';
   vpn = pkgs.writeShellScriptBin "vpn" ''
     proxy_host="127.0.0.1"
-    proxy_port="12334"
+    proxy_port="2080"
 
     # Check if first argument is `-p` or `-h`
     while [[ $# -gt 0 ]]; do

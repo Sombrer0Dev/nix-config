@@ -85,15 +85,11 @@
         {
           nix.settings = {
             substituters = [
-              "https://walker.cachix.org"
               "https://hyprland.cachix.org"
-              # "https://walker-git.cachix.org"
             ];
             trusted-substituters = [ "https://hyprland.cachix.org" ];
             trusted-public-keys = [
-              "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
               "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-              # "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
             ];
           };
         }
@@ -103,6 +99,7 @@
     {
       nixosConfigurations.home-pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        # stdenv.hostPlatform.system = "x86_64-linux";
         specialArgs = {
           inherit inputs outputs username;
           hostname = "home-pc";
@@ -128,6 +125,7 @@
 
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        # stdenv.hostPlatform.system = "x86_64-linux";
         specialArgs = {
           inherit inputs outputs username;
           hostname = "laptop";

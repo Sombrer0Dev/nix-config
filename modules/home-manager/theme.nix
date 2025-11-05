@@ -36,7 +36,7 @@ in
       nerd-fonts.monaspace
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -48,10 +48,10 @@ in
   };
   fonts.fontconfig.enable = true;
 
-  services.mako = {
-    enable = true;
-    settings.default-timeout = 4000;
-  };
+  # services.mako = {
+  #   enable = true;
+  #   settings.default-timeout = 4000;
+  # };
   gtk = {
     enable = true;
     inherit font cursorTheme iconTheme;

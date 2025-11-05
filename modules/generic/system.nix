@@ -62,7 +62,13 @@
     networkmanagerapplet
     sqlite
     uv
-    python312
+    ruff
+    python314
+
+    #c cpp
+    clang
+    clang-tools
+    lldb
 
     # pycharm
     # jetbrains.pycharm-community
@@ -97,13 +103,6 @@
       flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     '';
   };
-
-  # logind
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-    HandleLidSwitch=suspend
-    HandleLidSwitchExternalPower=ignore
-  '';
 
   networking.firewall = rec {
     allowedTCPPortRanges = [
