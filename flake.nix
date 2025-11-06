@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     walker.url = "github:abenz1267/walker";
@@ -59,8 +59,16 @@
     # SecureBoot
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs = {
+        rust-overlay.follows = "rust-overlay";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs =
