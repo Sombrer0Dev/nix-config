@@ -26,6 +26,8 @@ let
 
     telegram-desktop
     bottles
+    obsidian
+    code-cursor
     # kotatogram-desktop
 
     trash-cli
