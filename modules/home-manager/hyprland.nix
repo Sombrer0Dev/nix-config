@@ -11,16 +11,15 @@ let
   pactl = "${pkgs.pulseaudio}/bin/pactl";
 in
 {
-  home.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NDV_BACKEND = "direct";
-  };
+  # home.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   NDV_BACKEND = "direct";
+  # };
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    package = null;
+    portalPackage = null;
     systemd.enable = true;
     xwayland.enable = true;
     plugins = [
@@ -82,10 +81,10 @@ in
         pseudotile = "yes";
         preserve_split = "yes";
       };
-      windowrule = [
-        "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
-      ];
+      # windowrule = [
+      # ];
       windowrulev2 = [
+        "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
         "size 40% 40%, initialTitle:(Netrw File Explorer)"
         "float, class:(org.gnome.Nautilus)"
         "float, title:.*Bitwarden.*"

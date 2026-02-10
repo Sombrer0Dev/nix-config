@@ -221,7 +221,7 @@ in
                 "vi"
                 # "nixvim"
               ];
-              neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+              neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
               hosts.python3.enable = true;
               hosts.node.enable = true;
             };

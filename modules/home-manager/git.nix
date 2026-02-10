@@ -15,6 +15,7 @@ in
       credential.helper = "store";
       github.user = "Sombrer0Dev";
       push.autoSetupRemote = true;
+      init.defaultBranch = "main";
 
       core.pager = "delta";
       interactive.diffFilter = "delta --color-only";

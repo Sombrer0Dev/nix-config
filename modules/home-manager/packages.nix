@@ -8,7 +8,7 @@ let
     eza
     fd
     fzf-git-sh
-    nekoray
+    throne
     hyprpicker
     jq
     zoxide
@@ -33,6 +33,8 @@ let
     trash-cli
 
     # vlc
+    protonmail-desktop
+    proton-pass
 
   ];
   hostPackages = {

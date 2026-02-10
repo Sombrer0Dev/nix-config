@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
     experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
+    auto-optimise-store = false;
   };
   # garbage collection
   nix.gc = {
@@ -34,7 +34,14 @@
     };
     docker.enable = true;
     libvirtd.enable = true;
+    qemu.options = [
+      "-vga qxl"
+      "-spice port=5924,disable-ticketing=on"
+      "-device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent"
+      "-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
+    ];
   };
+  services.spice-vdagentd.enable = true;
   users.extraGroups.vborusers.members = [ "arsokolov" ];
 
   # dconf
@@ -51,11 +58,14 @@
 
   # packages
   environment.systemPackages = with pkgs; [
+    #virt clipboard
+    spice-gtk
+
     cachix
     home-manager
     neovim
     go
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     cargo
     git
     wget

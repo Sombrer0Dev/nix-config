@@ -29,7 +29,6 @@ in
         /vendor
       '';
       nvim = {
-
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/nix-config/nvim";
         recursive = true;
       };
@@ -47,7 +46,7 @@ in
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
     viAlias = false;
     vimAlias = true;
     vimdiffAlias = true;
@@ -90,7 +89,7 @@ in
         gopls
         ruff
         sqls
-        jedi-language-server
+        # jedi-language-server
         basedpyright
         marksman
         yaml-language-server
@@ -101,7 +100,7 @@ in
         gotools
         gofumpt
         sqlfluff
-        nixfmt-rfc-style
+        nixfmt
       ];
   };
 }

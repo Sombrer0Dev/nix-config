@@ -87,6 +87,7 @@
         ./modules/generic/cosmic.nix
         ./modules/generic/locale.nix
         ./modules/generic/nautilus.nix
+        "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
       ];
       # CACHE
       cache = [
