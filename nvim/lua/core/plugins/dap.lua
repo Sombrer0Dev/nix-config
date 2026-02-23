@@ -9,10 +9,6 @@ local M = {
 			config = true,
 		},
 		{
-			"/nvim-dap-go",
-			config = true,
-		},
-		{
 			"mfussenegger/nvim-dap-python",
 			keys = {
 				{

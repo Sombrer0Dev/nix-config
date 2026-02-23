@@ -29,7 +29,6 @@ in
         /vendor
       '';
       nvim = {
-
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/nix-config/nvim";
         recursive = true;
       };
