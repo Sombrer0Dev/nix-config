@@ -8,7 +8,7 @@ let
     eza
     fd
     fzf-git-sh
-    nekoray
+    throne
     hyprpicker
     jq
     zoxide
@@ -23,6 +23,8 @@ let
     sshfs
     steam-run
     openvpn
+    openssl
+    pinentry-gnome3
 
     telegram-desktop
     bottles

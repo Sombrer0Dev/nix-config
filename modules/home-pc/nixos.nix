@@ -41,7 +41,8 @@
         ../home-manager/git.nix
         ../home-manager/hyprland.nix
 
-        ../home-manager/hyprpanel.nix
+        # ../home-manager/hyprpanel.nix
+        ../home-manager/noctalia.nix
         # ../home-manager/caelestia.nix
 
         ../home-manager/shell.nix

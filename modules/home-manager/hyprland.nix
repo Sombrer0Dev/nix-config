@@ -83,12 +83,8 @@ in
         preserve_split = "yes";
       };
       windowrule = [
-        "bordercolor rgb(EE5396) rgb(EE5396),fullscreen:1"
-      ];
-      windowrulev2 = [
-        "size 40% 40%, initialTitle:(Netrw File Explorer)"
-        "float, class:(org.gnome.Nautilus)"
-        "float, title:.*Bitwarden.*"
+        "match:fullscreen 1, border_color rgb(EE5396)"
+        "match:class org.gnome.Nautilus, float 1"
       ];
 
       bind =

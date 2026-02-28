@@ -28,10 +28,10 @@ in
         wget-log.*
         /vendor
       '';
-      nvim = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/nix-config/nvim";
-        recursive = true;
-      };
+      # nvim = {
+      #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/nix-config/nvim";
+      #   recursive = true;
+      # };
     };
     desktopEntries."nvim" = lib.mkIf pkgs.stdenv.isLinux {
       name = "NeoVim";
@@ -89,7 +89,7 @@ in
         gopls
         ruff
         sqls
-        jedi-language-server
+        # jedi-language-server
         basedpyright
         marksman
         yaml-language-server
@@ -100,7 +100,7 @@ in
         gotools
         gofumpt
         sqlfluff
-        nixfmt-rfc-style
+        nixfmt
       ];
   };
 }

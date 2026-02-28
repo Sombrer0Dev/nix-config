@@ -14,6 +14,7 @@ in
       core.editor = "nvim";
       credential.helper = "store";
       github.user = "Sombrer0Dev";
+      gpg.format = "x509";
       push.autoSetupRemote = true;
 
       core.pager = "delta";

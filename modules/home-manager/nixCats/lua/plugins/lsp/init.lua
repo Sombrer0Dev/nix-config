@@ -106,7 +106,7 @@ require("lze").load({
 		},
 	},
 	{
-		"jedi-language-server",
+		-- "jedi-language-server",
 		enabled = nixCats("py") or false,
 		-- if you don't provide the filetypes it asks lspconfig for them using the function we set above
 		lsp = {

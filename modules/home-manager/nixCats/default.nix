@@ -69,7 +69,7 @@ in
               alejandra
             ];
             py = with pkgs; [
-              jedi-language-server
+              # jedi-language-server
               black
               ruff
               debugpy

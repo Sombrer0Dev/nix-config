@@ -1,1 +1,1 @@
-require 'config'
+/nix/store/y2vcajzv9snbw0n08rx72hbvmnysgika-home-manager-files/.config/nvim/init.lua
