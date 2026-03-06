@@ -31,7 +31,8 @@
         # Basic modules
         ../home-manager/packages.nix
 
-        ../home-manager/nvim.nix
+        # ../home-manager/nvim.nix
+        ../home-manager/zed.nix
         ../home-manager/vimrc.nix
 
         # ../home-manager/vscode.nix

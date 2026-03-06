@@ -122,7 +122,7 @@
   networking.networkmanager.enable = true;
   services.openvpn.servers = {
     officeVPN = {
-      config = ''config /home/arsokolov/Documents/PTsecurity.ovpn'';
+      config = "config /home/arsokolov/Documents/PTsecurity.ovpn";
       updateResolvConf = true;
     };
   };

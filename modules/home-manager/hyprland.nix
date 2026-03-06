@@ -82,14 +82,14 @@ in
         pseudotile = "yes";
         preserve_split = "yes";
       };
-      layerrule=[
-      {
-	  name = "noctalia";
-	  "match:namespace" = "noctalia-background-.*$";
-	  ignore_alpha = 0.5;
-	  blur = true;
-	  blur_popups = true;
-	  }
+      layerrule = [
+        {
+          name = "noctalia";
+          "match:namespace" = "noctalia-background-.*$";
+          ignore_alpha = 0.5;
+          blur = true;
+          blur_popups = true;
+        }
       ];
       windowrule = [
         "match:fullscreen 1, border_color rgb(EE5396)"

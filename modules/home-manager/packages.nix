@@ -21,7 +21,7 @@ let
     ripgrep
     spotify
     sshfs
-    steam-run
+    # steam-run
     openvpn
     openssl
     pinentry-gnome3
@@ -29,12 +29,14 @@ let
     telegram-desktop
     bottles
     obsidian
-    code-cursor
     # kotatogram-desktop
 
     trash-cli
 
     # vlc
+    nil
+    nixd
+    nixfmt
 
   ];
   hostPackages = {

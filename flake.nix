@@ -33,7 +33,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.noctalia-qs.follows = "noctalia-qs";
     };
-
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,28 +43,7 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Neovim
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    # Neovim plugins
-    plugins-neogit = {
-      url = "github:NeogitOrg/neogit";
-      flake = false;
-    };
-    plugins-starlite = {
-      url = "github:ironhouzi/starlite-nvim";
-      flake = false;
-    };
-    plugins-blink-tmux = {
-      url = "github:mgalliou/blink-cmp-tmux";
-      flake = false;
-    };
-    plugins-oil-git-nvim = {
-      url = "github:benomahony/oil-git.nvim";
-      flake = false;
-    };
+    zed.url = "github:zed-industries/zed";
 
     # SecureBoot
     lanzaboote = {
@@ -126,8 +104,7 @@
         modules =
           # cache
           # ++ genericModules
-          genericModules
-          ++ [
+          genericModules ++ [
             {
               services.xserver.videoDrivers = [ "amdgpu" ];
               nixpkgs.overlays = [
