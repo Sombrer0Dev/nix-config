@@ -32,8 +32,8 @@ in
     settings = {
       exec-once = [
         # "nm-applet"
-        "hiddify"
-        "hyprpanel"
+        "throne"
+        "noctalia-shell"
       ];
 
       monitor = [
@@ -118,7 +118,7 @@ in
           ];
         in
         [
-          "SUPER, TAB, exec , walker"
+          "SUPER, TAB, exec , noctalia-shell ipc call launcher toggle"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "SUPER, Return, exec, kitty"
 

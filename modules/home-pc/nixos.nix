@@ -36,15 +36,14 @@
         ../home-manager/vimrc.nix
 
         # ../home-manager/vscode.nix
-        # ../home-manager/nixCats/default.nix
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
         ../home-manager/git.nix
         ../home-manager/hyprland.nix
+        ../home-manager/niri.nix
 
         # ../home-manager/hyprpanel.nix
         ../home-manager/noctalia.nix
-        # ../home-manager/caelestia.nix
 
         ../home-manager/shell.nix
         ../home-manager/theme.nix

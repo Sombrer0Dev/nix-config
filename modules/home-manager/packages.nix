@@ -25,6 +25,7 @@ let
     openvpn
     openssl
     pinentry-gnome3
+    gpu-screen-recorder
 
     telegram-desktop
     bottles

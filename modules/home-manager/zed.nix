@@ -35,7 +35,7 @@
       load_direnv = "shell_hook";
       base_keymap = "Emacs";
       show_whitespaces = "trailing";
-      ui_font_size = 16;
+      ui_font_size = 15;
       buffer_font_size = 14;
       lsp = {
         nil = {

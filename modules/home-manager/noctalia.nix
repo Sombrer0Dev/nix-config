@@ -8,27 +8,40 @@
     enable = true;
     settings = {
       bar = {
-        # type = "floating";
         density = "default";
         position = "right";
-        outerCorners = true;
+        outerCorners = false;
         widgets = {
           left = [
             {
               id = "ControlCenter";
               useDistroLogo = true;
+              enableColorization = true;
+            }
+            {
+              id = "NotificationHistory";
             }
             {
               hideUnoccupied = false;
               id = "Workspace";
               labelMode = "none";
             }
+            {
+              id = "WallpaperSelector";
+            }
           ];
           center = [
+            {
+              id = "Clock";
+            }
           ];
           right = [
             {
-              id = "Layout";
+              id = "MediaMini";
+            }
+            {
+              id = "KeyboardLayout";
+              showIcon = false;
             }
             {
               id = "Network";
@@ -40,28 +53,30 @@
               id = "Volume";
             }
             {
-              alwaysShowPercentage = false;
-              id = "Battery";
-              warningThreshold = 30;
+              id = "Tray";
             }
             {
-              formatHorizontal = "HH:mm";
-              formatVertical = "HH mm";
-              id = "Clock";
-              useMonospacedFont = true;
-              usePrimaryColor = true;
+              id = "SessionMenu";
             }
           ];
         };
       };
       colorSchemes.predefinedScheme = "Monochrome";
+      wallpaper = {
+        enabled = true;
+        directory = "/home/arsokolov/Documents/walls";
+        viewMode = "recursive";
+      };
       general = {
+        telemetryEnabled = false;
         # avatarImage = "/home/drfoobar/.face";
         # radiusRatio = 0.2;
       };
       location = {
-        # monthBeforeDay = true;
         name = "Moscow, Russia";
+      };
+      plugins = {
+        autoUpdate = false;
       };
     };
   };

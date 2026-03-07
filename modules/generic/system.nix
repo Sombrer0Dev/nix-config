@@ -33,7 +33,7 @@
       enable = true;
     };
     docker.enable = true;
-    libvirtd.enable = true;
+    # libvirtd.enable = true;
   };
   users.extraGroups.vborusers.members = [ "arsokolov" ];
 
@@ -157,7 +157,7 @@
       "wheel"
       "audio"
       "video"
-      "libvirtd"
+      # "libvirtd"
       "docker"
     ];
   };
