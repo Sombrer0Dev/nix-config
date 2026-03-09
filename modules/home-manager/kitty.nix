@@ -59,7 +59,7 @@
       allow_remote_control = true;
       listen_on = "unix:@mykitty";
 
-      background_opacity = 0.7;
+      # background_opacity = 0.7;
       background = "#16181a";
       foreground = "#ffffff";
       cursor = "#ffffff";

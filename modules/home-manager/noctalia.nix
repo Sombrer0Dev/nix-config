@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -10,7 +10,7 @@
       bar = {
         density = "default";
         position = "right";
-        outerCorners = false;
+        outerCorners = true;
         widgets = {
           left = [
             {
@@ -61,11 +61,19 @@
           ];
         };
       };
-      colorSchemes.predefinedScheme = "Monochrome";
+      colorSchemes = {
+        useWallpaperColors = true;
+        darkMode = true;
+        generationMethod = "Monochrome";
+      };
+      dock = {
+        enabled = false;
+      };
       wallpaper = {
         enabled = true;
         directory = "/home/arsokolov/Documents/walls";
         viewMode = "recursive";
+        enableOverviewWallpaper = true;
       };
       general = {
         telemetryEnabled = false;
