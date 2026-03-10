@@ -13,12 +13,6 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    walker.url = "github:abenz1267/walker";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
@@ -34,13 +28,22 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
-    # VSCode extensions
+    # Editors
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zed.url = "github:zed-industries/zed";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # SecureBoot
     lanzaboote = {
@@ -70,7 +73,6 @@
         ./modules/generic/system.nix
         ./modules/generic/audio.nix
         ./modules/generic/gnome.nix
-        ./modules/generic/cosmic.nix
         ./modules/generic/locale.nix
         ./modules/generic/nautilus.nix
       ];
@@ -112,7 +114,8 @@
             ./modules/home-pc/nixos.nix
             ./modules/home-pc/secure-boot.nix
             ./modules/generic/gaming.nix
-            ./modules/generic/hyprland.nix
+            # ./modules/generic/hyprland.nix
+            ./modules/generic/niri.nix
             inputs.lanzaboote.nixosModules.lanzaboote
           ];
       };

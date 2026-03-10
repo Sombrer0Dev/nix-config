@@ -31,18 +31,17 @@
         # Basic modules
         ../home-manager/packages.nix
 
+        # ../home-manager/vscode.nix
         # ../home-manager/nvim.nix
         ../home-manager/zed.nix
         ../home-manager/vimrc.nix
 
-        # ../home-manager/vscode.nix
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
         ../home-manager/git.nix
         ../home-manager/hyprland.nix
         ../home-manager/niri.nix
 
-        # ../home-manager/hyprpanel.nix
         ../home-manager/noctalia.nix
 
         ../home-manager/shell.nix
@@ -56,7 +55,6 @@
       ++ [
         # Overrides
         ./hyprland.nix
-        ./hyprpanel.nix
       ];
     };
   };

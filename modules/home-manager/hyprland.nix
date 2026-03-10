@@ -298,25 +298,6 @@ in
     terminal = false;
   };
 
-  imports = [
-    inputs.walker.homeManagerModules.default
-  ];
-
-  programs.walker = {
-    enable = true;
-    # runAsService = true;
-
-    config = {
-      search.placeholder = "Search";
-      ui.fullscreen = true;
-      list = {
-        height = 200;
-      };
-      websearch.prefix = "?";
-      switcher.prefix = "/";
-    };
-
-  };
   services.hypridle = {
     enable = true;
     settings = {

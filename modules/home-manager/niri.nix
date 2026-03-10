@@ -1,15 +1,41 @@
 {
+  config,
   pkgs,
   inputs,
   ...
 }:
 {
-  imports = [ inputs.niri.homeModules.niri ];
+  imports = [ inputs.niri.homeModules.config ];
   home.packages = with pkgs; [
     xwayland-satellite # xwayland support
   ];
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+  #     xdg-desktop-portal-gtk
+  #     xdg-desktop-portal-gnome
+  #   ];
+  #   config = {
+  #     common = {
+  #       default = [ "gtk" ];
+  #     };
+  #     niri = {
+  #       default = [
+  #         "gtk"
+  #         "gnome"
+  #       ];
+  #       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+  #       # "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+  #     };
+  #   };
+  # };
+  # home.sessionVariables = {
+  #   XDG_CURRENT_DESKTOP = "niri";
+  #   XDG_SESSION_TYPE = "wayland";
+  #   XDG_SESSION_DESKTOP = "niri";
+  # };
   programs.niri = {
-    enable = true;
+    # enable = true;
     settings = {
       input = {
         focus-follows-mouse.enable = true;
@@ -17,8 +43,12 @@
         keyboard.xkb.options = "grp:win_space_toggle";
         keyboard.repeat-delay = 200;
         keyboard.repeat-rate = 35;
+        workspace-auto-back-and-forth = true;
       };
       binds = {
+        "Mod+A".action.spawn-sh =
+          "niri msg action focus-column-right && niri msg action move-column-left && niri msg action focus-window-previous";
+
         "Mod+Return".action.spawn = "kitty";
         "Mod+Tab".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
         "Mod+Q" = {
@@ -45,11 +75,19 @@
           repeat = false;
           action.expand-column-to-available-width = [ ];
         };
+        "Mod+B" = {
+          repeat = false;
+          action.expand-column-to-available-width = [ ];
+        };
         "Mod+P" = {
           action.center-column = [ ];
         };
         "Mod+Shift+P" = {
           action.center-visible-columns = [ ];
+        };
+
+        "Mod+S" = {
+          action.focus-workspace = "scratch";
         };
 
         "Mod+Shift+S" = {
@@ -64,26 +102,28 @@
           };
         };
         # Window Management
-        "Mod+Left".action.focus-column-left = [ ];
-        "Mod+Right".action.focus-column-right = [ ];
-        "Mod+Up".action.focus-window-up = [ ];
-        "Mod+Down".action.focus-window-down = [ ];
+        "Mod+Left".action.focus-column-or-monitor-left = [ ];
+        "Mod+Right".action.focus-column-or-monitor-right = [ ];
+        "Mod+Up".action.focus-window-or-workspace-up = [ ];
+        "Mod+Down".action.focus-window-or-workspace-down = [ ];
         "Mod+H".action.focus-column-left = [ ];
         "Mod+L".action.focus-column-right = [ ];
         "Mod+K".action.focus-window-up = [ ];
         "Mod+J".action.focus-window-down = [ ];
 
-        "Mod+Minus".action.set-column-width = "-10%";
-        "Mod+Plus".action.set-column-width = "+10%";
+        "Mod+Ctrl+K".action.set-column-width = "-10%";
+        "Mod+Ctrl+J".action.set-column-width = "+10%";
+        "Mod+Ctrl+Shift+K".action.set-window-height = "-10%";
+        "Mod+Ctrl+Shift+J".action.set-window-height = "+10%";
 
-        "Mod+Shift+Left".action.move-column-left = [ ];
-        "Mod+Shift+Right".action.move-column-right = [ ];
-        "Mod+Shift+Up".action.move-window-up = [ ];
-        "Mod+Shift+Down".action.move-window-down = [ ];
-        "Mod+Shift+H".action.move-column-left = [ ];
-        "Mod+Shift+L".action.move-column-right = [ ];
-        "Mod+Shift+K".action.move-window-up = [ ];
-        "Mod+Shift+J".action.move-window-down = [ ];
+        "Mod+Shift+Left".action.move-column-left-or-to-monitor-left = [ ];
+        "Mod+Shift+Right".action.move-column-right-or-to-monitor-right = [ ];
+        "Mod+Shift+Up".action.move-window-up-or-to-workspace-up = [ ];
+        "Mod+Shift+Down".action.move-window-down-or-to-workspace-down = [ ];
+        "Mod+Shift+H".action.move-column-left-or-to-monitor-left = [ ];
+        "Mod+Shift+L".action.move-column-right-or-to-monitor-right = [ ];
+        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [ ];
+        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [ ];
 
         # Mouse bindings
         "Mod+WheelScrollDown" = {
@@ -93,6 +133,14 @@
         "Mod+WheelScrollUp" = {
           cooldown-ms = 150;
           action.focus-workspace-up = [ ];
+        };
+        "Mod+Shift+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action.focus-column-right = [ ];
+        };
+        "Mod+Shift+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action.focus-column-left = [ ];
         };
       };
       spawn-at-startup = [

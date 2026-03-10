@@ -9,7 +9,7 @@
     settings = {
       bar = {
         density = "default";
-        position = "right";
+        position = "top";
         outerCorners = true;
         widgets = {
           left = [
