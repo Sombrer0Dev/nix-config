@@ -75,6 +75,11 @@
         ./modules/generic/gnome.nix
         ./modules/generic/locale.nix
         ./modules/generic/nautilus.nix
+
+        # DE
+        ./modules/generic/cosmic.nix
+        ./modules/generic/niri.nix
+        ./modules/generic/hyprland.nix
       ];
       # CACHE
       cache = [
@@ -114,8 +119,6 @@
             ./modules/home-pc/nixos.nix
             ./modules/home-pc/secure-boot.nix
             ./modules/generic/gaming.nix
-            # ./modules/generic/hyprland.nix
-            ./modules/generic/niri.nix
             inputs.lanzaboote.nixosModules.lanzaboote
           ];
       };
@@ -156,7 +159,6 @@
             )
             ./modules/laptop/nixos.nix
             ./modules/generic/gaming.nix
-            ./modules/generic/hyprland.nix
             ./modules/laptop/specialisations.nix
           ];
       };

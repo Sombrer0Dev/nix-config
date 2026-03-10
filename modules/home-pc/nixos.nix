@@ -14,7 +14,8 @@
     "root"
     username
   ];
-  hyprland.enable = true;
+  hyprland.enable = false;
+  niri.enable = true;
   networking.hostName = "home-pc";
 
   home-manager = {

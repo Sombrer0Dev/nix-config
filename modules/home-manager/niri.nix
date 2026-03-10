@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ inputs.niri.homeModules.config ];
+  # imports = [ inputs.niri.homeModules.config ];
   home.packages = with pkgs; [
     xwayland-satellite # xwayland support
   ];
@@ -106,10 +106,10 @@
         "Mod+Right".action.focus-column-or-monitor-right = [ ];
         "Mod+Up".action.focus-window-or-workspace-up = [ ];
         "Mod+Down".action.focus-window-or-workspace-down = [ ];
-        "Mod+H".action.focus-column-left = [ ];
-        "Mod+L".action.focus-column-right = [ ];
-        "Mod+K".action.focus-window-up = [ ];
-        "Mod+J".action.focus-window-down = [ ];
+        "Mod+H".action.focus-column-or-monitor-left = [ ];
+        "Mod+L".action.focus-column-or-monitor-right = [ ];
+        "Mod+K".action.focus-window-or-workspace-up = [ ];
+        "Mod+J".action.focus-window-or-workspace-down = [ ];
 
         "Mod+Ctrl+K".action.set-column-width = "-10%";
         "Mod+Ctrl+J".action.set-column-width = "+10%";

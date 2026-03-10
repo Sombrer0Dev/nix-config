@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   config,
   lib,
@@ -10,8 +9,9 @@
     enable = lib.mkEnableOption "Niri";
   };
 
+  imports = [ inputs.niri.nixosModules.niri ];
   config = lib.mkIf config.niri.enable {
-    imports = [ inputs.niri.nixosModules.niri ];
     programs.niri.enable = true;
+    systemd.user.services.niri-flake-polkit.enable = false;
   };
 }
