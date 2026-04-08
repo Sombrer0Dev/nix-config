@@ -1,7 +1,8 @@
 { pkgs, hostname, ... }:
 let
   genericPackages = with pkgs; [
-    blueberry
+    libnotify
+    blueman
     btop
     delta
     docker-compose
@@ -22,13 +23,12 @@ let
     spotify
     sshfs
     # steam-run
-    openvpn
+    # openvpn
     openssl
     pinentry-gnome3
     gpu-screen-recorder
 
     telegram-desktop
-    bottles
     obsidian
     # kotatogram-desktop
 
@@ -56,10 +56,7 @@ let
 in
 {
   imports = [
-    ../../scripts/nix-scripts.nix
-    ../../scripts/shell-bins.nix
-    ../../scripts/worktree.nix
-    ../../scripts/work-scripts.nix
+    ../../scripts
   ];
 
   home.packages = genericPackages ++ perHost;

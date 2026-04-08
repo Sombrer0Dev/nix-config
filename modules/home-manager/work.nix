@@ -8,7 +8,6 @@ in
   home.packages = [
     # vpnpt
     pkgs.mattermost-desktop
-    pkgs.networkmanager-openvpn
-    pkgs.openvpn
+    # pkgs.openvpn
   ];
 }

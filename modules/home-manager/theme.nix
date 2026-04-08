@@ -55,8 +55,8 @@ in
   gtk = {
     enable = true;
     inherit font cursorTheme iconTheme;
-    theme.name = "Adwaita-dark";
-    theme.package = pkgs.gnome-themes-extra;
+    # theme.name = "Adwaita-dark";
+    # theme.package = pkgs.gnome-themes-extra;
   };
 
   qt = {

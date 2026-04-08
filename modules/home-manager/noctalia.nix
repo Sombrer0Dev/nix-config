@@ -27,12 +27,16 @@
               labelMode = "none";
             }
             {
-              id = "WallpaperSelector";
+              id = "plugin:privacy-indicator";
+              hideInactive = true;
             }
           ];
           center = [
             {
               id = "Clock";
+            }
+            {
+              id = "Spacer";
             }
           ];
           right = [
@@ -42,6 +46,9 @@
             {
               id = "KeyboardLayout";
               showIcon = false;
+            }
+            {
+              id = "VPN";
             }
             {
               id = "Network";
@@ -77,14 +84,44 @@
       };
       general = {
         telemetryEnabled = false;
-        # avatarImage = "/home/drfoobar/.face";
-        # radiusRatio = 0.2;
+        avatarImage = "/home/arsokolov/.face";
       };
       location = {
         name = "Moscow, Russia";
       };
       plugins = {
         autoUpdate = false;
+      };
+      desktopWidgets = {
+        enabled = true;
+        overviewEnabled = true;
+        gridSnap = true;
+        monitorWidgets = [
+          {
+            name = "DP-1";
+            widgets = [
+              {
+                id = "MediaPlayer";
+                hideMode = "visible";
+                roundedCorners = true;
+                showAlbumArt = true;
+                showBackground = true;
+                showButtons = true;
+                showVisualizer = true;
+                visualizerType = "wave";
+                # x = 16;
+                # y = 52;
+              }
+              {
+                id = "Weather";
+                roundedCorners = true;
+                showBackground = true;
+                # x = 10;
+                # y = 159;
+              }
+            ];
+          }
+        ];
       };
     };
   };

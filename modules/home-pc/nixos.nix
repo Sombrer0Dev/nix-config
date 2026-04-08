@@ -16,6 +16,8 @@
   ];
   hyprland.enable = false;
   niri.enable = true;
+  gnome.enable = true;
+
   networking.hostName = "home-pc";
 
   home-manager = {
@@ -29,9 +31,6 @@
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
-        # Basic modules
-        ../home-manager/packages.nix
-
         # ../home-manager/vscode.nix
         # ../home-manager/nvim.nix
         ../home-manager/zed.nix
@@ -52,6 +51,10 @@
         ../generic/home.nix
 
         ../home-manager/work.nix
+
+        # Basic modules
+        ../home-manager/packages.nix
+
       ]
       ++ [
         # Overrides

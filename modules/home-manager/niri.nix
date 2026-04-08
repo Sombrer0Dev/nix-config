@@ -5,40 +5,14 @@
   ...
 }:
 {
-  # imports = [ inputs.niri.homeModules.config ];
   home.packages = with pkgs; [
     xwayland-satellite # xwayland support
   ];
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [
-  #     xdg-desktop-portal-gtk
-  #     xdg-desktop-portal-gnome
-  #   ];
-  #   config = {
-  #     common = {
-  #       default = [ "gtk" ];
-  #     };
-  #     niri = {
-  #       default = [
-  #         "gtk"
-  #         "gnome"
-  #       ];
-  #       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-  #       # "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
-  #     };
-  #   };
-  # };
-  # home.sessionVariables = {
-  #   XDG_CURRENT_DESKTOP = "niri";
-  #   XDG_SESSION_TYPE = "wayland";
-  #   XDG_SESSION_DESKTOP = "niri";
-  # };
   programs.niri = {
-    # enable = true;
     settings = {
       input = {
         focus-follows-mouse.enable = true;
+        focus-follows-mouse.max-scroll-amount = "0%";
         keyboard.xkb.layout = "us, ru";
         keyboard.xkb.options = "grp:win_space_toggle";
         keyboard.repeat-delay = 200;
@@ -79,7 +53,11 @@
           repeat = false;
           action.expand-column-to-available-width = [ ];
         };
+        "Mod+G" = {
+          action.switch-preset-column-width = [ ];
+        };
         "Mod+P" = {
+          repeat = false;
           action.center-column = [ ];
         };
         "Mod+Shift+P" = {
@@ -87,7 +65,12 @@
         };
 
         "Mod+S" = {
-          action.focus-workspace = "scratch";
+          action.spawn = [
+            "kitten"
+            "quick-access-terminal"
+            "-o"
+            "lines=50"
+          ];
         };
 
         "Mod+Shift+S" = {
@@ -145,9 +128,17 @@
       };
       spawn-at-startup = [
         { argv = [ "noctalia-shell" ]; }
+        { argv = [ "mattermost-desktop" ]; }
+        { argv = [ "Throne" ]; }
       ];
       layout = {
         background-color = "transparent";
+        preset-column-widths = [
+          { proportion = 1. / 3.; }
+          { proportion = 1. / 2.; }
+          { proportion = 2. / 3.; }
+          { proportion = 1. / 1.; }
+        ];
         focus-ring = {
           width = 1.5;
           active.gradient = {
@@ -209,6 +200,10 @@
       ];
       debug = {
         honor-xdg-activation-with-invalid-serial = [ ];
+      };
+      prefer-no-csd = true;
+      gestures = {
+        hot-corners.enable = false;
       };
     };
   };

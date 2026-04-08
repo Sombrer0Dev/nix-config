@@ -63,7 +63,7 @@
     sqlite
     uv
     ruff
-    python314
+    python313
 
     #c cpp
     clang
@@ -119,13 +119,18 @@
   };
 
   # network
-  networking.networkmanager.enable = true;
-  services.openvpn.servers = {
-    officeVPN = {
-      config = "config /home/arsokolov/Documents/PTsecurity.ovpn";
-      updateResolvConf = true;
-    };
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
   };
+  # services.openvpn.servers = {
+  #   officeVPN = {
+  #     config = "config /home/arsokolov/Documents/PTsecurity.ovpn";
+  #     updateResolvConf = true;
+  #   };
+  # };
 
   # bluetooth
   hardware.bluetooth = {
