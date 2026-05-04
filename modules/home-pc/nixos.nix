@@ -32,14 +32,16 @@
       home.homeDirectory = "/home/${username}";
       imports = [
         inputs.nixvim.homeModules.nixvim
-        # ../home-manager/vscode.nix
+
+        inputs.nix-index-database.homeModules.default
+        { programs.nix-index-database.comma.enable = true; }
+
         ../home-manager/nvim
         ../home-manager/vimrc.nix
 
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
         ../home-manager/git.nix
-        # ../home-manager/hyprland.nix
         ../home-manager/niri.nix
 
         ../home-manager/noctalia.nix

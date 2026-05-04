@@ -42,9 +42,8 @@ let
     nil
     nixd
     nixfmt
-    comma
 
-    inputs.codex-nix.packages.${pkgs.system}.default
+    inputs.codex-nix.packages.${stdenv.hostPlatform.system}.default
 
   ];
   hostPackages = {

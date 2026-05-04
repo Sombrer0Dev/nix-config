@@ -55,7 +55,7 @@
     home-manager
     neovim
     go
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
     cargo
     git
     wget
