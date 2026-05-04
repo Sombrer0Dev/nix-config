@@ -15,7 +15,7 @@
     };
 
     niri = {
-    url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -33,11 +33,9 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zed.url = "github:zed-industries/zed";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixvim.url = "github:nix-community/nixvim";
+    codex-nix.url = "github:SecBear/codex-nix";
 
     # SecureBoot
     lanzaboote = {
@@ -69,6 +67,7 @@
         ./modules/generic/gnome.nix
         ./modules/generic/locale.nix
         ./modules/generic/nautilus.nix
+        ./modules/generic/vless.nix
 
         # DE
         ./modules/generic/cosmic.nix
@@ -80,11 +79,7 @@
         {
           nix.settings = {
             substituters = [
-              "https://hyprland.cachix.org"
-            ];
-            trusted-substituters = [ "https://hyprland.cachix.org" ];
-            trusted-public-keys = [
-              "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+              "https://cache.nixos.org"
             ];
           };
         }
@@ -100,9 +95,9 @@
           hostname = "home-pc";
         };
         modules =
-          # cache
-          # ++ genericModules
-          genericModules ++ [
+          cache
+          ++ genericModules
+          ++ [
             {
               services.xserver.videoDrivers = [ "amdgpu" ];
               nixpkgs.overlays = [
@@ -112,7 +107,7 @@
             }
             ./modules/home-pc/nixos.nix
             ./modules/home-pc/secure-boot.nix
-            ./modules/generic/gaming.nix
+            ./modules/generic/gpu.nix
             inputs.lanzaboote.nixosModules.lanzaboote
           ];
       };
@@ -152,7 +147,7 @@
               }
             )
             ./modules/laptop/nixos.nix
-            ./modules/generic/gaming.nix
+            # ./modules/generic/gaming.nix
             ./modules/laptop/specialisations.nix
           ];
       };

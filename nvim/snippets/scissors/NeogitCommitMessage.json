@@ -1,9 +1,0 @@
-{
-  "feat": {
-    "body": [
-      "feat(${1:scope}): ${2:commit message}",
-      "${3:}"
-    ],
-    "prefix": "feat"
-  }
-}

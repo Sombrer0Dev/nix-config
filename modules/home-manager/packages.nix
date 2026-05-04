@@ -1,4 +1,9 @@
-{ pkgs, hostname, ... }:
+{
+  pkgs,
+  hostname,
+  inputs,
+  ...
+}:
 let
   genericPackages = with pkgs; [
     libnotify
@@ -9,7 +14,6 @@ let
     eza
     fd
     fzf-git-sh
-    throne
     hyprpicker
     jq
     zoxide
@@ -38,6 +42,9 @@ let
     nil
     nixd
     nixfmt
+    comma
+
+    inputs.codex-nix.packages.${pkgs.system}.default
 
   ];
   hostPackages = {

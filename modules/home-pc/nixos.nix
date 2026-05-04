@@ -31,15 +31,15 @@
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
+        inputs.nixvim.homeModules.nixvim
         # ../home-manager/vscode.nix
-        # ../home-manager/nvim.nix
-        ../home-manager/zed.nix
+        ../home-manager/nvim
         ../home-manager/vimrc.nix
 
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
         ../home-manager/git.nix
-        ../home-manager/hyprland.nix
+        # ../home-manager/hyprland.nix
         ../home-manager/niri.nix
 
         ../home-manager/noctalia.nix
@@ -54,11 +54,10 @@
 
         # Basic modules
         ../home-manager/packages.nix
-
       ]
       ++ [
         # Overrides
-        ./hyprland.nix
+        # ./hyprland.nix
       ];
     };
   };

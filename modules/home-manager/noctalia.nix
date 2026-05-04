@@ -71,7 +71,7 @@
       colorSchemes = {
         useWallpaperColors = true;
         darkMode = true;
-        generationMethod = "Monochrome";
+        generationMethod = "monochrome";
       };
       dock = {
         enabled = false;
@@ -88,9 +88,17 @@
       };
       location = {
         name = "Moscow, Russia";
+        firstDayOfWeek = 1;
       };
       plugins = {
-        autoUpdate = false;
+        autoUpdate = true;
+      };
+      idle = {
+        enabled = true;
+        screenOffTimeout = 1200;
+        lockTimeout = 1260;
+        suspendTimeout = 1800;
+        fadeDuration = 5;
       };
       desktopWidgets = {
         enabled = true;

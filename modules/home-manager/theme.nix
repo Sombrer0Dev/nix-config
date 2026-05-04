@@ -53,6 +53,7 @@ in
   #   settings.default-timeout = 4000;
   # };
   gtk = {
+    gtk4.theme = config.gtk.theme;
     enable = true;
     inherit font cursorTheme iconTheme;
     # theme.name = "Adwaita-dark";
