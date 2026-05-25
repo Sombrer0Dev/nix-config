@@ -26,6 +26,7 @@ let
     ripgrep
     spotify
     sshfs
+    bubblewrap
     # steam-run
     # openvpn
     openssl

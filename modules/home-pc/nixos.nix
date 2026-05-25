@@ -8,6 +8,8 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    ./disks.nix
+    ./work.nix
   ];
 
   nix.settings.trusted-users = [
@@ -58,8 +60,6 @@
         ../home-manager/packages.nix
       ]
       ++ [
-        # Overrides
-        # ./hyprland.nix
       ];
     };
   };
