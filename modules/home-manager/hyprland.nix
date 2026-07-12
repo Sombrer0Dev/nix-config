@@ -33,7 +33,7 @@ in
       exec-once = [
         # "nm-applet"
         "throne"
-        "noctalia-shell"
+        "noctalia"
       ];
 
       monitor = [
@@ -118,7 +118,7 @@ in
           ];
         in
         [
-          "SUPER, TAB, exec , noctalia-shell ipc call launcher toggle"
+          "SUPER, TAB, exec , noctalia ipc call launcher toggle"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "SUPER, Return, exec, kitty"
 

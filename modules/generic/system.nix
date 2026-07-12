@@ -7,6 +7,23 @@
   ...
 }:
 {
+  # Allow running dynamically linked binaries outside Nix store
+  # (for example python interpreters/binaries inside project .venv).
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      openssl
+      bzip2
+      xz
+      libffi
+      ncurses
+      readline
+      sqlite
+    ];
+  };
+
   # nix
   documentation.nixos.enable = false; # .desktop
   nixpkgs.config.allowUnfree = true;
@@ -55,11 +72,9 @@
     home-manager
     neovim
     go
-    inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
     cargo
     git
     wget
-    networkmanagerapplet
     sqlite
     uv
     ruff
@@ -90,7 +105,6 @@
     };
     displayManager.gdm = {
       enable = true;
-      wayland = true;
     };
     printing.enable = true;
     flatpak.enable = true;

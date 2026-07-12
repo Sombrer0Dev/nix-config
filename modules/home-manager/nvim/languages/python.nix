@@ -10,6 +10,7 @@
       ty
       ruff
       mypy
+      python3Packages.debugpy
     ];
   };
 }

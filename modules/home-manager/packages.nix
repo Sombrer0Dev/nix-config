@@ -46,12 +46,18 @@ let
 
     inputs.codex-nix.packages.${stdenv.hostPlatform.system}.default
 
+    # load
+    xk6
+    k6
+    nodejs
+
   ];
   hostPackages = {
     "home-pc" = with pkgs; [
       # postman
       # gimp
       jetbrains-toolbox
+      prismlauncher
     ];
     "laptop" = with pkgs; [
       wdisplays

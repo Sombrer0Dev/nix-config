@@ -3,7 +3,11 @@
   programs.kitty = {
     enable = true;
     settings = {
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.writeShellScript "kitty-shell" ''
+        # Keep prompt at the bottom line when a new Kitty window opens.
+        tput cup "$(( $(tput lines) - 1 ))" 0
+        exec ${pkgs.zsh}/bin/zsh -l
+      ''}";
 
       # Layout
       enabled_layouts = "fat:bias=50;full_size=1;mirrored=false";
@@ -86,10 +90,13 @@
       # "f" = "kitten hints";
 
       # --- SCROLLBACK SEARCH ---
-      "alt+shift+f" = "search";
+      "alt+f" = "search";
 
       # --- RESET FONT ---
       "alt+shift+0" = "change_font_size all 0";
+
+      # --- open url ---
+      "alt+o" = "kitten hints --type=url --program=xdg-open";
     };
 
     extraConfig = ''
@@ -97,16 +104,13 @@
       scrollback_lines 10000
 
       # Open scrollback in nvim (like tmux copy-mode++)
-      map ctrl+shift+g launch --stdin-source=@screen_scrollback nvim
+      map alt+s launch --stdin-source=@screen_scrollback nvim
 
       # Copy on select (optional)
       copy_on_select yes
 
       # Smarter hints (URLs, paths, etc.)
       kitten_alias hints hints --alphabet "asdfghjklqwertyuiopzxcvbnm"
-
-      # Optional: open links directly
-      map ctrl+shift+o kitten hints --type=url --program=xdg-open
 
       # Disable alt mappings inside Neovim (important)
       map --when-focus-on var:IS_NVIM alt+h

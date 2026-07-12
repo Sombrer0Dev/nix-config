@@ -1,9 +1,19 @@
 {
   description = "Configuration of Sombrer0Dev";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://niri.cachix.org"
+      "https://noctalia.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,7 +33,7 @@
       url = "github:sodiboo/niri-flake";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/v4.7.7";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.noctalia-qs.follows = "noctalia-qs";
     };
@@ -44,7 +54,7 @@
 
     # SecureBoot
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v1.1.0";
       inputs = {
         rust-overlay.follows = "rust-overlay";
         nixpkgs.follows = "nixpkgs";
@@ -86,6 +96,12 @@
           nix.settings = {
             substituters = [
               "https://cache.nixos.org"
+              "https://niri.cachix.org"
+              "https://noctalia.cachix.org"
+            ];
+            trusted-public-keys = [
+              "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+              "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
             ];
           };
         }

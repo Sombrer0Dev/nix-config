@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  inputs,
+  config,
   ...
 }:
 {
@@ -16,8 +16,12 @@
     exec = "gnome-control-center";
   };
 
+  programs.chromium = {
+    enable = true;
+  };
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.default = {
       name = "Default";
       settings = {

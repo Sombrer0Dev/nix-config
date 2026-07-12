@@ -73,6 +73,13 @@
         darkMode = true;
         generationMethod = "monochrome";
       };
+      notifications = {
+        enabled = true;
+        enableMarkdown = true;
+        location = "bottom_right";
+        enableKeyboardLayoutToast = false;
+        enableBatteryToast = false;
+      };
       dock = {
         enabled = false;
       };

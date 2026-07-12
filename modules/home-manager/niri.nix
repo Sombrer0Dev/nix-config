@@ -14,7 +14,7 @@
         focus-follows-mouse.enable = true;
         focus-follows-mouse.max-scroll-amount = "0%";
         keyboard.xkb.layout = "us, ru";
-        keyboard.xkb.options = "grp:win_space_toggle";
+        keyboard.xkb.options = "grp:win_space_toggle,compose:ralt";
         keyboard.repeat-delay = 200;
         keyboard.repeat-rate = 35;
         workspace-auto-back-and-forth = true;
