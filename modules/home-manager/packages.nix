@@ -44,6 +44,7 @@ let
     nixd
     nixfmt
 
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.codex-nix.packages.${stdenv.hostPlatform.system}.default
 
     # load
