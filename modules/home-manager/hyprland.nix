@@ -120,7 +120,7 @@ in
         [
           "SUPER, TAB, exec , noctalia ipc call launcher toggle"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
-          "SUPER, Return, exec, kitty"
+          "SUPER, Return, exec, ghostty"
 
           "ALT, Tab, focuscurrentorlast"
           "CTRL ALT, Delete, exit"

@@ -48,7 +48,7 @@
 
         ../home-manager/shell.nix
         ../home-manager/theme.nix
-        ../home-manager/kitty.nix
+        ../home-manager/ghostty.nix
         ../home-manager/tmux.nix
         ../home-manager/claude-code.nix
         ../generic/home.nix

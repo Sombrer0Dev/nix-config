@@ -23,7 +23,7 @@
         "Mod+A".action.spawn-sh =
           "niri msg action focus-column-right && niri msg action move-column-left && niri msg action focus-window-previous";
 
-        "Mod+Return".action.spawn = "kitty";
+        "Mod+Return".action.spawn = "ghostty";
         "Mod+Tab".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
         "Mod+Q" = {
           repeat = false;
