@@ -40,6 +40,7 @@
       loupe
       nautilus
       baobab
+      loupe
       gnome-text-editor
       gnome-calendar
       gnome-boxes

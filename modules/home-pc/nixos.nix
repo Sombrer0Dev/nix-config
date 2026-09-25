@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     ./disks.nix
-    ./work.nix
   ];
 
   nix.settings.trusted-users = [
@@ -51,6 +50,7 @@
         ../home-manager/theme.nix
         ../home-manager/kitty.nix
         ../home-manager/tmux.nix
+        ../home-manager/claude-code.nix
         ../generic/home.nix
 
         ../home-manager/work.nix

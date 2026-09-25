@@ -12,7 +12,10 @@
 
   imports = [ inputs.niri.nixosModules.niri ];
   config = lib.mkIf config.niri.enable {
-    programs.niri.enable = true;
+    programs.niri = {
+      enable = true;
+      package = pkgs.niri;
+    };
     systemd.user.services.niri-flake-polkit.enable = false;
 
     # Fix services starting before niri-session

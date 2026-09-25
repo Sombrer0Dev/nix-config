@@ -51,6 +51,7 @@
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
     codex-nix.url = "github:SecBear/codex-nix";
+    claude-code.url = "github:sadjow/claude-code-nix";
 
     # SecureBoot
     lanzaboote = {

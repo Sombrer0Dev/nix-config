@@ -65,38 +65,53 @@
     };
     keybindings = {
       # --- SPLITS ---
-      "alt+/" = "launch --location=vsplit";
-      "alt+'" = "launch --location=hsplit";
+      "alt+/" = "launch --location=vsplit --cwd=current";
+      "alt+'" = "launch --location=hsplit --cwd=current";
+      "ctrl+alt+/" = "launch --location=vsplit --cwd=current";
+      "ctrl+alt+'" = "launch --location=hsplit --cwd=current";
 
       # --- NAVIGATION ---
       "alt+h" = "neighboring_window left";
       "alt+j" = "neighboring_window down";
       "alt+k" = "neighboring_window up";
       "alt+l" = "neighboring_window right";
+      "ctrl+alt+h" = "neighboring_window left";
+      "ctrl+alt+j" = "neighboring_window down";
+      "ctrl+alt+k" = "neighboring_window up";
+      "ctrl+alt+l" = "neighboring_window right";
 
       # --- RESIZE ---
       "alt+shift+h" = "resize_window narrower 3";
       "alt+shift+l" = "resize_window wider 3";
       "alt+shift+j" = "resize_window shorter 3";
       "alt+shift+k" = "resize_window taller 3";
+      "ctrl+alt+shift+h" = "resize_window narrower 3";
+      "ctrl+alt+shift+l" = "resize_window wider 3";
+      "ctrl+alt+shift+j" = "resize_window shorter 3";
+      "ctrl+alt+shift+k" = "resize_window taller 3";
 
       # --- CLOSE PANE ---
       "alt+q" = "close_window";
+      "ctrl+alt+q" = "close_window";
 
       # --- POPUP (tmux popup replacement) ---
       "alt+t" = "launch --type=overlay";
+      "ctrl+alt+t" = "launch --type=overlay";
 
       # # --- HINTS (super-fingers replacement) ---
       # "f" = "kitten hints";
 
       # --- SCROLLBACK SEARCH ---
       "alt+f" = "search";
+      "ctrl+alt+f" = "search";
 
       # --- RESET FONT ---
       "alt+shift+0" = "change_font_size all 0";
+      "ctrl+alt+shift+0" = "change_font_size all 0";
 
       # --- open url ---
       "alt+o" = "kitten hints --type=url --program=xdg-open";
+      "ctrl+alt+o" = "kitten hints --type=url --program=xdg-open";
     };
 
     extraConfig = ''
@@ -105,6 +120,7 @@
 
       # Open scrollback in nvim (like tmux copy-mode++)
       map alt+s launch --stdin-source=@screen_scrollback nvim
+      map ctrl+alt+s launch --stdin-source=@screen_scrollback nvim
 
       # Copy on select (optional)
       copy_on_select yes
@@ -117,10 +133,18 @@
       map --when-focus-on var:IS_NVIM alt+j
       map --when-focus-on var:IS_NVIM alt+k
       map --when-focus-on var:IS_NVIM alt+l
+      map --when-focus-on var:IS_NVIM ctrl+alt+h
+      map --when-focus-on var:IS_NVIM ctrl+alt+j
+      map --when-focus-on var:IS_NVIM ctrl+alt+k
+      map --when-focus-on var:IS_NVIM ctrl+alt+l
 
       map --when-focus-on var:IS_NVIM alt+shift+h
       map --when-focus-on var:IS_NVIM alt+shift+j
       map --when-focus-on var:IS_NVIM alt+shift+k
+      map --when-focus-on var:IS_NVIM ctrl+alt+shift+h
+      map --when-focus-on var:IS_NVIM ctrl+alt+shift+l
+      map --when-focus-on var:IS_NVIM ctrl+alt+shift+j
+      map --when-focus-on var:IS_NVIM ctrl+alt+shift+k
       map --when-focus-on var:IS_NVIM alt+shift+l
     '';
 

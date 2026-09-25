@@ -28,7 +28,10 @@
   documentation.nixos.enable = false; # .desktop
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
-    experimental-features = "nix-command flakes";
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
   };
   # garbage collection
@@ -72,6 +75,8 @@
     home-manager
     neovim
     go
+    protoc-gen-go
+    protobuf
     cargo
     git
     wget

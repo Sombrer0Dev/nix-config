@@ -65,12 +65,8 @@
         };
 
         "Mod+S" = {
-          action.spawn = [
-            "kitten"
-            "quick-access-terminal"
-            "-o"
-            "lines=50"
-          ];
+          repeat = false;
+          action.toggle-overview = [ ];
         };
 
         "Mod+Shift+S" = {
@@ -128,9 +124,11 @@
       };
       spawn-at-startup = [
         { argv = [ "noctalia-shell" ]; }
-        { argv = [ "mattermost-desktop" ]; }
         { argv = [ "Throne" ]; }
       ];
+      hotkey-overlay = {
+        skip-at-startup = true;
+      };
       layout = {
         background-color = "transparent";
         preset-column-widths = [

@@ -6,7 +6,21 @@
 }:
 {
   home = {
-    sessionVariables.BROWSER = "firefox";
+    sessionVariables.BROWSER = "zen-beta";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "zen-beta.desktop";
+      "text/xml" = "zen-beta.desktop";
+      "application/xhtml+xml" = "zen-beta.desktop";
+      "x-scheme-handler/http" = "zen-beta.desktop";
+      "x-scheme-handler/https" = "zen-beta.desktop";
+      "application/x-xpinstall" = "zen-beta.desktop";
+      "application/pdf" = "zen-beta.desktop";
+      "application/json" = "zen-beta.desktop";
+    };
   };
 
   xdg.desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
