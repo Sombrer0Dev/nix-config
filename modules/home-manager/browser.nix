@@ -23,7 +23,7 @@
     };
   };
 
-  xdg.desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.isLinux {
+  xdg.desktopEntries."gnome-control-center" = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     name = "GNOME Control Center";
     comment = "GNOME control center";
     icon = "gnome";
