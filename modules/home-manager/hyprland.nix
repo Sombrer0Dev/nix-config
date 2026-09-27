@@ -82,15 +82,6 @@ in
         pseudotile = "yes";
         preserve_split = "yes";
       };
-      layerrule = [
-        {
-          name = "noctalia";
-          "match:namespace" = "noctalia-background-.*$";
-          ignore_alpha = 0.5;
-          blur = true;
-          blur_popups = true;
-        }
-      ];
       windowrule = [
         "match:fullscreen 1, border_color rgb(EE5396)"
         "match:class org.gnome.Nautilus, float 1"
@@ -118,7 +109,7 @@ in
           ];
         in
         [
-          "SUPER, TAB, exec , noctalia ipc call launcher toggle"
+          "SUPER, TAB, exec , noctalia msg panel-toggle launcher"
           "SUPER SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "SUPER, Return, exec, ghostty"
 

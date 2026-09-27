@@ -24,7 +24,7 @@
           "niri msg action focus-column-right && niri msg action move-column-left && niri msg action focus-window-previous";
 
         "Mod+Return".action.spawn = "ghostty";
-        "Mod+Tab".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
+        "Mod+Tab".action.spawn-sh = "noctalia msg panel-toggle launcher";
         "Mod+Q" = {
           repeat = false;
           action.close-window = [ ];
@@ -123,7 +123,7 @@
         };
       };
       spawn-at-startup = [
-        { argv = [ "noctalia-shell" ]; }
+        { argv = [ "noctalia" ]; }
         { argv = [ "Throne" ]; }
       ];
       hotkey-overlay = {

@@ -4,139 +4,101 @@
     inputs.noctalia.homeModules.default
   ];
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
     settings = {
-      bar = {
-        density = "default";
-        position = "top";
-        outerCorners = true;
-        widgets = {
-          left = [
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-              enableColorization = true;
-            }
-            {
-              id = "NotificationHistory";
-            }
-            {
-              hideUnoccupied = false;
-              id = "Workspace";
-              labelMode = "none";
-            }
-            {
-              id = "plugin:privacy-indicator";
-              hideInactive = true;
-            }
-          ];
-          center = [
-            {
-              id = "Clock";
-            }
-            {
-              id = "Spacer";
-            }
-          ];
-          right = [
-            {
-              id = "MediaMini";
-            }
-            {
-              id = "KeyboardLayout";
-              showIcon = false;
-            }
-            {
-              id = "VPN";
-            }
-            {
-              id = "Network";
-            }
-            {
-              id = "Bluetooth";
-            }
-            {
-              id = "Volume";
-            }
-            {
-              id = "Tray";
-            }
-            {
-              id = "SessionMenu";
-            }
-          ];
+      shell = {
+        telemetry_enabled = false;
+        avatar_path = "/home/arsokolov/.face";
+      };
+
+      theme = {
+        mode = "dark";
+        source = "wallpaper";
+        wallpaper_scheme = "m3-monochrome";
+      };
+
+      backdrop = {
+        enabled = true;
+      };
+
+      notification = {
+        enable_daemon = true;
+      };
+
+      osd = {
+        kinds = {
+          keyboard_layout = false;
         };
       };
-      colorSchemes = {
-        useWallpaperColors = true;
-        darkMode = true;
-        generationMethod = "monochrome";
-      };
-      notifications = {
-        enabled = true;
-        enableMarkdown = true;
-        location = "bottom_right";
-        enableKeyboardLayoutToast = false;
-        enableBatteryToast = false;
-      };
+
       dock = {
         enabled = false;
       };
+
       wallpaper = {
         enabled = true;
         directory = "/home/arsokolov/Documents/walls";
-        viewMode = "recursive";
-        enableOverviewWallpaper = true;
       };
-      general = {
-        telemetryEnabled = false;
-        avatarImage = "/home/arsokolov/.face";
-      };
+
       location = {
-        name = "Moscow, Russia";
-        firstDayOfWeek = 1;
+        auto_locate = false;
+        address = "Moscow, Russia";
       };
-      plugins = {
-        autoUpdate = true;
-      };
+
       idle = {
-        enabled = true;
-        screenOffTimeout = 1200;
-        lockTimeout = 1260;
-        suspendTimeout = 1800;
-        fadeDuration = 5;
+        pre_action_fade_seconds = 5.0;
+        behavior = {
+          "screen-off" = {
+            timeout = 1200;
+            action = "screen_off";
+            enabled = true;
+          };
+          lock = {
+            timeout = 1260;
+            action = "lock";
+            enabled = true;
+          };
+          suspend = {
+            timeout = 1800;
+            action = "suspend";
+            enabled = true;
+          };
+        };
       };
-      desktopWidgets = {
+
+      desktop_widgets = {
         enabled = true;
-        overviewEnabled = true;
-        gridSnap = true;
-        monitorWidgets = [
-          {
-            name = "DP-1";
-            widgets = [
-              {
-                id = "MediaPlayer";
-                hideMode = "visible";
-                roundedCorners = true;
-                showAlbumArt = true;
-                showBackground = true;
-                showButtons = true;
-                showVisualizer = true;
-                visualizerType = "wave";
-                # x = 16;
-                # y = 52;
-              }
-              {
-                id = "Weather";
-                roundedCorners = true;
-                showBackground = true;
-                # x = 10;
-                # y = 159;
-              }
-            ];
-          }
+      };
+
+      bar.main = {
+        position = "top";
+        start = [
+          "control-center"
+          "notifications"
+          "workspaces"
         ];
+        center = [
+          "clock"
+        ];
+        end = [
+          "media"
+          "keyboard_layout"
+          "network"
+          "bluetooth"
+          "volume"
+          "tray"
+          "session"
+        ];
+      };
+
+      widget = {
+        keyboard_layout = {
+          show_icon = false;
+        };
+        network = {
+          vpn_status = "both";
+        };
       };
     };
   };
