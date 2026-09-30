@@ -74,6 +74,8 @@ in
           bindkey "^[[4~" end-of-line
           bindkey "^[[3~" delete-char
           bindkey -s "^o" 'zi^M'
+          bindkey -s "^f" 'vf^M'
+          bindkey -s "^g" 'vg^M'
 
           # Completion
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
