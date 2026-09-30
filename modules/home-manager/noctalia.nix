@@ -12,11 +12,10 @@
         avatar_path = "/home/arsokolov/.face";
       };
 
-      theme = {
-        mode = "dark";
-        source = "wallpaper";
-        wallpaper_scheme = "m3-monochrome";
-      };
+      # Colors are owned by Stylix now (stylix.targets.noctalia in
+      # stylix.nix, mkDefault'd theme.source = "custom" + the Cyberdream
+      # customPalettes entry) -- no literal theme.* override here, or it
+      # would outrank Stylix's defaults and silently block the target.
 
       backdrop = {
         enabled = true;
@@ -96,7 +95,7 @@
 
       widget = {
         keyboard_layout = {
-          show_icon = false;
+          show_glyph = false;
         };
         network = {
           vpn_status = "both";

@@ -17,6 +17,7 @@ let
     hyprpicker
     jq
     zoxide
+    proton-pass-cli
     lua51Packages.lua
     lua51Packages.luarocks
     matugen

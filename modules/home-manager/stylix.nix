@@ -34,6 +34,8 @@
       ghostty.enable = true;
       alacritty.enable = true;
       foot.enable = true;
+      # No-ops harmlessly on hosts without `programs.noctalia` (laptop).
+      noctalia.enable = true;
     };
   };
 }
