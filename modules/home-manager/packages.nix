@@ -14,6 +14,7 @@ let
     eza
     fd
     fzf-git-sh
+    gh
     hyprpicker
     jq
     zoxide
@@ -43,6 +44,16 @@ let
     nil
     nixd
     nixfmt
+
+    # nvim tooling (LSP servers, formatters, debuggers, treesitter CLI)
+    tree-sitter
+    ty
+    ruff
+    mypy
+    python3Packages.debugpy
+    bash-language-server
+    shellcheck
+    shfmt
 
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 

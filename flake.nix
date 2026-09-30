@@ -49,7 +49,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nixvim.url = "github:nix-community/nixvim";
+    nvim-config = {
+      url = "github:sombrer0dev/nvim";
+      flake = false;
+    };
     codex-nix.url = "github:SecBear/codex-nix";
     claude-code.url = "github:sadjow/claude-code-nix";
 
