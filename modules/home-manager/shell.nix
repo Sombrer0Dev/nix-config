@@ -19,7 +19,6 @@ let
     "ls" = "eza -l";
     "tree" = "eza -T";
     "clear" = "clear && tput cup $(tput lines) 0";
-    "work-add" = "worktree $(_fzf_git_branches)";
   };
 in
 {
@@ -75,6 +74,17 @@ in
           bindkey "^[[3~" delete-char
           bindkey -s "^o" 'zi^M'
 
+          # Run vf/vg as real widgets (not `bindkey -s`, which simulates
+          # typing "vf<Enter>" -- that gets echoed as a normal executed
+          # command, littering scrollback and .zsh_history). This calls
+          # the command directly and just redraws the prompt after.
+          _vf_widget() { zle -I; vf; zle reset-prompt }
+          _vg_widget() { zle -I; vg; zle reset-prompt }
+          zle -N _vf_widget
+          zle -N _vg_widget
+          bindkey "^f" _vf_widget
+          bindkey "^g" _vg_widget
+
           # Completion
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           zstyle ':completion:*:git-checkout:*' sort false
@@ -90,7 +100,6 @@ in
           # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
           # zvm_after_init() {
-          source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
           source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
           if [ -n "$TMUX" ]; then
             precmd() {

@@ -32,11 +32,11 @@
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
-        inputs.nixvim.homeModules.nixvim
+        inputs.stylix.homeModules.stylix
 
         ../home-manager/packages.nix
 
-        ../home-manager/nvim
+        ../home-manager/nvim.nix
         ../home-manager/vimrc.nix
         ../home-manager/browser.nix
         ../home-manager/dconf.nix
@@ -44,6 +44,7 @@
         ../home-manager/hyprland.nix
         ../home-manager/shell.nix
         ../home-manager/theme.nix
+        ../home-manager/stylix.nix
         ../home-manager/ghostty.nix
         ../home-manager/tmux.nix
         ../home-manager/claude-code.nix
