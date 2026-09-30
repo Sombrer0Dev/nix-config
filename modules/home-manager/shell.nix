@@ -73,8 +73,17 @@ in
           bindkey "^[[4~" end-of-line
           bindkey "^[[3~" delete-char
           bindkey -s "^o" 'zi^M'
-          bindkey -s "^f" 'vf^M'
-          bindkey -s "^g" 'vg^M'
+
+          # Run vf/vg as real widgets (not `bindkey -s`, which simulates
+          # typing "vf<Enter>" -- that gets echoed as a normal executed
+          # command, littering scrollback and .zsh_history). This calls
+          # the command directly and just redraws the prompt after.
+          _vf_widget() { zle -I; vf; zle reset-prompt }
+          _vg_widget() { zle -I; vg; zle reset-prompt }
+          zle -N _vf_widget
+          zle -N _vg_widget
+          bindkey "^f" _vf_widget
+          bindkey "^g" _vg_widget
 
           # Completion
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
