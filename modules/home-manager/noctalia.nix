@@ -74,6 +74,7 @@
       bar.main = {
         position = "top";
         font_scale = 1.1;
+        capsule = true;
         start = [
           "control-center"
           "notifications"
@@ -111,6 +112,9 @@
         };
         tray = {
           drawer = true;
+        };
+        workspaces = {
+          show_labels = false;
         };
       };
     };
