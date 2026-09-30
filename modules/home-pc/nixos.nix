@@ -34,6 +34,7 @@
       imports = [
         inputs.nix-index-database.homeModules.default
         { programs.nix-index-database.comma.enable = true; }
+        inputs.stylix.homeModules.stylix
 
         ../home-manager/nvim.nix
         ../home-manager/vimrc.nix
@@ -47,6 +48,7 @@
 
         ../home-manager/shell.nix
         ../home-manager/theme.nix
+        ../home-manager/stylix.nix
         ../home-manager/ghostty.nix
         ../home-manager/tmux.nix
         ../home-manager/claude-code.nix

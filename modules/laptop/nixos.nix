@@ -32,6 +32,8 @@
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
+        inputs.stylix.homeModules.stylix
+
         ../home-manager/packages.nix
 
         ../home-manager/nvim.nix
@@ -42,6 +44,7 @@
         ../home-manager/hyprland.nix
         ../home-manager/shell.nix
         ../home-manager/theme.nix
+        ../home-manager/stylix.nix
         ../home-manager/ghostty.nix
         ../home-manager/tmux.nix
         ../home-manager/claude-code.nix

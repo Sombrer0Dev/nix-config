@@ -56,6 +56,11 @@
     codex-nix.url = "github:SecBear/codex-nix";
     claude-code.url = "github:sadjow/claude-code-nix";
 
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # SecureBoot
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
