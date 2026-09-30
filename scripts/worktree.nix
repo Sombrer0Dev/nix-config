@@ -2,9 +2,7 @@
 let
   worktree = pkgs.writeShellApplication {
     name = "worktree";
-    runtimeInputs = with pkgs; [
-      fzf-git-sh
-    ];
+    runtimeInputs = [ ];
     runtimeEnv = {
     };
     text = ''

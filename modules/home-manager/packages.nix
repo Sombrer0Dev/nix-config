@@ -13,7 +13,6 @@ let
     docker-compose
     eza
     fd
-    fzf-git-sh
     gh
     hyprpicker
     jq
