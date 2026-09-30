@@ -407,12 +407,28 @@ function formatDuration(ms) {
 }
 
 /**
- * Extract model version (e.g., "4.5" from "Claude Sonnet 4.5")
+ * Get a readable display name for the model, e.g. "Sonnet 4.5" from
+ * "claude-sonnet-4-5" or "claude-sonnet-5", "GLM 4.7" from "glm-4.7".
+ * Real Claude model IDs use hyphens between version segments, not dots,
+ * so a naive \d+\.\d+ regex (the previous approach) never matched them.
  */
-function extractModelVersion(modelName) {
-  // Handle both "Claude Sonnet 4.5" and "glm-4.7" formats
-  const match = modelName.match(/(\d+\.\d+(?:\.\d+)?)/);
-  return match ? match[1] : null;
+function getModelDisplayName(modelId) {
+  if (!modelId) return '';
+
+  // Version is 1-2 short hyphen-separated numeric segments right after the
+  // family name; some IDs (e.g. Haiku's) append an 8-digit release date
+  // after that, which this deliberately stops short of.
+  const claudeMatch = modelId.match(/claude-(opus|sonnet|haiku|fable)-(\d{1,2}(?:-\d{1,2})?)/i);
+  if (claudeMatch) {
+    const family = claudeMatch[1][0].toUpperCase() + claudeMatch[1].slice(1).toLowerCase();
+    const version = claudeMatch[2].replace(/-/g, '.');
+    return `${family} ${version}`;
+  }
+
+  const glmMatch = modelId.match(/glm-(.+)/i);
+  if (glmMatch) return `GLM ${glmMatch[1]}`;
+
+  return modelId;
 }
 
 /**
@@ -582,10 +598,10 @@ function main() {
   const maxDisplay = formatTokenCount(max);
   const gitChanges = formatGitChanges(gitInfo);
 
-  // Extract model version
-  const modelVersion = extractModelVersion(model);
-  const modelDisplay = modelVersion
-    ? `\x1b[38;5;213m${modelVersion}\x1b[0m`
+  // Model display name
+  const modelDisplayName = getModelDisplayName(model);
+  const modelDisplay = modelDisplayName
+    ? `\x1b[38;5;213m${modelDisplayName}\x1b[0m`
     : '';
 
   // Cost display (show more decimals for small amounts)
