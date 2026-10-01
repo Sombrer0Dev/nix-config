@@ -55,6 +55,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zitheme = {
+      url = "github:Sombrer0Dev/ZiTheme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # SecureBoot
     lanzaboote = {

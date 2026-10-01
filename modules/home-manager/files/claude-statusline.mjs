@@ -8,9 +8,9 @@
  * - Real-time token tracking from current session
  * - Git branch with staged/unstaged changes
  * - Model version display
- * - Cost tracking
  * - Enhanced progress bar
- * - Cache percentage display
+ * - Live 5-hour rate-limit block status (tokens used + time left) and
+ *   trailing 7-day usage, aggregated across all projects
  */
 
 import { execSync } from 'child_process';
@@ -48,66 +48,20 @@ function getContextSizeForModel(modelId) {
   return 200000;
 }
 
-// Model pricing (USD per million tokens)
-const MODEL_PRICING = {
-  "claude-opus-4-6": { input: 15, output: 75 },
-  "claude-opus-4-5": { input: 15, output: 75 },
-  "claude-sonnet-4-6": { input: 3, output: 15 },
-  "claude-sonnet-4-5": { input: 3, output: 15 },
-  "claude-haiku-4-5": { input: 0.8, output: 4 },
-  "glm-5": { input: 0.5, output: 2 },
-  "glm-5-plus": { input: 1, output: 4 },
-  "glm-4": { input: 0.4, output: 1.6 },
-  "glm-4-plus": { input: 0.5, output: 2 },
-  "glm-4-long": { input: 0.4, output: 1.6 },
-  "glm-4.7": { input: 0.5, output: 2 },
-};
-
-function getPricingForModel(modelId) {
-  if (!modelId) return { input: 3, output: 15 };
-  const cleanId = modelId.replace(/\[1m\]/, '');
-  if (MODEL_PRICING[cleanId]) return MODEL_PRICING[cleanId];
-  for (const [key, pricing] of Object.entries(MODEL_PRICING)) {
-    if (modelId.startsWith(key)) return pricing;
-  }
-  if (modelId.includes('opus')) return { input: 15, output: 75 };
-  if (modelId.includes('haiku')) return { input: 0.8, output: 4 };
-  if (modelId.includes('sonnet')) return { input: 3, output: 15 };
-  if (modelId.includes('glm-5-plus')) return { input: 1, output: 4 };
-  if (modelId.includes('glm')) return { input: 0.5, output: 2 };
-  return { input: 3, output: 15 };
-}
-
 // Configuration
 const CONFIG = {
   maxTokens: 200000, // default, overridden dynamically per model
   progressBarWidth: 15,
   showModel: true,
-  showCache: true,
   colors: {
     low: 'green',
     medium: 'yellow',
     high: 'red'
-  },
-  cache: {
-    enabled: true,
-    showLabel: true,
-    format: 'percentage', // 'percentage', 'bar', or 'both'
-    prefix: 'C:',
-    progressBar: {
-      enabled: false, // Désactivé - on garde que le pourcentage
-      length: 10,
-      style: 'filled',
-      color: 'progressive',
-      background: 'none'
-    },
-    colorThresholds: {
-      low: 30,
-      medium: 60,
-      high: 90
-    }
   }
 };
+
+const FIVE_HOUR_MS = 5 * 60 * 60 * 1000;
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 // ANSI Color codes
 const COLORS = {
@@ -161,50 +115,11 @@ function getCurrentSessionFile() {
   }
 }
 
-/**
- * Read session duration from current session file
- */
-function getSessionDuration(sessionFile) {
-  if (!sessionFile || !existsSync(sessionFile)) {
-    return 0;
-  }
-
-  try {
-    const content = readFileSync(sessionFile, 'utf-8');
-    const lines = content.trim().split('\n');
-
-    // Find first and last messages with timestamps
-    let firstTimestamp = null;
-    let lastTimestamp = null;
-
-    for (let i = 0; i < lines.length; i++) {
-      try {
-        const parsed = JSON.parse(lines[i]);
-        if (parsed.timestamp) {
-          if (!firstTimestamp) {
-            firstTimestamp = new Date(parsed.timestamp).getTime();
-          }
-          lastTimestamp = new Date(parsed.timestamp).getTime();
-        }
-      } catch {
-        continue;
-      }
-    }
-
-    if (firstTimestamp && lastTimestamp) {
-      return lastTimestamp - firstTimestamp;
-    }
-  } catch {
-    // Ignore
-  }
-
-  return 0;
-}
 function getSessionTokens() {
   const sessionFile = getCurrentSessionFile();
 
   if (!sessionFile || !existsSync(sessionFile)) {
-    return { current: 0, max: CONFIG.maxTokens, cost: 0, model: 'Claude', duration: 0, inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0 };
+    return { current: 0, max: CONFIG.maxTokens, model: 'Claude' };
   }
 
   try {
@@ -228,7 +143,7 @@ function getSessionTokens() {
     }
 
     if (!lastData || !lastData.message?.usage) {
-      return { current: 0, max: CONFIG.maxTokens, cost: 0, model: 'Claude', duration: getSessionDuration(sessionFile), inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0 };
+      return { current: 0, max: CONFIG.maxTokens, model: 'Claude' };
     }
 
     const usage = lastData.message.usage;
@@ -237,7 +152,6 @@ function getSessionTokens() {
     const inputTokens = usage.input_tokens || 0;
     const cacheReadTokens = usage.cache_read_input_tokens || 0;
     const cacheCreationTokens = usage.cache_creation_input_tokens || 0;
-    const outputTokens = usage.output_tokens || 0;
     const totalTokens = inputTokens + cacheReadTokens + cacheCreationTokens;
 
     // Extract model name
@@ -246,23 +160,128 @@ function getSessionTokens() {
     // Dynamic max tokens based on detected model
     const maxTokens = getContextSizeForModel(model);
 
-    // Dynamic cost calculation based on model
-    const pricing = getPricingForModel(model);
-    const cost = ((inputTokens * pricing.input) / 1000000) + ((outputTokens * pricing.output) / 1000000);
-
     return {
       current: totalTokens,
       max: maxTokens,
-      cost: cost,
-      model: model,
-      duration: getSessionDuration(sessionFile),
-      inputTokens: inputTokens,
-      cacheReadTokens: cacheReadTokens,
-      cacheCreationTokens: cacheCreationTokens
+      model: model
     };
   } catch (error) {
-    return { current: 0, max: CONFIG.maxTokens, cost: 0, model: 'Claude', duration: 0, inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0 };
+    return { current: 0, max: CONFIG.maxTokens, model: 'Claude' };
   }
+}
+
+/**
+ * Collect {timestamp, tokens} for every usage-bearing message across ALL
+ * projects — Anthropic's 5-hour and weekly rate-limit windows are
+ * account-wide, not per-project or per-session. Session files whose mtime
+ * is older than the weekly window are skipped without being read, so this
+ * stays cheap regardless of how much history has piled up.
+ */
+function getRecentUsageEvents() {
+  const homeDir = process.env.HOME || process.env.USERPROFILE;
+  const projectsDir = join(homeDir, '.claude', 'projects');
+  const cutoff = Date.now() - WEEK_MS;
+  const events = [];
+
+  let projectDirs;
+  try {
+    projectDirs = readdirSync(projectsDir, { withFileTypes: true })
+      .filter(d => d.isDirectory())
+      .map(d => join(projectsDir, d.name));
+  } catch {
+    return events;
+  }
+
+  for (const dir of projectDirs) {
+    let files;
+    try {
+      files = readdirSync(dir).filter(f => f.endsWith('.jsonl'));
+    } catch {
+      continue;
+    }
+
+    for (const file of files) {
+      const filePath = join(dir, file);
+      let mtime;
+      try {
+        mtime = statSync(filePath).mtime.getTime();
+      } catch {
+        continue;
+      }
+      if (mtime < cutoff) continue;
+
+      let content;
+      try {
+        content = readFileSync(filePath, 'utf-8');
+      } catch {
+        continue;
+      }
+
+      for (const line of content.split('\n')) {
+        if (!line) continue;
+        let parsed;
+        try {
+          parsed = JSON.parse(line);
+        } catch {
+          continue;
+        }
+        if (parsed.isSidechain === true || parsed.isApiErrorMessage === true) continue;
+
+        const usage = parsed.message?.usage;
+        if (!usage || !parsed.timestamp) continue;
+
+        const timestamp = new Date(parsed.timestamp).getTime();
+        if (Number.isNaN(timestamp) || timestamp < cutoff) continue;
+
+        const tokens =
+          (usage.input_tokens || 0) +
+          (usage.output_tokens || 0) +
+          (usage.cache_read_input_tokens || 0) +
+          (usage.cache_creation_input_tokens || 0);
+
+        events.push({ timestamp, tokens });
+      }
+    }
+  }
+
+  events.sort((a, b) => a.timestamp - b.timestamp);
+  return events;
+}
+
+/**
+ * The 5-hour rate-limit window is block-based, not a trailing window: it
+ * starts at the first message after a >5h idle gap and runs 5h from there.
+ * Walk backward from the most recent event to find that start.
+ */
+function getActiveFiveHourBlock(events) {
+  if (events.length === 0) return null;
+
+  let startIdx = events.length - 1;
+  for (let i = events.length - 1; i > 0; i--) {
+    if (events[i].timestamp - events[i - 1].timestamp > FIVE_HOUR_MS) break;
+    startIdx = i - 1;
+  }
+
+  const blockStart = events[startIdx].timestamp;
+  const blockEnd = blockStart + FIVE_HOUR_MS;
+  const now = Date.now();
+  if (now >= blockEnd) return null;
+
+  const tokens = events
+    .slice(startIdx)
+    .reduce((sum, e) => sum + e.tokens, 0);
+
+  return { tokens, remainingMs: blockEnd - now };
+}
+
+/**
+ * Plain trailing 7-day token total. Unlike the 5h window, Anthropic's weekly
+ * reset boundary isn't derivable locally, so this reports cumulative usage
+ * rather than claiming to know a reset time.
+ */
+function getWeekUsage(events) {
+  const tokens = events.reduce((sum, e) => sum + e.tokens, 0);
+  return { tokens };
 }
 
 /**
@@ -451,86 +470,6 @@ function createProgressBar(percentage, width = CONFIG.progressBarWidth) {
 }
 
 /**
- * Calculate cache percentage from session data
- *
- * Le pourcentage de cache représente: quel pourcentage des tokens d'entrée
- * TOTAUX ont été servis depuis le cache (économies) ?
- *
- * Formule: cache_read / (input_tokens + cache_read + cache_creation) * 100
- *
- * Note: input_tokens n'inclut PAS cache_read_tokens dans l'API
- */
-function getCachePercentage(sessionData) {
-  if (!sessionData) {
-    return null;
-  }
-
-  const cacheRead = sessionData.cacheReadTokens || 0;
-  const cacheCreation = sessionData.cacheCreationTokens || 0;
-  const inputTokens = sessionData.inputTokens || 0;
-
-  // Si pas de tokens du tout
-  if (inputTokens === 0 && cacheRead === 0 && cacheCreation === 0) {
-    return 0;
-  }
-
-  // Total des tokens traités (input + lecture cache + création cache)
-  const totalTokens = inputTokens + cacheRead + cacheCreation;
-
-  if (totalTokens === 0) {
-    return 0;
-  }
-
-  // Pourcentage réel de tokens venant du cache
-  const percentage = (cacheRead / totalTokens) * 100;
-
-  return percentage;
-}
-
-/**
- * Format cache percentage indicator
- */
-function formatCachePercentage(cachePercentage) {
-  if (!CONFIG.cache.enabled || cachePercentage === null || cachePercentage === undefined) {
-    return '';
-  }
-
-  const parts = [];
-
-  // Prefix/Label en bold
-  if (CONFIG.cache.showLabel) {
-    parts.push(`\x1b[1m\x1b[90m${CONFIG.cache.prefix}\x1b[0m`);
-  }
-
-  // Progress bar (désactivée pour l'instant)
-  if (CONFIG.cache.progressBar.enabled) {
-    parts.push(createProgressBar(cachePercentage, CONFIG.cache.progressBar.length));
-  }
-
-  // Percentage value avec couleur dynamique selon les seuils
-  if (CONFIG.cache.format === 'percentage' || CONFIG.cache.format === 'both') {
-    const displayValue = cachePercentage.toFixed(1);
-
-    // Déterminer la couleur selon le pourcentage
-    let colorCode;
-    const thresholds = CONFIG.cache.colorThresholds;
-
-    if (cachePercentage >= thresholds.high) {
-      colorCode = '\x1b[92m'; // green - haut niveau de cache (bon!)
-    } else if (cachePercentage >= thresholds.medium) {
-      colorCode = '\x1b[93m'; // yellow - moyen
-    } else {
-      colorCode = '\x1b[91m'; // red - faible niveau de cache
-    }
-
-    // Bold pour le pourcentage avec le symbole % en couleur
-    parts.push(`\x1b[1m${colorCode}${displayValue}%\x1b[0m`);
-  }
-
-  return parts.join(' ');
-}
-
-/**
  * Format git changes for display - enhanced v0.6.0
  */
 function formatGitChanges(gitInfo) {
@@ -565,6 +504,26 @@ function formatGitChanges(gitInfo) {
 }
 
 /**
+ * Format the active 5-hour rate-limit block: tokens used so far this block,
+ * plus time left until it resets. `null` means no block is currently open
+ * (nothing sent in the last 5h).
+ */
+function formatFiveHourDisplay(block) {
+  if (!block) {
+    return `\x1b[1m\x1b[96m5h\x1b[0m \x1b[90m--\x1b[0m`;
+  }
+  const remaining = formatDuration(block.remainingMs);
+  return `\x1b[1m\x1b[96m5h\x1b[0m \x1b[97m${formatTokenCount(block.tokens)}\x1b[0m \x1b[90m(${remaining} left)\x1b[0m`;
+}
+
+/**
+ * Format trailing 7-day token usage.
+ */
+function formatWeekDisplay(week) {
+  return `\x1b[1m\x1b[95mwk\x1b[0m \x1b[97m${formatTokenCount(week.tokens)}\x1b[0m`;
+}
+
+/**
  * Get project name/path for display
  */
 function getProjectPath(gitInfo) {
@@ -586,8 +545,12 @@ function getProjectPath(gitInfo) {
 function main() {
   const gitInfo = getGitInfo();
   const sessionData = getSessionTokens();
-  const { current, max, cost, model, duration, inputTokens, cacheReadTokens, cacheCreationTokens } = sessionData;
+  const { current, max, model } = sessionData;
   const percentage = Math.min(100, Math.round((current / max) * 100));
+
+  const usageEvents = getRecentUsageEvents();
+  const fiveHourBlock = getActiveFiveHourBlock(usageEvents);
+  const weekUsage = getWeekUsage(usageEvents);
 
   // Build statusline components
   const branch = gitInfo.branch || 'no-git';
@@ -604,53 +567,20 @@ function main() {
     ? `\x1b[38;5;213m${modelDisplayName}\x1b[0m`
     : '';
 
-  // Cost display (show more decimals for small amounts)
-  let costDisplay = '';
-  if (cost > 0) {
-    if (cost < 0.01) {
-      costDisplay = `\x1b[92m$${cost.toFixed(4)}\x1b[0m`;  // 4 decimals for <$0.01
-    } else {
-      costDisplay = `\x1b[92m$${cost.toFixed(2)}\x1b[0m`;  // 2 decimals otherwise
-    }
-  }
-
-  // Duration display
-  const durationDisplay = duration > 0
-    ? `\x1b[90m${formatDuration(duration)}\x1b[0m`
-    : '';
-
-  // Cache percentage indicator
-  const cacheData = {
-    inputTokens: inputTokens,
-    cacheReadTokens: cacheReadTokens,
-    cacheCreationTokens: cacheCreationTokens
-  };
-  const cachePercentage = getCachePercentage(cacheData);
-  const cacheDisplay = formatCachePercentage(cachePercentage);
-
   // Build final statusline on ONE line with better separators
-  // New order: Branch ▸ Path ▸ Git changes ▸ Model ▸ Cost ▸ Progress ▸ Tokens ▸ Cache ▸ Duration
+  // Order: Branch ▸ Path ▸ Git changes ▸ Model ▸ Progress ▸ Tokens ▸ 5h ▸ Week
   let statusline =
     `\x1b[1m\x1b[97m${branch}${dirtyMarker}\x1b[0m` +
     ` \x1b[90m▸\x1b[0m ` +
     `\x1b[90m${projectPath}\x1b[0m` +
     gitChanges +
     (modelDisplay ? ` \x1b[90m▸\x1b[0m ${modelDisplay}` : '') +
-    (costDisplay ? ` \x1b[90m▸\x1b[0m ${costDisplay}` : '') +
     ` \x1b[90m▸\x1b[0m ` +
     progressBar +
     ` \x1b[90m▸\x1b[0m ` +
-    `\x1b[1m${percentage}% (${currentDisplay}/${maxDisplay})\x1b[0m`;
-
-  // Add cache indicator if enabled and available
-  if (cacheDisplay) {
-    statusline += ` \x1b[90m▸\x1b[0m ${cacheDisplay}`;
-  }
-
-  // Add duration display at the end
-  if (durationDisplay) {
-    statusline += ` \x1b[90m▸\x1b[0m ${durationDisplay}`;
-  }
+    `\x1b[1m${percentage}% (${currentDisplay}/${maxDisplay})\x1b[0m` +
+    ` \x1b[90m▸\x1b[0m ${formatFiveHourDisplay(fiveHourBlock)}` +
+    ` \x1b[90m▸\x1b[0m ${formatWeekDisplay(weekUsage)}`;
 
   // Output to stdout
   console.log(statusline);

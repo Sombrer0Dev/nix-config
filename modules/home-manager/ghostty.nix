@@ -5,6 +5,8 @@
     settings = {
       command = "tmux new-session -A -s nix";
 
+      confirm-close-surface = false;
+
       window-padding-x = 5;
       window-padding-y = 7;
 

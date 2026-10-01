@@ -1013,7 +1013,8 @@
         "nvim-config": "nvim-config",
         "rust-overlay": "rust-overlay",
         "stylix": "stylix",
-        "zen-browser": "zen-browser"
+        "zen-browser": "zen-browser",
+        "zitheme": "zitheme"
       }
     },
     "rust-overlay": {
@@ -1271,6 +1272,26 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    },
+    "zitheme": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790878936,
+        "narHash": "sha256-/uDVAahV9SM8JHHwii6K24XT02wX+IswPtakPv7SEpo=",
+        "owner": "Sombrer0Dev",
+        "repo": "ZiTheme",
+        "rev": "12387f00de1a119d4ce73f6c7c00ca52938b4497",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Sombrer0Dev",
+        "repo": "ZiTheme",
         "type": "github"
       }
     }

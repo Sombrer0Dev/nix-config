@@ -35,6 +35,7 @@ in
       zsh-fzf-history-search
       zsh-fzf-tab
     ];
+    home.file.".p10k.zsh".source = ./files/p10k.zsh;
     programs = {
       zsh = {
         plugins = [
