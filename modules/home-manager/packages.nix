@@ -48,8 +48,11 @@ let
     # nvim tooling (LSP servers, formatters, debuggers, treesitter CLI)
     tree-sitter
     ty
+    pyright
+    basedpyright
     ruff
     mypy
+    pylint
     python3Packages.debugpy
     bash-language-server
     shellcheck

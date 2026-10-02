@@ -83,7 +83,14 @@
     sqlite
     uv
     ruff
-    python313
+    # debugpy/pytest so nvim-dap-python and neotest-python work against the
+    # system python3 out of the box, without a per-project venv.
+    (python313.withPackages (
+      ps: with ps; [
+        debugpy
+        pytest
+      ]
+    ))
 
     #c cpp
     clang
