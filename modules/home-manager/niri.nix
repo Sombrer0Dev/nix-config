@@ -177,6 +177,14 @@
           };
         }
         {
+          matches = [
+            {
+              app-id = "com.mitchellh.ghostty";
+            }
+          ];
+          open-maximized = true;
+        }
+        {
           geometry-corner-radius = {
             bottom-left = 20.0;
             bottom-right = 20.0;
