@@ -74,6 +74,8 @@
         position = "top";
         font_scale = 1.1;
         capsule = true;
+        background_opacity = 0;
+        margin_ends = 0;
         start = [
           "control-center"
           "notifications"
