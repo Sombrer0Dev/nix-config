@@ -12,6 +12,8 @@
 
   home = {
     sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";

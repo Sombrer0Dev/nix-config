@@ -15,6 +15,9 @@ let
     "gr" = "git reset --soft HEAD~1";
     "gall" = "git add . && git commit";
 
+    "vim" = "nvim";
+    "vi" = "nvim";
+
     "del" = "trash put";
     "ls" = "eza -l";
     "tree" = "eza -T";

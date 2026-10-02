@@ -1,5 +1,36 @@
 { ... }:
 {
+  xdg.desktopEntries.nvim = {
+    name = "Neovim";
+    comment = "Edit text files in Neovim";
+    icon = "nvim";
+    exec = "ghostty -e nvim %F";
+    terminal = false;
+    type = "Application";
+    categories = [ "Utility" "TextEditor" ];
+    mimeType = [
+      "text/plain"
+      "text/x-makefile"
+      "text/x-c"
+      "text/x-c++"
+      "text/x-python"
+      "text/x-shellscript"
+      "application/x-shellscript"
+      "text/x-nix"
+    ];
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = "nvim.desktop";
+    "text/x-makefile" = "nvim.desktop";
+    "text/x-c" = "nvim.desktop";
+    "text/x-c++" = "nvim.desktop";
+    "text/x-python" = "nvim.desktop";
+    "text/x-shellscript" = "nvim.desktop";
+    "application/x-shellscript" = "nvim.desktop";
+    "text/x-nix" = "nvim.desktop";
+  };
+
   programs.ghostty = {
     enable = true;
     settings = {
